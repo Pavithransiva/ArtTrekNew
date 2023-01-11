@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ArtTrekNew</string>
+
+    <!-- Home Page Strings -->
+    <string name="placeholder">Placeholder</string>
+    <string name="application_name">ARTTREK</string>
+    <string name="submenu_0">Home</string>
+    <string name="submenu_1">Explore</string>
+    <!-- Title Strings -->
+    <string name="Title_0">Categories</string>
+    <string name="Title_1">Top Collections</string>
+    <string name="Title_2">Featured Artists</string>
+    <string name="Title_3">Featured Artworks</string>
+    <string name="Title_4">Events You Might Like</string>
+    <!-- Categories Strings -->
+    <string name="cate_0">For You</string>
 </resources>
