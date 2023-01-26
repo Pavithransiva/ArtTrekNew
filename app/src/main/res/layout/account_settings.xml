@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/black">
 
     <ImageButton
-        android:id="@+id/imageButton60"
+        android:id="@+id/imageButton61"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:srcCompat="@drawable/back_button"
@@ -18,11 +18,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="22dp" />
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="20dp" />
 
     <TextView
-        android:id="@+id/textView82"
+        android:id="@+id/textView86"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
@@ -35,72 +35,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022"
-        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteX="76dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <TextView
-        android:id="@+id/textView83"
+        android:id="@+id/textView87"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Security Settings"
+        android:text="Account Settings"
+        android:textSize="50px"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.14" />
 
-    <TextView
-        android:id="@+id/textView84"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Login Information"
-        android:textColor="@color/white"
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="347dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/black"
+        android:text="Request Verification"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.197" />
 
-    <TextView
-        android:id="@+id/textView85"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enable Two-Factor Authentication"
-        android:textColor="@color/white"
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="347dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/black"
+        android:text="Delete Account"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
-
-    <Switch
-        android:id="@+id/switch9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
-
-    <Switch
-        android:id="@+id/switch10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintVertical_bias="0.31" />
 
     <ImageView
-        android:id="@+id/imageView23"
+        android:id="@+id/imageView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,21 +89,18 @@
         app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138"
+        app:layout_constraintVertical_bias="0.163"
         app:srcCompat="@drawable/line_38" />
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/imageView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222"
+        app:layout_constraintVertical_bias="0.27"
         app:srcCompat="@drawable/line_38" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
