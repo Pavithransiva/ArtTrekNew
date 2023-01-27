@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="botnav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_botnav_home_24"/>
+
+    <item
+        android:id="botnav_map"
+        android:title="Map"
+        android:icon="@drawable/ic_botnav_map_24"/>
+
+    <item
+        android:id="botnav_community"
+        android:title="Community"
+        android:icon="@drawable/ic_botnav_community_24"/>
+
+    <item
+        android:id="botnav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_botnav_user_24"/>
+
+</menu>
