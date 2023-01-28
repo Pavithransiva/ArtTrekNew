@@ -298,35 +298,49 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/SVHP0_LL0_HSV2_LL0_constraintLayout_0"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_width="120dp"
+                        android:layout_height="160dp">
 
-                        <ImageView
-                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_bg_0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#756E61"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="11dp"
+                            android:src="@drawable/profile"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="TextView"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0"
+                            style="@style/FeaturedArtist_Subtitle_Style"/>
 
-                        <TextView
+                        <com.google.android.material.chip.Chip
                             android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="TextView"
+                            android:checkable="false"
+                            app:chipMinHeight="25dp"
+                            app:chipMinTouchTargetSize="0dp"
+                            app:chipBackgroundColor="@color/mainOrange"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_0"
+                            style="@style/FeaturedArtist_Subtitle_Style_color"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
@@ -341,7 +355,7 @@
                     android:id="@+id/SVHP0_LL0_CL2_textView_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/Title_3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     style="@style/HomePage_Title_Style"/>
