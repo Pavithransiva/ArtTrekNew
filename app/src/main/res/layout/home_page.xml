@@ -164,8 +164,8 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_image"
-                            android:layout_width="96dp"
-                            android:layout_height="96dp"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:src="@drawable/profile"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -215,25 +215,19 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
-                <LinearLayout
-                    android:id="@+id/SVHP0_LL0_HSV1_linearLayout_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/SVHP0_LL0_HSV1_LL0_constraintLayout_0"
-                        android:layout_width="match_parent"
+                        android:layout_width="200dp"
                         android:layout_height="match_parent">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            style="@style/container_roundedCorner_categories_dimension"
+                            android:scaleType="centerCrop"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
 
                         <TextView
                             android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
@@ -241,7 +235,8 @@
                             android:layout_height="wrap_content"
                             android:text="TextView"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0"
+                            style="@style/TopCollection_Subtitle_Style"/>
 
                         <TextView
                             android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
@@ -249,10 +244,19 @@
                             android:layout_height="wrap_content"
                             android:text="TextView"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
+                            style="@style/TopCollection_Subtitle_Style_smaller"/>
+
+                        <TextView
+                            android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            app:layout_constraintStart_toEndOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
+                            style="@style/TopCollection_Subtitle_Style_snaller_bold"/>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
             </HorizontalScrollView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -264,7 +268,7 @@
                     android:id="@+id/SVHP0_LL0_CL1_textView_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text="@string/Title_2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     style="@style/HomePage_Title_Style"/>
