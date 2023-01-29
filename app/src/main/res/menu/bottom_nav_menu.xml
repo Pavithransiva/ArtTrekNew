@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="nav_bot_home"
+
         android:title="Home"
         android:icon="@drawable/ic_home_pink"/>
 
     <item
-        android:id="nav_bot_map"
+
         android:title="Map"
         android:icon="@drawable/ic_map_pink"/>
 
     <item
-        android:id="nav_bot_community"
+
         android:title="Community"
         android:icon="@drawable/ic_community_pink"/>
 
     <item
-        android:id="nav_bot_profile"
+
         android:title="Profile"
         android:icon="@drawable/ic_user_pink"/>
 
