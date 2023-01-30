@@ -1,5 +1,6 @@
 package com.example.arttreknew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_page);
+        ImageButton button = findViewById(R.id.imageButton13);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginPage.class);
+                startActivity(intent);
+            }
+        });
 
         final EditText name = findViewById(R.id.editTextTextPersonName2);
         final EditText email = findViewById(R.id.editTextTextEmailAddress3);
@@ -61,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // check if email is not registered before
                             if(snapshot.hasChild(emailTxt)){
-                                Toast.makeText(MainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show())
+                                Toast.makeText(MainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                             else{
 
@@ -90,16 +99,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        return sign_up.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-
-        }
-    });
-
-
+        });
     }
 
 }
