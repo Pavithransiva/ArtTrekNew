@@ -2,6 +2,7 @@ package com.example.arttreknew;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,6 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
 
         final EditText Email = findViewById(R.id.editTextTextEmailAddress);
         final EditText Password = findViewById(R.id.editTextTextPassword);
@@ -32,14 +32,13 @@ public class LoginPage extends AppCompatActivity {
                     if(emailTxt.isEmpty()|| PasswordTxt.isEmpty()){
                 Toast.makeText(LoginPage.this, "Please enter your mobile or password", Toast.LENGTH_SHORT).show();
                     }
-                    else{
-
-                    }
              }
         });
                 SignUpNow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        //open BackupMainActivity activity
                         startActivity(new Intent(LoginPage.this,BackupMainActivity.class));
                     }
                 });

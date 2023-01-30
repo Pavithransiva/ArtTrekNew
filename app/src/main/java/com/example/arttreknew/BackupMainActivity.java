@@ -22,13 +22,15 @@ public class BackupMainActivity extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
-    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.signup_page);
+
         ImageButton button = findViewById(R.id.imageButton13);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +45,10 @@ public class BackupMainActivity extends AppCompatActivity {
         final EditText password = findViewById(R.id.editTextTextPassword4);
         final EditText conPassword = findViewById(R.id.editTextTextPassword5);
         final ImageButton sign_up = findViewById(R.id.imageButton13);
+
         mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
         mRef = mDatabase.getReference("location");
+
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
