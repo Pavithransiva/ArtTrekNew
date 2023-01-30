@@ -37,7 +37,12 @@ public class LoginPage extends AppCompatActivity {
                     }
              }
         });
-                setOnClickListener();
+                SignUpNow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(LoginPage.this,BackupMainActivity.class));
+                    }
+                });
 
     }
 }
