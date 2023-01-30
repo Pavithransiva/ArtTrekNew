@@ -3,6 +3,7 @@ package com.example.arttreknew;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class MainActivity extends AppCompatActivity {
+public class BackupMainActivity extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
@@ -25,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.signup_page);
         ImageButton button = findViewById(R.id.imageButton13);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginPage.class);
+                Intent intent = new Intent(BackupMainActivity.this, LoginPage.class);
                 startActivity(intent);
             }
         });
@@ -54,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
                 // check if user fill all the fields before sending data to firebase
                 if (nameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BackupMainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
 
                 // check if passwords are matching with each other
                 // if not matching with each other then show a toast message
                 else if (!passwordTxt.equals(conPasswordTxt)) {
-                    Toast.makeText(MainActivity.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BackupMainActivity.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // check if email is not registered before
                             if(snapshot.hasChild(emailTxt)){
-                                Toast.makeText(MainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BackupMainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                             else{
 
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                                 mRef.child("users").child(emailTxt).child("password").setValue(passwordTxt);
 
                                 // show a success message then finish the activity
-                                Toast.makeText(MainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BackupMainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }
