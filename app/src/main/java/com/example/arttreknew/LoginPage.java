@@ -30,7 +30,7 @@ public class LoginPage extends AppCompatActivity {
                     final String PasswordTxt = Password.getText().toString();
 
                     if(emailTxt.isEmpty()|| PasswordTxt.isEmpty()){
-                Toast.makeText(LoginPage.this, "Please enter your mobile or password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPage.this, "Please enter your email or password", Toast.LENGTH_SHORT).show();
                     }
              }
         });
