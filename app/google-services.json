@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1075235319479",
+    "project_id": "arttreknew",
+    "storage_bucket": "arttreknew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075235319479:android:d9b53feb07d4a21ba5e732",
+        "android_client_info": {
+          "package_name": "com.example.arttreknew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075235319479-dih12i7bj8g5k01teeajhldbvoe95eh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2rYXyAaL1EKQRkYZ_vS-qmU6tncZWRD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075235319479-dih12i7bj8g5k01teeajhldbvoe95eh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
