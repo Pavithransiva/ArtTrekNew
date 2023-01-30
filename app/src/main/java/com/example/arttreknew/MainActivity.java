@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // check if email is not registered before
                             if(snapshot.hasChild(emailTxt)){
-                                Toast.makeText(MainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show())
+                                Toast.makeText(MainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                             else{
 
@@ -90,16 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        return sign_up.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-
-        }
-    });
-
-
+        });
     }
 
 }
