@@ -3,79 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/mainBlack">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_explorePage_0"
+        android:id="@+id/constraintLayout_homePage_0"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/CLEP0_button_0"
+        <TextView
+            android:id="@+id/CLHP0_textView_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/gotham_medium"
             android:text="@string/application_name"
+            android:textSize="34sp"
+            android:textColor="@color/mainLightGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/CLEP0_imageButton_0"
+        <ImageView
+            android:id="@+id/CLHP0_imageButton_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_placeholder"
+            app:srcCompat="@drawable/ic_chat_envelope"
             tools:ignore="DuplicateSpeakableTextCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <SearchView
-        android:id="@+id/searchView_explorePage"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchView_homePage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/searchviewColor"
         android:queryHint="@string/placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_explorePage_0" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_homePage_0">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_explorePage_1"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView_explorePage">
-
-        <TextView
-            android:id="@+id/CLEP1_textView_0"
+        <ImageView
+            android:id="@+id/CLHP0_imageButton_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_search"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/textView97"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/CLEP1_textView_1"
+            android:textColor="@color/mainLightGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/CLHP0_imageButton_20"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_homePage_1"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView_homePage">
+
+        <TextView
+            android:id="@+id/CLHP1_textView_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gotham_bold"
+            android:text="@string/submenu_0"
+            android:textSize="16sp"
+            android:textColor="@color/mainLightGrey"
+            app:layout_constraintEnd_toStartOf="@+id/CLHP1_textView_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/CLEP1_textView_1"
+            android:id="@+id/CLHP1_textView_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:fontFamily="@font/gotham_bold_italic"
+            android:text="@string/submenu_1"
+            android:textSize="16sp"
+            android:textColor="@color/lightPink_0"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/CLEP1_textView_0"
+            app:layout_constraintStart_toEndOf="@+id/CLHP1_textView_0"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:numColumns="2"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_explorePage_1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -140,6 +140,7 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textColor="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -162,11 +163,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/profile_image"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/profile"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -204,6 +207,7 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textColor="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -279,6 +283,7 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textColor="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -312,12 +317,14 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection" />
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginTop="11dp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/profile"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -366,6 +373,7 @@
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textColor="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -388,20 +396,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            style="@style/image_container_dimension_featureArtwork"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_textView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="TextView"
+                            style="@style/FeaturedArtwork_Subtitle_Style"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0" />
 
@@ -409,12 +417,31 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <TextView
-                android:id="@+id/SVHP0_LL0_textView_1"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/SVHP0_LL0_constraintLayout_3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                style="@style/HomePage_Title_Style"/>
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/SVHP0_LL0_textView_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Title_4"
+                    style="@style/HomePage_Title_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textView99"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
                 android:id="@+id/SVHP0_LL0_horizontalScrollView_4"
@@ -434,20 +461,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <ImageView
+                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            style="@style/image_container_dimension_featureArtwork"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:srcCompat="@tools:sample/avatars" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_textView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="TextView"
+                            style="@style/FeaturedArtwork_Subtitle_Style"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0" />
 
