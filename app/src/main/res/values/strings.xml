@@ -14,4 +14,5 @@
     <string name="Title_4">Events You Might Like</string>
     <!-- Categories Strings -->
     <string name="cate_0">For You</string>
+    <string name="please_verify_email_now">Please Verify Email Now</string>
 </resources>

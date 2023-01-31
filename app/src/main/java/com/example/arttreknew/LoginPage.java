@@ -60,7 +60,7 @@ public class LoginPage extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //Login is successful
-                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        startActivity(new Intent(getApplicationContext(),SettingsPage.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -70,7 +70,6 @@ public class LoginPage extends AppCompatActivity {
                     }
                 });
              }
-
         });
 
 
@@ -81,7 +80,7 @@ public class LoginPage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),HomePage.class));
+            startActivity(new Intent(getApplicationContext(),SettingsPage.class));
             finish();
         }
     }

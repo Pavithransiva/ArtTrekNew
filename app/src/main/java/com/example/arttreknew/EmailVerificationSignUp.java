@@ -9,46 +9,59 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class EmailVerificationSignUp extends AppCompatActivity {
 
    FirebaseAuth Auth;
-
+    ImageButton VerifyEmail;
+    ImageButton DoneVerifying;
+    TextView VerifyNowMsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
       setContentView(R.layout.emailverification_fromsignup);
 
-       ImageButton Verify = findViewById(R.id.imageButton35);
+        VerifyEmail = findViewById(R.id.imageButton35);
+        VerifyNowMsg = findViewById(R.id.VerifyEmailNow);
+        DoneVerifying = findViewById(R.id.imageButton12);
         Auth = FirebaseAuth.getInstance();
 
-      // if(!Auth.getCurrentuser().isEmailVerified()){
-           Verify.setVisibility(View.VISIBLE);
-       }}
+        VerifyEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send verification to email
+                Auth.getCurrentUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(EmailVerificationSignUp.this, "Verification email Sent.", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+        DoneVerifying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!Auth.getCurrentUser().isEmailVerified()){
+                    VerifyNowMsg.setVisibility(View.VISIBLE);
+                }
+                else {
+                    startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
+                    finish();
+                    VerifyNowMsg.setVisibility(View.GONE);
+                }
+            }
+        });
+
+            }
+        });
 
 
-
-     //  Verify.setOnClickListener(new View.OnClickListener() {
-         // @Override
-      //     public void onClick(View view) {
-                //send email link to new registered users
-         //     Auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-            //        @Override
-            ///       public void onComplete(@NonNull Task<Void> task) {
-               //        if (task.isSuccessful()){
-                  //        Toast.makeText(EmailVerificationSignUp.this, "Check your email to verify.", Toast.LENGTH_SHORT).show();
-                 //       }
-
-
-               //    }
-             //  });
-
-        //   }
-   // });
-//}}
+}}

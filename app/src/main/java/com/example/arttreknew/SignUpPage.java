@@ -106,7 +106,7 @@ public class SignUpPage extends AppCompatActivity {
                                 Auth.createUserWithEmailAndPassword(emailTxt,passwordTxt).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                        startActivity(new Intent(getApplicationContext(),EmailVerificationSignUp.class));
                                         finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -130,15 +130,12 @@ public class SignUpPage extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
 
-                                        //open BackupMainActivity activity
-                                        startActivity(new Intent(SignUpPage.this,LoginPage.class));
+
+                                        startActivity(new Intent(SignUpPage.this,EmailVerificationSignUp.class));
 
 
                                     }
                                 });
-
-
-
                             }
                         }
                         @Override
