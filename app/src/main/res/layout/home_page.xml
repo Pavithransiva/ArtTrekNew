@@ -8,7 +8,7 @@
     android:background="@color/mainBlack">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_homePage_0"
+        android:id="@+id/homepage_header_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/CLHP0_textView_0"
+            android:id="@+id/hphc_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/CLHP0_imageButton_0"
+            android:id="@+id/hphc_icon_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/placeholder"
@@ -40,7 +40,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/searchView_homePage"
+        android:id="@+id/hp_searchview_container"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
@@ -48,10 +48,10 @@
         android:queryHint="@string/placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_homePage_0">
+        app:layout_constraintTop_toBottomOf="@+id/homepage_header_container">
 
         <ImageView
-            android:id="@+id/CLHP0_imageButton_20"
+            android:id="@+id/hp_svc_icon_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -62,41 +62,41 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
-            android:id="@+id/textView97"
+            android:id="@+id/hp_svc_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="TextView"
             android:textColor="@color/mainLightGrey"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/CLHP0_imageButton_20"
+            app:layout_constraintStart_toEndOf="@+id/hp_svc_icon_search"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_homePage_1"
+        android:id="@+id/hp_tab_container"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView_homePage">
+        app:layout_constraintTop_toBottomOf="@+id/hp_searchview_container">
 
         <TextView
-            android:id="@+id/CLHP1_textView_0"
+            android:id="@+id/hptc_text_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium_italic"
             android:text="@string/submenu_0"
             android:textSize="16sp"
             android:textColor="@color/lightPink_0"
-            app:layout_constraintEnd_toStartOf="@+id/CLHP1_textView_1"
+            app:layout_constraintEnd_toStartOf="@+id/hptc_text_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/CLHP1_textView_1"
+            android:id="@+id/hptc_text_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
@@ -104,31 +104,31 @@
             android:textSize="16sp"
             android:textColor="@color/mainLightGrey"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/CLHP1_textView_0"
+            app:layout_constraintStart_toEndOf="@+id/hptc_text_0"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:id="@+id/scrollView_homepage_0"
+        android:id="@+id/hp_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_homePage_1">
+        app:layout_constraintTop_toBottomOf="@+id/hp_tab_container">
 
         <LinearLayout
-            android:id="@+id/SVHP0_linearLayout_0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/hp_subheader_container_0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_textView_0"
+                    android:id="@+id/hpshc0_title"
                     style="@style/HomePage_Title_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView98"
+                    android:id="@+id/hpshc0_viewall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -148,25 +148,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
-                android:id="@+id/SVHP0_LL0_horizontalScrollView_0"
+                android:id="@+id/hp_horizontalscrollview_0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/SVHP0_LL0_HSV0_linearLayout_0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_HSV0_LL0_constraintLayout_0"
+                        android:id="@+id/hp_category_container"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/profile_image"
+                            android:id="@+id/hpcc_image_0"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
@@ -177,25 +176,25 @@
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                         <TextView
-                            android:id="@+id/SVHP0_LL0_HSV0_LL0_CL0_textView_0"
+                            android:id="@+id/hpcc_text_0"
                             style="@style/Category_Subtitle_Style"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/cate_0"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+                            app:layout_constraintTop_toBottomOf="@+id/hpcc_image_0" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/SVHP0_LL0_constraintLayout_0"
+                android:id="@+id/hp_subheader_container_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL0_textView_0"
+                    android:id="@+id/hpshc1_title"
                     style="@style/HomePage_Title_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -204,7 +203,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL0_textView_1"
+                    android:id="@+id/hpshc1_viewall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -215,19 +214,19 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
-                android:id="@+id/SVHP0_LL0_horizontalScrollView_1"
+                android:id="@+id/hp_horizontalscrollview_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/SVHP0_LL0_HSV1_LL0_constraintLayout_0"
+                    android:id="@+id/hp_topcollection_container"
                     android:layout_width="200dp"
                     android:layout_height="match_parent">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0"
+                        android:id="@+id/hptcc_imageView_0"
                         style="@style/container_roundedCorner_categories_dimension"
                         android:scaleType="centerCrop"
                         app:layout_constraintStart_toStartOf="parent"
@@ -236,42 +235,43 @@
                         app:srcCompat="@drawable/img_topcollection_4" />
 
                     <TextView
-                        android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
+                        android:id="@+id/hptcc_title_0"
                         style="@style/TopCollection_Subtitle_Style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0" />
+                        app:layout_constraintTop_toBottomOf="@+id/hptcc_imageView_0" />
 
                     <TextView
-                        android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
+                        android:id="@+id/hptcc_by_0"
                         style="@style/TopCollection_Subtitle_Style_smaller"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+                        app:layout_constraintTop_toBottomOf="@+id/hptcc_title_0" />
 
                     <TextView
-                        android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_2"
+                        android:id="@+id/hptcc_name_0"
                         style="@style/TopCollection_Subtitle_Style_snaller_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TextView"
-                        app:layout_constraintStart_toEndOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+                        app:layout_constraintStart_toEndOf="@+id/hptcc_by_0"
+                        app:layout_constraintTop_toBottomOf="@+id/hptcc_title_0" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </HorizontalScrollView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/SVHP0_LL0_constraintLayout_1"
+                android:id="@+id/hp_subheader_container_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL1_textView_0"
+                    android:id="@+id/hpshc2_title"
                     style="@style/HomePage_Title_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -280,7 +280,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL1_textView_1"
+                    android:id="@+id/hpshc2_viewall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -291,25 +291,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
-                android:id="@+id/SVHP0_LL0_horizontalScrollView_2"
+                android:id="@+id/hp_horizontalscrollview_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/SVHP0_LL0_HSV2_linearLayout_0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_HSV2_LL0_constraintLayout_0"
+                        android:id="@+id/hp_featuredartist_container"
                         android:layout_width="120dp"
                         android:layout_height="160dp">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_bg_0"
+                            android:id="@+id/hpfac_bg_0"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#756E61"
@@ -320,7 +319,7 @@
                             app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection" />
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0"
+                            android:id="@+id/hpfac_image_0"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:layout_marginTop="11dp"
@@ -332,15 +331,15 @@
                             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                         <TextView
-                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_0"
+                            android:id="@+id/hpfac_name_0"
                             style="@style/FeaturedArtist_Subtitle_Style"
                             android:text="TextView"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_imageView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/hpfac_image_0" />
 
                         <com.google.android.material.chip.Chip
-                            android:id="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_1"
+                            android:id="@+id/hpfac_chip_0"
                             style="@style/FeaturedArtist_Subtitle_Style_color"
                             android:checkable="false"
                             android:text="TextView"
@@ -349,19 +348,19 @@
                             app:chipMinTouchTargetSize="0dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV2_LL0_CL0_textView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/hpfac_name_0" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/SVHP0_LL0_constraintLayout_2"
+                android:id="@+id/hp_subheader_container_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL2_textView_0"
+                    android:id="@+id/hpshc3_title"
                     style="@style/HomePage_Title_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -370,7 +369,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_CL2_textView_1"
+                    android:id="@+id/hpshc3_viewall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -381,25 +380,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
-                android:id="@+id/SVHP0_LL0_horizontalScrollView_3"
+                android:id="@+id/hp_horizontalscrollview_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/SVHP0_LL0_HSV3_linearLayout_0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_HSV3_LL0_constraintLayout_0"
+                        android:id="@+id/hp_featuredartwork_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
+                            android:id="@+id/hpfakc_image_0"
                             style="@style/image_container_dimension_featureArtwork"
                             android:scaleType="centerCrop"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -409,23 +407,23 @@
                             app:srcCompat="@drawable/img_topcollection_4" />
 
                         <TextView
-                            android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_textView_0"
+                            android:id="@+id/hpfakc_title_0"
                             style="@style/FeaturedArtwork_Subtitle_Style"
                             android:text="TextView"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/hpfakc_image_0" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/SVHP0_LL0_constraintLayout_3"
+                android:id="@+id/hp_subheader_container_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/SVHP0_LL0_textView_1"
+                    android:id="@+id/hpshc4_title"
                     style="@style/HomePage_Title_Style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -434,7 +432,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView99"
+                    android:id="@+id/hpshc4_viewall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
@@ -446,25 +444,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <HorizontalScrollView
-                android:id="@+id/SVHP0_LL0_horizontalScrollView_4"
+                android:id="@+id/hp_horizontalscrollview_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/SVHP0_LL0_HSV4_linearLayout_0"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_HSV4_LL0_constraintLayout_0"
+                        android:id="@+id/hp_event_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0"
+                            android:id="@+id/hpec_image_0"
                             style="@style/image_container_dimension_featureArtwork"
                             android:scaleType="centerCrop"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -474,11 +471,11 @@
                             app:srcCompat="@drawable/img_topcollection_4" />
 
                         <TextView
-                            android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_textView_0"
+                            android:id="@+id/hpec_title_0"
                             style="@style/FeaturedArtwork_Subtitle_Style"
                             android:text="TextView"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0" />
+                            app:layout_constraintTop_toBottomOf="@+id/hpec_image_0" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>

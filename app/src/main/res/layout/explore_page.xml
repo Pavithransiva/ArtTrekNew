@@ -8,7 +8,7 @@
     android:background="@color/mainBlack">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_homePage_0"
+        android:id="@+id/explorepage_header_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/CLHP0_textView_0"
+            android:id="@+id/ephc_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/CLHP0_imageButton_0"
+            android:id="@+id/ephc_icon_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/placeholder"
@@ -40,7 +40,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/searchView_homePage"
+        android:id="@+id/ep_searchview_container"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
@@ -48,10 +48,10 @@
         android:queryHint="@string/placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_homePage_0">
+        app:layout_constraintTop_toBottomOf="@+id/explorepage_header_container">
 
         <ImageView
-            android:id="@+id/CLHP0_imageButton_20"
+            android:id="@+id/ep_svc_icon_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -62,41 +62,41 @@
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
-            android:id="@+id/textView97"
+            android:id="@+id/ep_svc_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="TextView"
             android:textColor="@color/mainLightGrey"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/CLHP0_imageButton_20"
+            app:layout_constraintStart_toEndOf="@+id/ep_svc_icon_search"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_homePage_1"
+        android:id="@+id/ep_tab_container"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView_homePage">
+        app:layout_constraintTop_toBottomOf="@+id/ep_searchview_container">
 
         <TextView
-            android:id="@+id/CLHP1_textView_0"
+            android:id="@+id/eptc_text_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_bold"
             android:text="@string/submenu_0"
             android:textColor="@color/mainLightGrey"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/CLHP1_textView_1"
+            app:layout_constraintEnd_toStartOf="@+id/eptc_text_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/CLHP1_textView_1"
+            android:id="@+id/eptc_text_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_bold_italic"
@@ -104,24 +104,27 @@
             android:textColor="@color/lightPink_0"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/CLHP1_textView_0"
+            app:layout_constraintStart_toEndOf="@+id/eptc_text_0"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/ep_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="ep_scrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_homePage_1">
+        app:layout_constraintTop_toBottomOf="@+id/ep_tab_container">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/ep_gridlayout_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:columnCount="2"
@@ -129,7 +132,7 @@
                 app:rowOrderPreserved="true">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
+                    android:id="@+id/epglc_imageView_0"
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_margin="5dp"
@@ -142,7 +145,7 @@
                     app:srcCompat="@drawable/img_topcollection_4" />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_1"
+                    android:id="@+id/epglc_imageView_1"
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_margin="5dp"
