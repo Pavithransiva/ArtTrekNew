@@ -9,6 +9,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SettingsPage extends AppCompatActivity {
 
     @Override
@@ -24,9 +26,9 @@ public class SettingsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //open BackupMainActivity activity
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(SettingsPage.this,LoginPage.class));
-
+                finish();
             }
         });
     }
