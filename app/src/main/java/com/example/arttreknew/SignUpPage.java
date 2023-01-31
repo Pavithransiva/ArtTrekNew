@@ -2,7 +2,6 @@ package com.example.arttreknew;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -12,10 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class BackupMainActivity extends AppCompatActivity {
+public class SignUpPage extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
@@ -59,7 +56,7 @@ public class BackupMainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //open BackupMainActivity activity
-                startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+                startActivity(new Intent(SignUpPage.this,LoginPage.class));
 
             }
         });
@@ -68,8 +65,8 @@ public class BackupMainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //open BackupMainActivity activity
-                startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
-
+                startActivity(new Intent(SignUpPage.this,LoginPage.class));
+                finish();
             }
         });
 
@@ -85,13 +82,13 @@ public class BackupMainActivity extends AppCompatActivity {
 
                 // check if user fill all the fields before sending data to firebase
                 if (nameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
-                    Toast.makeText(BackupMainActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpPage.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
 
                 // check if passwords are matching with each other
                 // if not matching with each other then show a toast message
                 else if (!passwordTxt.equals(conPasswordTxt)) {
-                    Toast.makeText(BackupMainActivity.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpPage.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -103,7 +100,7 @@ public class BackupMainActivity extends AppCompatActivity {
 
                             // check if email is not registered before
                             if(snapshot.hasChild(Txt)){
-                                Toast.makeText(BackupMainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpPage.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                             else{
                                 Auth.createUserWithEmailAndPassword(emailTxt,passwordTxt).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -115,7 +112,7 @@ public class BackupMainActivity extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(BackupMainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpPage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 //sending data to firebase Realtime Database.
@@ -127,17 +124,20 @@ public class BackupMainActivity extends AppCompatActivity {
 
 
                                 // show a success message then finish the activity
-                                Toast.makeText(BackupMainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUpPage.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
 
                                 sign_up.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
 
                                         //open BackupMainActivity activity
-                                        startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+                                        startActivity(new Intent(SignUpPage.this,LoginPage.class));
+
 
                                     }
                                 });
+
+
 
                             }
                         }
@@ -149,6 +149,7 @@ public class BackupMainActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 
