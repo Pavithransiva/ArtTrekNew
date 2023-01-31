@@ -5,19 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_topcollection_4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/mainBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,343 +20,378 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/button14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="340dp"
-                    android:text="Button"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:backgroundTint="#505050"
+                    android:backgroundTintMode="screen"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_topcollection_4"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button14" />
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-                <TextView
-                    android:id="@+id/textView41"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-                <TextView
-                    android:id="@+id/textView100"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintEnd_toEndOf="@+id/textView41"
-                    app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
-                <TextView
-                    android:id="@+id/textView101"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintEnd_toStartOf="@+id/textView100"
-                    app:layout_constraintTop_toTopOf="@+id/textView100" />
-
-                <TextView
-                    android:id="@+id/textView102"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintEnd_toStartOf="@+id/textView41"
-                    app:layout_constraintTop_toTopOf="@+id/textView24" />
-
-                <Button
-                    android:id="@+id/button15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="112dp"
-                    android:text="Button"
-                    app:layout_constraintEnd_toStartOf="@+id/button16"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-                <Button
-                    android:id="@+id/button16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/button15"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout5"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button15">
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button14"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="300dp"
+                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        app:icon="@drawable/ic_baseline_add_24"
+                        app:backgroundTint="@color/mainLightGrey"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainBlack"
+                        app:iconGravity="textStart"
+                        android:padding="0dp"
+                        app:iconPadding="0dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
+
+                    <TextView
+                        android:id="@+id/textView16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="TextView"
+                        style="@style/artistpage_artistname_textstyle"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/button14" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        style="@style/artistpage_artisttitle_textstyle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                    <TextView
+                        android:id="@+id/textView100"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintEnd_toEndOf="@+id/textView41"
+                        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+                    <TextView
+                        android:id="@+id/textView101"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textView100"
+                        app:layout_constraintTop_toTopOf="@+id/textView100" />
+
+                    <TextView
+                        android:id="@+id/textView102"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textView41"
+                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                    <Button
+                        android:id="@+id/button15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="112dp"
+                        android:text="Button"
+                        app:layout_constraintEnd_toStartOf="@+id/button16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                    <Button
+                        android:id="@+id/button16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/button15"
+                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_constraintLayout_2"
+                        android:id="@+id/constraintLayout5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@+id/button15">
 
-                        <TextView
-                            android:id="@+id/SVHP0_LL0_CL2_textView_0"
-                            style="@style/HomePage_Title_Style"
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Title_3"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/SVHP0_LL0_CL2_textView_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView"
-                            android:textColor="@color/mainYellow"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <HorizontalScrollView
-                        android:id="@+id/SVHP0_LL0_horizontalScrollView_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_2">
-
-                        <LinearLayout
-                            android:id="@+id/SVHP0_LL0_HSV3_linearLayout_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/SVHP0_LL0_HSV3_LL0_constraintLayout_0"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.imageview.ShapeableImageView
-                                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
-                                    style="@style/image_container_dimension_featureArtwork"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                    app:srcCompat="@drawable/img_topcollection_4" />
-
-                                <TextView
-                                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_textView_0"
-                                    style="@style/FeaturedArtwork_Subtitle_Style"
-                                    android:text="TextView"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-                    </HorizontalScrollView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_constraintLayout_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/SVHP0_LL0_textView_1"
-                            style="@style/HomePage_Title_Style"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Title_4"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView99"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView"
-                            android:textColor="@color/mainYellow"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <HorizontalScrollView
-                        android:id="@+id/SVHP0_LL0_horizontalScrollView_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_3">
-
-                        <LinearLayout
-                            android:id="@+id/SVHP0_LL0_HSV4_linearLayout_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/SVHP0_LL0_HSV4_LL0_constraintLayout_0"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.imageview.ShapeableImageView
-                                    android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0"
-                                    style="@style/image_container_dimension_featureArtwork"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                    app:srcCompat="@drawable/img_topcollection_4" />
-
-                                <TextView
-                                    android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_textView_0"
-                                    style="@style/FeaturedArtwork_Subtitle_Style"
-                                    android:text="TextView"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-                    </HorizontalScrollView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
-
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/SVHP0_LL0_constraintLayout_0"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/SVHP0_LL0_CL0_textView_0"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Title_1"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            style="@style/HomePage_Title_Style"/>
-
-                        <TextView
-                            android:id="@+id/SVHP0_LL0_CL0_textView_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView"
-                            android:textColor="@color/mainYellow"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <HorizontalScrollView
-                        android:id="@+id/SVHP0_LL0_horizontalScrollView_1"
+                        android:id="@+id/constraintLayout6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_0">
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/SVHP0_LL0_HSV1_LL0_constraintLayout_0"
-                            android:layout_width="200dp"
-                            android:layout_height="match_parent">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0"
-                                style="@style/container_roundedCorner_categories_dimension"
-                                android:scaleType="centerCrop"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                app:srcCompat="@drawable/img_topcollection_4" />
+                            android:id="@+id/SVHP0_LL0_constraintLayout_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <TextView
-                                android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
-                                style="@style/TopCollection_Subtitle_Style"
+                                android:id="@+id/SVHP0_LL0_CL2_textView_0"
+                                style="@style/HomePage_Title_Style"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Title_3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/SVHP0_LL0_CL2_textView_1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0" />
+                                android:textColor="@color/mainYellow"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <HorizontalScrollView
+                            android:id="@+id/SVHP0_LL0_horizontalScrollView_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_2">
+
+                            <LinearLayout
+                                android:id="@+id/SVHP0_LL0_HSV3_linearLayout_0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/SVHP0_LL0_HSV3_LL0_constraintLayout_0"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <com.google.android.material.imageview.ShapeableImageView
+                                        android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
+                                        style="@style/image_container_dimension_featureArtwork"
+                                        android:scaleType="centerCrop"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                                        app:srcCompat="@drawable/img_topcollection_4" />
+
+                                    <TextView
+                                        android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_textView_0"
+                                        style="@style/FeaturedArtwork_Subtitle_Style"
+                                        android:text="TextView"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/SVHP0_LL0_constraintLayout_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <TextView
-                                android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
-                                style="@style/TopCollection_Subtitle_Style_smaller"
+                                android:id="@+id/SVHP0_LL0_textView_1"
+                                style="@style/HomePage_Title_Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Title_4"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView99"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TextView"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
-
-                            <TextView
-                                android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_2"
-                                style="@style/TopCollection_Subtitle_Style_snaller_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TextView"
-                                app:layout_constraintStart_toEndOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
-                                app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+                                android:textColor="@color/mainYellow"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
-                    </HorizontalScrollView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
+                        <HorizontalScrollView
+                            android:id="@+id/SVHP0_LL0_horizontalScrollView_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_3">
+
+                            <LinearLayout
+                                android:id="@+id/SVHP0_LL0_HSV4_linearLayout_0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/SVHP0_LL0_HSV4_LL0_constraintLayout_0"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <com.google.android.material.imageview.ShapeableImageView
+                                        android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0"
+                                        style="@style/image_container_dimension_featureArtwork"
+                                        android:scaleType="centerCrop"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                                        app:srcCompat="@drawable/img_topcollection_4" />
+
+                                    <TextView
+                                        android:id="@+id/SVHP0_LL0_HSV4_LL0_CL0_textView_0"
+                                        style="@style/FeaturedArtwork_Subtitle_Style"
+                                        android:text="TextView"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV4_LL0_CL0_imageView_0" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/SVHP0_LL0_constraintLayout_0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/SVHP0_LL0_CL0_textView_0"
+                                style="@style/HomePage_Title_Style"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Title_1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/SVHP0_LL0_CL0_textView_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TextView"
+                                android:textColor="@color/mainYellow"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <HorizontalScrollView
+                            android:id="@+id/SVHP0_LL0_horizontalScrollView_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_constraintLayout_0">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/SVHP0_LL0_HSV1_LL0_constraintLayout_0"
+                                android:layout_width="200dp"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0"
+                                    style="@style/container_roundedCorner_categories_dimension"
+                                    android:scaleType="centerCrop"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                                    app:srcCompat="@drawable/img_topcollection_4" />
+
+                                <TextView
+                                    android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0"
+                                    style="@style/TopCollection_Subtitle_Style"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_imageView_0" />
+
+                                <TextView
+                                    android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
+                                    style="@style/TopCollection_Subtitle_Style_smaller"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+
+                                <TextView
+                                    android:id="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_2"
+                                    style="@style/TopCollection_Subtitle_Style_snaller_bold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView"
+                                    app:layout_constraintStart_toEndOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_1"
+                                    app:layout_constraintTop_toBottomOf="@+id/SVHP0_LL0_HSV1_LL0_CL0_textView_0" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </HorizontalScrollView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
