@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +18,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.function.Consumer;
 
 public class EmailVerificationSignUp extends AppCompatActivity {
 
@@ -24,6 +28,9 @@ public class EmailVerificationSignUp extends AppCompatActivity {
     ImageButton VerifyEmail;
     ImageButton DoneVerifying;
     TextView VerifyNowMsg;
+    String email;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -34,7 +41,20 @@ public class EmailVerificationSignUp extends AppCompatActivity {
         VerifyNowMsg = findViewById(R.id.VerifyEmailNow);
         DoneVerifying = findViewById(R.id.imageButton12);
         Auth = FirebaseAuth.getInstance();
+        email = Auth.getCurrentUser().getEmail();
 
+
+        mAuthStateListener = firebaseAuth -> {
+            FirebaseUser email = Auth.getCurrentUser();
+            if (email != null && email.isEmailVerified()) {
+                Toast.makeText(EmailVerificationSignUp.this, "Email Verified", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(EmailVerificationSignUp.this, EmailVerificatioSuccessful.class);
+                startActivity(i);
+            } else {
+                Toast.makeText(EmailVerificationSignUp.this, "Email not verified", Toast.LENGTH_LONG).show();
+
+            }
+        };
         VerifyEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,22 +66,11 @@ public class EmailVerificationSignUp extends AppCompatActivity {
 
                     }
                 });
-        DoneVerifying.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!Auth.getCurrentUser().isEmailVerified()){
-                    VerifyNowMsg.setVisibility(View.VISIBLE);
-                }
-                else {
-                    startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
-                    finish();
-                    VerifyNowMsg.setVisibility(View.GONE);
-                }
-            }
-        });
 
             }
-        });
+            });
+
+        }
 
 
-}}
+}
