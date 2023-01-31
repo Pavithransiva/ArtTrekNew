@@ -121,11 +121,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-
-            <GridView
+            <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:numColumns="2"/>
+                app:columnCount="2"
+                app:columnOrderPreserved="true"
+                app:rowOrderPreserved="true">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_0"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_topcollection_4" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/SVHP0_LL0_HSV3_LL0_CL0_imageView_1"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_topcollection_4" />
+
+            </androidx.gridlayout.widget.GridLayout>
         </LinearLayout>
     </ScrollView>
 
