@@ -32,6 +32,8 @@ public class BackupMainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.signup_page);
 
+
+
         final EditText name = findViewById(R.id.editTextTextPersonName2);
         final EditText email = findViewById(R.id.editTextTextEmailAddress3);
         final EditText password = findViewById(R.id.editTextTextPassword4);
@@ -84,7 +86,16 @@ public class BackupMainActivity extends AppCompatActivity {
 
                                 // show a success message then finish the activity
                                 Toast.makeText(BackupMainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
-                                finish();
+
+                                sign_up.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        //open BackupMainActivity activity
+                                        startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+                                    }
+                                });
+
                             }
                         }
 
