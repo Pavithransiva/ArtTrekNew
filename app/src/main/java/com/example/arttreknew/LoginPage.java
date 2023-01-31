@@ -60,7 +60,7 @@ public class LoginPage extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //Login is successful
-                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        startActivity(new Intent(getApplicationContext(),SettingsPage.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
