@@ -12,6 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +29,7 @@ public class BackupMainActivity extends AppCompatActivity {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
+     FirebaseAuth Auth;
 
 
     @Override
@@ -45,6 +52,7 @@ public class BackupMainActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
         mRef = mDatabase.getReference("location");
+        Auth = FirebaseAuth.getInstance();
 
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,13 +106,25 @@ public class BackupMainActivity extends AppCompatActivity {
                                 Toast.makeText(BackupMainActivity.this, "Email is already registered", Toast.LENGTH_SHORT).show();
                         }
                             else{
-
+                                Auth.createUserWithEmailAndPassword(emailTxt,passwordTxt).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                    @Override
+                                    public void onSuccess(AuthResult authResult) {
+                                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                        finish();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(BackupMainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 //sending data to firebase Realtime Database.
                                 // we are using email as unique identity of every user.
                                 //so all the other details of user comes under email
                                 mRef.child("users").child(Txt).child("fullname").setValue(nameTxt);
                                 mRef.child("users").child(Txt).child("email").setValue(emailTxt);
                                 mRef.child("users").child(Txt).child("password").setValue(passwordTxt);
+
 
                                 // show a success message then finish the activity
                                 Toast.makeText(BackupMainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
@@ -121,17 +141,11 @@ public class BackupMainActivity extends AppCompatActivity {
 
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
                         }
                     });
-
-
-
-
-
                 }
             }
         });

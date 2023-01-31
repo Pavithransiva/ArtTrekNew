@@ -17,7 +17,7 @@ public class VerificationMethod extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VerificationMethod.this, EmailVerification.class);
+                Intent intent = new Intent(VerificationMethod.this, EmailVerificationSignUp.class);
                 startActivity(intent);
             }
         });
