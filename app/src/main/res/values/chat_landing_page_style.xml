@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Chat Landing Page Text Style -->
+    <style name="HomePage_Title_Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:fontFamily">@font/gotham_medium</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/mainLightGrey</item>
+    </style>
+
+
+</resources>
