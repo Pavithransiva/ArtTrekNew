@@ -32,14 +32,38 @@ public class BackupMainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.signup_page);
 
+
+
         final EditText name = findViewById(R.id.editTextTextPersonName2);
         final EditText email = findViewById(R.id.editTextTextEmailAddress3);
         final EditText password = findViewById(R.id.editTextTextPassword4);
         final EditText conPassword = findViewById(R.id.editTextTextPassword5);
         final ImageButton sign_up = findViewById(R.id.imageButton13);
 
+        final ImageButton sign_in = findViewById(R.id.imageButton14);
+        final ImageButton back = findViewById(R.id.imageButton2);
+
         mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
         mRef = mDatabase.getReference("location");
+
+        sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //open BackupMainActivity activity
+                startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //open BackupMainActivity activity
+                startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+
+            }
+        });
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +108,17 @@ public class BackupMainActivity extends AppCompatActivity {
 
                                 // show a success message then finish the activity
                                 Toast.makeText(BackupMainActivity.this, "User Registered Successfully.", Toast.LENGTH_SHORT).show();
-                                finish();
+
+                                sign_up.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        //open BackupMainActivity activity
+                                        startActivity(new Intent(BackupMainActivity.this,LoginPage.class));
+
+                                    }
+                                });
+
                             }
                         }
 

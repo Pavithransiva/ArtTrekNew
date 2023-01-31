@@ -22,6 +22,7 @@ public class LoginPage extends AppCompatActivity {
         final ImageButton Login = findViewById(R.id.imageButton11);
         final ImageButton SignUpNow = findViewById(R.id.imageButton17);
 
+
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
