@@ -17,9 +17,13 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 public class EmailVerificationSignUp extends AppCompatActivity {
@@ -42,9 +46,6 @@ public class EmailVerificationSignUp extends AppCompatActivity {
         DoneVerifying = findViewById(R.id.imageButton12);
         Auth = FirebaseAuth.getInstance();
         email = Auth.getCurrentUser().getEmail();
-        FirebaseUser email = Auth.getCurrentUser();
-
-
 
         VerifyEmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +64,7 @@ public class EmailVerificationSignUp extends AppCompatActivity {
             DoneVerifying.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                         startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
                         finish();
 
@@ -70,6 +72,4 @@ public class EmailVerificationSignUp extends AppCompatActivity {
         });
 
         }
-
-
 }

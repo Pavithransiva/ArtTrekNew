@@ -40,7 +40,7 @@
         android:layout_height="56dp"
         android:backgroundTint="@color/black"
         android:text="Notification"
-        android:textAlignment="textStart"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -54,7 +54,7 @@
         android:layout_height="56dp"
         android:text="Privacy"
         android:backgroundTint="@color/black"
-        android:textAlignment="textStart"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
         android:layout_height="56dp"
         android:text="Security"
         android:backgroundTint="@color/black"
-        android:textAlignment="textStart"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:layout_height="56dp"
         android:text="Account"
         android:backgroundTint="@color/black"
-        android:textAlignment="textStart"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -94,7 +94,7 @@
         android:layout_height="56dp"
         android:text="Help"
         android:backgroundTint="@color/black"
-        android:textAlignment="textStart"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
