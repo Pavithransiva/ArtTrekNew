@@ -47,6 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/fartworkp_scrollview"
         android:layout_width="match_parent"
