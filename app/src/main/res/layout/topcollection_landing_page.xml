@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/mainBlack">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fartistp_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fartistp_hc_icon_previous"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="fartistp_hc_icon_previous"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:backgroundTint="#00FFFFFF"
+            app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="30dp"
+            app:iconTint="@color/mainLightGrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <TextView
+            android:id="@+id/fartistp_hc_title_text"
+            style="@style/chatlandingpage_headertitle_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Collections"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fartistp_hc_icon_previous"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/fartistp_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:contentDescription="fartworkp_scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fartistp_header_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/fartistp_gridlayout_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:columnCount="2"
+                app:columnOrderPreserved="true"
+                app:rowOrderPreserved="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fartistp_topcollection_container_0"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/fartistp_tcc_imageView_0"
+                        style="@style/container_roundedCorner_categories_dimension"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                        app:srcCompat="@drawable/img_topcollection_4" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_title_0"
+                        style="@style/TopCollection_Subtitle_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/fartistp_tcc_imageView_0"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_imageView_0" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_by_0"
+                        style="@style/TopCollection_Subtitle_Style_smaller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/fartistp_tcc_imageView_0"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_title_0" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_name_0"
+                        style="@style/TopCollection_Subtitle_Style_snaller_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toEndOf="@+id/fartistp_tcc_by_0"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_title_0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fartistp_topcollection_container_1"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    app:layout_columnWeight="1">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/fartistp_tcc_imageView_1"
+                        style="@style/container_roundedCorner_categories_dimension"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                        app:srcCompat="@drawable/img_topcollection_4" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_title_1"
+                        style="@style/TopCollection_Subtitle_Style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/fartistp_tcc_imageView_1"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_imageView_1" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_by_1"
+                        style="@style/TopCollection_Subtitle_Style_smaller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/fartistp_tcc_imageView_1"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_title_1" />
+
+                    <TextView
+                        android:id="@+id/fartistp_tcc_name_1"
+                        style="@style/TopCollection_Subtitle_Style_snaller_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        app:layout_constraintStart_toEndOf="@+id/fartistp_tcc_by_1"
+                        app:layout_constraintTop_toBottomOf="@+id/fartistp_tcc_title_1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.gridlayout.widget.GridLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

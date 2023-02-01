@@ -10,5 +10,39 @@
         <item name="android:textColor">@color/mainLightGrey</item>
     </style>
 
+    <style name="chatactionpage_chatdeplayleft_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/mainLightGrey</item>
+    </style>
 
+    <style name="chatactionpage_chattimeleft_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/searchviewColor</item>
+    </style>
+
+    <style name="chatactionpage_chatdeplayright_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/lightPink_0</item>
+    </style>
+
+    <style name="chatactionpage_chattimeright_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/searchviewColor</item>
+    </style>
 </resources>
