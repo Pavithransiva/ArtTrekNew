@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     android:background="@color/mainBlack">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/chatnmp_header_container"
+        android:id="@+id/categoryp_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,11 +16,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/cnmp_hc_icon_previous"
+            android:id="@+id/catp_hc_icon_previous"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="cnmp_hc_icon_previous"
+            android:contentDescription="catp_hc_icon_previous"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
@@ -37,14 +37,80 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
         <TextView
-            android:id="@+id/cnmp_hc_title_text"
+            android:id="@+id/catp_hc_title_text"
             style="@style/chatlandingpage_headertitle_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categories"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cnmp_hc_icon_previous"
+            app:layout_constraintStart_toEndOf="@+id/catp_hc_icon_previous"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/catp_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:contentDescription="catp_scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryp_header_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/catp_gridlayout_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:columnCount="3"
+                app:columnOrderPreserved="true"
+                app:rowOrderPreserved="true">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/catp_glc_imageView_0"
+                    android:layout_width="110dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_topcollection_4" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/catp_glc__imageView_1"
+                    android:layout_width="110dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_topcollection_4" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/catp_glc__imageView_2"
+                    android:layout_width="110dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    app:layout_columnWeight="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_topcollection_4" />
+
+            </androidx.gridlayout.widget.GridLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

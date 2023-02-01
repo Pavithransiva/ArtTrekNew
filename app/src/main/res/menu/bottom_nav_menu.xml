@@ -4,15 +4,15 @@
     <item
 
         android:title="Home"
-        android:icon="@drawable/ic_home_pink"/>
+        android:icon="@drawable/ic_bottomnav_home_white"/>
 
     <item
 
         android:title="Map"
-        android:icon="@drawable/ic_map_pink"/>
+        android:icon="@drawable/ic_bottomnav_map_white"/>
 
     <item
-
+        android:enabled="true"
         android:title="Community"
         android:icon="@drawable/ic_community_pink"/>
 

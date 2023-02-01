@@ -7,6 +7,16 @@
     android:padding="10dp"
     android:background="@color/mainBlack">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/hp_bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.App.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homepage_header_container"
         android:layout_width="match_parent"
@@ -480,6 +490,13 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/hp_extension_container"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
