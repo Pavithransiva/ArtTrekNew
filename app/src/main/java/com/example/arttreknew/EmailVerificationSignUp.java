@@ -42,19 +42,10 @@ public class EmailVerificationSignUp extends AppCompatActivity {
         DoneVerifying = findViewById(R.id.imageButton12);
         Auth = FirebaseAuth.getInstance();
         email = Auth.getCurrentUser().getEmail();
+        FirebaseUser email = Auth.getCurrentUser();
 
 
-        mAuthStateListener = firebaseAuth -> {
-            FirebaseUser email = Auth.getCurrentUser();
-            if (email != null && email.isEmailVerified()) {
-                Toast.makeText(EmailVerificationSignUp.this, "Email Verified", Toast.LENGTH_LONG).show();
-                Intent i = new Intent(EmailVerificationSignUp.this, EmailVerificatioSuccessful.class);
-                startActivity(i);
-            } else {
-                Toast.makeText(EmailVerificationSignUp.this, "Email not verified", Toast.LENGTH_LONG).show();
 
-            }
-        };
         VerifyEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +60,14 @@ public class EmailVerificationSignUp extends AppCompatActivity {
 
             }
             });
+            DoneVerifying.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
+                        finish();
+
+            }
+        });
 
         }
 
