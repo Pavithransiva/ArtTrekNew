@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,6 +37,270 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_chat_envelope"
             tools:ignore="DuplicateSpeakableTextCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homepage_header_container">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchviewp_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/shape_searchview"
+            android:queryHint="Search here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:searchIcon="@drawable/ic_search_pink">
+
+        </androidx.appcompat.widget.SearchView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hpfac_bg_0"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#212121"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/community_post_container" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hpcc_image_0"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    style="@style/comp_post_username"
+                    app:layout_constraintBottom_toTopOf="@+id/textView24"
+                    app:layout_constraintStart_toEndOf="@+id/hpcc_image_0"
+                    app:layout_constraintTop_toTopOf="@+id/hpcc_image_0" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:text="TextView"
+                    style="@style/comp_post_userlocation"
+                    app:layout_constraintBottom_toBottomOf="@+id/hpcc_image_0"
+                    app:layout_constraintStart_toEndOf="@+id/hpcc_image_0"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchviewp_hc_icon_0"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_baseline_more_horiz_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hptcc_imageView_0"
+                    style="@style/container_roundedCorner_categories_dimension"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="80dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_pavi" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hptcc_imageView_0">
+
+                    <TextView
+                        android:id="@+id/textView43"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="TextView"
+                        style="@style/comp_post_caption"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView97"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="TextView"
+                        style="@style/comp_post_description"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchviewp_hc_icon_1"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_love_black"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchviewp_hc_icon_2"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_comment_black"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintStart_toEndOf="@+id/searchviewp_hc_icon_1"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchviewp_hc_icon_3"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_share_black"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintStart_toEndOf="@+id/searchviewp_hc_icon_2"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchviewp_hc_icon_4"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_fav_black"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/searchviewp_hc_icon_1">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
