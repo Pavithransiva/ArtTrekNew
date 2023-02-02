@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- Search Page Text Style -->
+    <style name="SearchPage_cancelText_Style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mainLightGrey</item>
+    </style>
+
+    <style name="SearchPage_headerText_Style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/mainLightGrey</item>
+    </style>
+
+    <style name="SearchPage_contentText_Style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/gotham_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/searchviewColor</item>
+    </style>
+
+    <style name="SearchPage_contentwithmarginleft_Text_Style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:fontFamily">@font/gotham_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/searchviewColor</item>
+    </style>
+
+</resources>
+
