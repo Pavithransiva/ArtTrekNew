@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,8 +10,8 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchviewp_searchview"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="249dp"
+        android:layout_height="59dp"
         android:background="@drawable/shape_searchview"
         android:queryHint="Search here"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,162 +22,36 @@
 
     <TextView
         android:id="@+id/searchviewp_cancel"
-        android:text="TextView"
         style="@style/SearchPage_cancelText_Style"
+        android:clickable="true"
+        android:text="CANCEL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="365dp"
+        android:layout_height="588dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="20dp"
+        android:padding="4dp"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/searchviewp_history"
-        android:text="TextView"
-        style="@style/SearchPage_headerText_Style"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_searchview" />
-
-    <LinearLayout
-        android:id="@+id/searchviewp_linearLayout_0"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
+    <ImageButton
+        android:id="@+id/imageButton15"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@color/mainBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.762"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_history">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001"
+        app:srcCompat="@drawable/ic_search" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/searchviewp_history_container_0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/searchviewp_hc_text_0"
-                style="@style/SearchPage_contentText_Style"
-                android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/searchviewp_hc_icon_0"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="searchviewp_hc_icon_0"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                app:backgroundTint="#00FFFFFF"
-                app:icon="@drawable/ic_baseline_close_24"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconSize="20dp"
-                app:iconTint="@color/mainLightGrey"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/searchviewp_discover"
-        android:text="TextView"
-        style="@style/SearchPage_headerText_Style"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_linearLayout_0" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/searchviewp_chipgroup_outercontainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_discover">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/searchviewp_chipgroup_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/searchviewp_chip_0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Painting"
-                android:textAppearance="@style/artistpage_chip_textstyle"
-                android:textColor="@color/mainLightGrey"
-                app:chipBackgroundColor="@color/mainOrange" />
-
-        </com.google.android.material.chip.ChipGroup>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/searchviewp_trending"
-        android:text="TextView"
-        style="@style/SearchPage_headerText_Style"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_chipgroup_outercontainer" />
-
-    <LinearLayout
-        android:id="@+id/searchviewp_linearLayout_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchviewp_trending">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/searchviewp_trending_container_0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/searchviewp_tc_icon_0"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="chatactionp_hc_icon_previous"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                app:backgroundTint="#00FFFFFF"
-                app:icon="@drawable/ic_fire_pink"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconSize="20dp"
-                app:iconTint="@color/mainPink"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/searchviewp_tc_text_0"
-                android:text="TextView"
-                style="@style/SearchPage_contentwithmarginleft_Text_Style"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/searchviewp_tc_icon_0"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/searchviewp_tc_num_0"
-                android:text="TextView"
-                style="@style/SearchPage_contentText_Style"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
