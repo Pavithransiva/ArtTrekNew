@@ -8,7 +8,7 @@
     android:background="@color/mainBlack">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homepage_header_container"
+        android:id="@+id/communitypage_header_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/hphc_appname"
+            android:id="@+id/cphc_appname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/hphc_icon_chat"
+            android:id="@+id/cphc_icon_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/placeholder"
@@ -41,16 +41,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
+        android:id="@+id/communityp_searchview_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homepage_header_container">
+        app:layout_constraintTop_toBottomOf="@+id/communitypage_header_container">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchviewp_searchview"
+            android:id="@+id/communityp_searchview"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_searchview"
@@ -69,7 +69,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/communityp_searchview_container">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,12 +77,13 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/post_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/hpfac_bg_0"
+                    android:id="@+id/post_background"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="#212121"
@@ -93,7 +94,7 @@
                     app:shapeAppearanceOverlay="@style/community_post_container" />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/hpcc_image_0"
+                    android:id="@+id/post_userprofile_pic"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="20dp"
@@ -105,31 +106,31 @@
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/post_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     style="@style/comp_post_username"
-                    app:layout_constraintBottom_toTopOf="@+id/textView24"
-                    app:layout_constraintStart_toEndOf="@+id/hpcc_image_0"
-                    app:layout_constraintTop_toTopOf="@+id/hpcc_image_0" />
+                    app:layout_constraintBottom_toTopOf="@+id/post_userlocation"
+                    app:layout_constraintStart_toEndOf="@+id/post_userprofile_pic"
+                    app:layout_constraintTop_toTopOf="@+id/post_userprofile_pic" />
 
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/post_userlocation"
                     android:text="TextView"
                     style="@style/comp_post_userlocation"
-                    app:layout_constraintBottom_toBottomOf="@+id/hpcc_image_0"
-                    app:layout_constraintStart_toEndOf="@+id/hpcc_image_0"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                    app:layout_constraintBottom_toBottomOf="@+id/post_userprofile_pic"
+                    app:layout_constraintStart_toEndOf="@+id/post_userprofile_pic"
+                    app:layout_constraintTop_toBottomOf="@+id/post_username" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/searchviewp_hc_icon_0"
+                    android:id="@+id/post_ic_threedots"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:contentDescription="searchviewp_hc_icon_0"
+                    android:contentDescription="post_ic_threedots"
                     android:insetLeft="0dp"
                     android:insetTop="0dp"
                     android:insetRight="0dp"
@@ -147,7 +148,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/hptcc_imageView_0"
+                    android:id="@+id/post_image"
                     style="@style/container_roundedCorner_categories_dimension"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
@@ -160,16 +161,16 @@
                     app:srcCompat="@drawable/img_pavi" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout7"
+                    android:id="@+id/post_description_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/hptcc_imageView_0">
+                    app:layout_constraintTop_toBottomOf="@+id/post_image">
 
                     <TextView
-                        android:id="@+id/textView43"
+                        android:id="@+id/post_caption"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -181,7 +182,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView97"
+                        android:id="@+id/post_description"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
@@ -190,12 +191,12 @@
                         style="@style/comp_post_description"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+                        app:layout_constraintTop_toBottomOf="@+id/post_caption" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/searchviewp_hc_icon_1"
+                    android:id="@+id/post_ic_love"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -214,12 +215,12 @@
                     app:iconSize="30dp"
                     app:iconTint="@color/mainLightGrey"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintTop_toBottomOf="@+id/post_description_container"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/searchviewp_hc_icon_2"
+                    android:id="@+id/post_ic_comment"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -237,13 +238,13 @@
                     app:iconPadding="0dp"
                     app:iconSize="30dp"
                     app:iconTint="@color/mainLightGrey"
-                    app:layout_constraintStart_toEndOf="@+id/searchviewp_hc_icon_1"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintStart_toEndOf="@+id/post_ic_love"
+                    app:layout_constraintTop_toBottomOf="@+id/post_description_container"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/searchviewp_hc_icon_3"
+                    android:id="@+id/post_ic_share"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -261,13 +262,13 @@
                     app:iconPadding="0dp"
                     app:iconSize="30dp"
                     app:iconTint="@color/mainLightGrey"
-                    app:layout_constraintStart_toEndOf="@+id/searchviewp_hc_icon_2"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintStart_toEndOf="@+id/post_ic_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/post_description_container"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/searchviewp_hc_icon_4"
+                    android:id="@+id/post_ic_bookmark"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -286,7 +287,7 @@
                     app:iconSize="30dp"
                     app:iconTint="@color/mainLightGrey"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintTop_toBottomOf="@+id/post_description_container"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
                     tools:ignore="TouchTargetSizeCheck" />
 
@@ -295,7 +296,7 @@
                     android:layout_height="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/searchviewp_hc_icon_1">
+                    app:layout_constraintTop_toBottomOf="@+id/post_ic_love">
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

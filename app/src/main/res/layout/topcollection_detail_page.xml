@@ -1,6 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mainBlack">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/topcollectiondetailpage_bg_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:backgroundTint="#505050"
+                    android:backgroundTintMode="screen"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_topcollection_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/topcollectiondetailpage_ic_previous"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="artistpage_ic_previous"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        app:backgroundTint="#00FFFFFF"
+                        app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainLightGrey"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                    <TextView
+                        android:id="@+id/topcollectiondetailpage_title"
+                        style="@style/chatlandingpage_headertitle_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Top Collection Details"
+                        app:layout_constraintBottom_toBottomOf="@+id/topcollectiondetailpage_ic_previous"
+                        app:layout_constraintStart_toEndOf="@+id/topcollectiondetailpage_ic_previous"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/topcollectiondetailpage_collection_name"
+                        style="@style/topcollection_name"
+                        android:layout_marginTop="180dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topcollectiondetailpage_ic_previous" />
+
+                    <TextView
+                        android:id="@+id/topcollectiondetailpage_collection_by"
+                        android:layout_marginTop="5dp"
+                        style="@style/topcollection_by"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="@+id/topcollectiondetailpage_collection_name"
+                        app:layout_constraintTop_toBottomOf="@+id/topcollectiondetailpage_collection_name" />
+
+                    <TextView
+                        android:id="@+id/topcollectiondetailpage_collection_owner"
+                        android:layout_marginTop="5dp"
+                        style="@style/topcollection_owner_name"
+                        android:text="TextView"
+                        app:layout_constraintStart_toEndOf="@+id/topcollectiondetailpage_collection_by"
+                        app:layout_constraintTop_toBottomOf="@+id/topcollectiondetailpage_collection_name" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/topcollectiondetailpage_ic_love"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:contentDescription="searchviewp_hc_icon_0"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        app:backgroundTint="#00FFFFFF"
+                        app:icon="@drawable/ic_love_black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainLightGrey"
+                        app:layout_constraintStart_toStartOf="@+id/topcollectiondetailpage_collection_by"
+                        app:layout_constraintTop_toBottomOf="@+id/topcollectiondetailpage_collection_by"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/topcollectiondetailpage_ic_comment"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="searchviewp_hc_icon_0"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        app:backgroundTint="#00FFFFFF"
+                        app:icon="@drawable/ic_comment_black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainLightGrey"
+                        app:layout_constraintStart_toEndOf="@+id/topcollectiondetailpage_ic_love"
+                        app:layout_constraintTop_toTopOf="@+id/topcollectiondetailpage_ic_love"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/topcollectiondetailpage_ic_bookmark"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:contentDescription="searchviewp_hc_icon_0"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        app:backgroundTint="#00FFFFFF"
+                        app:icon="@drawable/ic_fav_black"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainLightGrey"
+                        app:layout_constraintStart_toEndOf="@+id/topcollectiondetailpage_ic_comment"
+                        app:layout_constraintTop_toTopOf="@+id/topcollectiondetailpage_ic_comment"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/topcollectiondetailpage_gridlayout_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        app:columnCount="2"
+                        app:columnOrderPreserved="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topcollectiondetailpage_ic_love"
+                        app:rowOrderPreserved="true">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/topcollectiondetailpage_glc_imageView_0"
+                            android:layout_width="100dp"
+                            android:layout_height="250dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/topcollectiondetailpage_glc__imageView_1"
+                            android:layout_width="100dp"
+                            android:layout_height="250dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                    </androidx.gridlayout.widget.GridLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
