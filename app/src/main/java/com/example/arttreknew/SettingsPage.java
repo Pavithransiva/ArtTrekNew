@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -40,6 +39,13 @@ public class SettingsPage extends AppCompatActivity {
                 startActivity(new Intent(SettingsPage.this,HelpSettings.class));
                 finish();
             }
+        });
+
+        // for MapFunction testing purposes
+        final Button testing = findViewById(R.id.button2);
+        testing.setOnClickListener(view -> {
+            startActivity(new Intent(SettingsPage.this,MapFunction.class));
+            finish();
         });
     }
 }
