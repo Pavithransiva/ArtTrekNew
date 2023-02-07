@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1075235319479-g0up0d60tdt48ug2dev1cdkro0f68in7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.arttreknew",
+            "certificate_hash": "bffa65b7586d0bd89ff410d8a3fc2dfec396d91d"
+          }
+        },
+        {
           "client_id": "1075235319479-dih12i7bj8g5k01teeajhldbvoe95eh5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -31,7 +39,6 @@
               "client_id": "1075235319479-dih12i7bj8g5k01teeajhldbvoe95eh5.apps.googleusercontent.com",
               "client_type": 3
             }
-
           ]
         }
       }
