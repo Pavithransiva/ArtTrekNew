@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,10 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class UserPage extends AppCompatActivity {
@@ -93,24 +88,19 @@ public class UserPage extends AppCompatActivity {
         bnv = findViewById(R.id.userpage_bottomNavigationView);
         //set the icon to active
         bnv.setSelectedItemId(R.id.botnav_ic_profile);
-        /*bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.botnav_ic_home:
-                        startActivity(new Intent(UserPage.this, HomePage.class));
-                        finish();
-                    case R.id.botnav_ic_map:
-                        startActivity(new Intent(UserPage.this, MapFunction.class));
-                        finish();
-                    case R.id.botnav_ic_community:
-                        startActivity(new Intent(UserPage.this, HomePage.class));
-                        finish();
-                }
-                return false;
-
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.botnav_ic_home:
+                    startActivity(new Intent(UserPage.this, HomePage.class));
+                    finish();
+                    return true;
+                case R.id.botnav_ic_map:
+                    startActivity(new Intent(UserPage.this, MapFunction.class));
+                    finish();
+                    return true;
             }
+            return false;
+
         });
-        View homebtn = findViewById(R.id.botnav_ic_home);*/
     }
 }

@@ -22,18 +22,14 @@ public class HomePage extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.botnav_ic_profile:
-                        startActivity(new Intent(getApplicationContext(), UserPage.class));
-                        finish();
-                    case R.id.botnav_ic_home:
-                        startActivity(new Intent(getApplicationContext(), UserPage.class));
-                        finish();
                     case R.id.botnav_ic_map:
-                        startActivity(new Intent(getApplicationContext(), UserPage.class));
+                        startActivity(new Intent(HomePage.this, MapFunction.class));
                         finish();
-                    case R.id.botnav_ic_community:
-                        startActivity(new Intent(getApplicationContext(), UserPage.class));
+                        return true;
+                    case R.id.botnav_ic_profile:
+                        startActivity(new Intent(HomePage.this, UserPage.class));
                         finish();
+                        return true;
                 }
                 return false;
 
