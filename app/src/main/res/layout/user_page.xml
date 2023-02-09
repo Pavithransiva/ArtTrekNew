@@ -5,6 +5,16 @@
     android:layout_height="wrap_content"
     android:background="@color/mainBlack">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/userpage_bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.App.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
