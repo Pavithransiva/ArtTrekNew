@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/mainBlack">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/userpage_bottomNavigationView"
+        style="@style/Widget.App.BottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.App.BottomNavigationView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,6 +44,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!--
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/userpage_ic_previous"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
@@ -64,6 +66,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+                -->
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/userpage_ic_settings"
@@ -154,7 +157,7 @@
                         android:insetTop="2dp"
                         android:insetRight="0dp"
                         android:insetBottom="2dp"
-                        android:text="Upload Profile Picture"
+                        android:text="Edit Profile"
                         android:textAppearance="@style/artistpage_button_textstyle"
                         android:textColor="@color/mainBlack"
                         app:backgroundTint="@color/mainLightGrey"
@@ -165,279 +168,79 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/userpage_jobtitle" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/userpage_chipgroup_container"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/userpage_button_upload_post"
+                        style="@style/Widget.MaterialComponents.Button.Icon"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="2dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="2dp"
+                        android:text="Upload Post"
+                        android:textAppearance="@style/artistpage_button_textstyle"
+                        android:textColor="@color/mainBlack"
+                        app:backgroundTint="@color/mainLightGrey"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="10dp"
+                        app:iconTint="@color/mainBlack"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_pic">
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_pic" />
 
-                        <com.google.android.material.chip.ChipGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/userpage_chip_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Painting"
-                                android:textAppearance="@style/artistpage_chip_textstyle"
-                                android:textColor="@color/mainLightGrey"
-                                app:chipBackgroundColor="@color/mainOrange" />
-
-                        </com.google.android.material.chip.ChipGroup>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/userpage_featuredartwork_container"
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/fartworkp_gridlayout_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        app:columnCount="3"
+                        app:columnOrderPreserved="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_chipgroup_container">
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_post"
+                        app:rowOrderPreserved="true">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/userpage_fakc_header_container"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/fartworkp_glc_imageView_0"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
 
-                            <TextView
-                                android:id="@+id/userpage_title_0"
-                                style="@style/HomePage_Title_Style"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Title_3"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/userpage_viewall_0"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TextView"
-                                android:textColor="@color/mainYellow"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <HorizontalScrollView
-                            android:id="@+id/userpage_horscrollview_0"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/fartworkp_glc__imageView_1"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/userpage_fakc_header_container">
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:id="@+id/userpage_fakc_element_container"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                    <com.google.android.material.imageview.ShapeableImageView
-                                        android:id="@+id/userpage_fakc_ec_image_0"
-                                        style="@style/image_container_dimension_featureArtwork"
-                                        android:scaleType="centerCrop"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                        app:srcCompat="@drawable/img_topcollection_4" />
-
-                                    <TextView
-                                        android:id="@+id/userpage_fakc_ec_title_0"
-                                        style="@style/FeaturedArtwork_Subtitle_Style"
-                                        android:text="TextView"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/userpage_fakc_ec_image_0" />
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </LinearLayout>
-                        </HorizontalScrollView>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/userpage_event_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_featuredartwork_container">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/userpage_ec_header_container"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/fartworkp_glc__imageView_2"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
 
-                            <TextView
-                                android:id="@+id/userpage_title_1"
-                                style="@style/HomePage_Title_Style"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Title_4"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.gridlayout.widget.GridLayout>
 
-                            <TextView
-                                android:id="@+id/userpage_viewall_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TextView"
-                                android:textColor="@color/mainYellow"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <HorizontalScrollView
-                            android:id="@+id/userpage_horscrollview_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/userpage_ec_header_container">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:id="@+id/userpage_ec_element_container"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
-
-                                    <com.google.android.material.imageview.ShapeableImageView
-                                        android:id="@+id/userpage_ecec_image_0"
-                                        style="@style/image_container_dimension_featureArtwork"
-                                        android:scaleType="centerCrop"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent"
-                                        app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                        app:srcCompat="@drawable/img_topcollection_4" />
-
-                                    <TextView
-                                        android:id="@+id/artistp_ecec_title_0"
-                                        style="@style/FeaturedArtwork_Subtitle_Style"
-                                        android:text="TextView"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/userpage_ecec_image_0" />
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-                            </LinearLayout>
-                        </HorizontalScrollView>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/userpage_topcollection_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_event_container">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/userpage_tcc_header_container"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/userpage_title_2"
-                                style="@style/HomePage_Title_Style"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/Title_1"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/userpage_viewall_2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="TextView"
-                                android:textColor="@color/mainYellow"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <HorizontalScrollView
-                            android:id="@+id/userpage_horscrollview_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/userpage_tcc_header_container">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/userpage_tcc_element_container"
-                                android:layout_width="200dp"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.imageview.ShapeableImageView
-                                    android:id="@+id/userpage_tcc_ec_image_0"
-                                    style="@style/container_roundedCorner_categories_dimension"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                                    app:srcCompat="@drawable/img_topcollection_4" />
-
-                                <TextView
-                                    android:id="@+id/userpage_tcc_ec_title_0"
-                                    style="@style/TopCollection_Subtitle_Style"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="TextView"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/userpage_tcc_ec_image_0" />
-
-                                <TextView
-                                    android:id="@+id/userpage_tcc_ec_by_0"
-                                    style="@style/TopCollection_Subtitle_Style_smaller"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="TextView"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/userpage_tcc_ec_title_0" />
-
-                                <TextView
-                                    android:id="@+id/userpage_tcc_ec_username_0"
-                                    style="@style/TopCollection_Subtitle_Style_snaller_bold"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="TextView"
-                                    app:layout_constraintStart_toEndOf="@+id/userpage_tcc_ec_by_0"
-                                    app:layout_constraintTop_toBottomOf="@+id/userpage_tcc_ec_title_0" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </HorizontalScrollView>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
