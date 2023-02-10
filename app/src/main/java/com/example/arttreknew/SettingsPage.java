@@ -40,12 +40,5 @@ public class SettingsPage extends AppCompatActivity {
                 finish();
             }
         });
-
-        // for MapFunction testing purposes
-        final Button testing = findViewById(R.id.button2);
-        testing.setOnClickListener(view -> {
-            startActivity(new Intent(SettingsPage.this,MapFunction.class));
-            finish();
-        });
     }
 }

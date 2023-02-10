@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +53,12 @@ public class UserPage extends AppCompatActivity {
                 Intent intent = new Intent(UserPage.this, EditProfilePage.class);
                 startActivity(intent);
             }
+        });
+
+        MaterialButton settingsBtn = findViewById(R.id.userpage_ic_settings);
+        settingsBtn.setOnClickListener(view -> {
+            startActivity(new Intent(UserPage.this, SettingsPage.class));
+            finish();
         });
 
         //Bottom Navigation Code

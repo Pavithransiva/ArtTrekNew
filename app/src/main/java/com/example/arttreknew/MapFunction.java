@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,6 +84,8 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
     private EditText searchBar;
     private ImageButton searchButton;
 
+    private BottomNavigationView bnv;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +94,25 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.mapfunction);
+
+        bnv = findViewById(R.id.hp_bottomNavigationView);
+        bnv.setSelectedItemId(R.id.botnav_ic_map);
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.botnav_ic_home:
+                        startActivity(new Intent(MapFunction.this, HomePage.class));
+                        finish();
+                        return true;
+                    case R.id.botnav_ic_profile:
+                        startActivity(new Intent(MapFunction.this, UserPage.class));
+                        finish();
+                        return true;
+                }
+                return false;
+            }
+        });
 
         // current location
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);

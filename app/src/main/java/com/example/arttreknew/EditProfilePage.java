@@ -1,6 +1,5 @@
 package com.example.arttreknew;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
@@ -8,7 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
+import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,16 +15,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 public class EditProfilePage extends AppCompatActivity {
 
@@ -47,6 +47,8 @@ public class EditProfilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.edit_profile_page);
 
         mButtonChooseImage = findViewById(R.id.editprofilepage_button_choose_image);
@@ -58,23 +60,22 @@ public class EditProfilePage extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference("profile_pic");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("profile_pic");
 
-        mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFileChooser();
+        mButtonChooseImage.setOnClickListener(v -> openFileChooser());
+
+        mButtonUpload.setOnClickListener(v -> {
+            if (mUploadTask != null && mUploadTask.isInProgress()) {
+                Toast.makeText(EditProfilePage.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+            } else {
+                uploadFile();
             }
         });
 
-        mButtonUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(EditProfilePage.this, "Upload in progress", Toast.LENGTH_SHORT).show();
-                } else {
-                    uploadFile();
-                }
-            }
+        MaterialButton backBtn = findViewById(R.id.editprofilepage_ic_previous);
+        backBtn.setOnClickListener(view -> {
+            startActivity(new Intent(EditProfilePage.this, UserPage.class));
+            finish();
         });
+
     }
 
     private void openFileChooser() {
@@ -91,8 +92,7 @@ public class EditProfilePage extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
-
-            Picasso.with(this).load(mImageUri).into(mImageView);
+            mImageView.setImageURI(mImageUri);
         }
     }
 
@@ -105,40 +105,28 @@ public class EditProfilePage extends AppCompatActivity {
 
     private void uploadFile() {
         if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child("Profile Picture"
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
+            Date now = new Date();
+            String fileName = formatter.format(now);
+
+            StorageReference fileReference = mStorageRef.child(fileName
                     + "." + getFileExtension(mImageUri));
 
             mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mProgressBar.setProgress(0);
-                                }
-                            }, 500);
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Handler handler = new Handler();
+                        handler.postDelayed(() -> mProgressBar.setProgress(0), 500);
 
-                            Toast.makeText(EditProfilePage.this, "Upload successful", Toast.LENGTH_LONG).show();
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
-                        }
+                        Toast.makeText(EditProfilePage.this, "Upload successful", Toast.LENGTH_LONG).show();
+                        Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+                        String uploadId = mDatabaseRef.push().getKey();
+                        mDatabaseRef.child(uploadId).setValue(upload);
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(EditProfilePage.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            mProgressBar.setProgress((int) progress);
-                        }
+                    .addOnFailureListener(e -> Toast.makeText(EditProfilePage.this, e.getMessage(), Toast.LENGTH_SHORT).show())
+                    .addOnProgressListener(taskSnapshot -> {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        mProgressBar.setProgress((int) progress);
                     });
         } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
