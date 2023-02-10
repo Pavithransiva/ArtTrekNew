@@ -34,6 +34,7 @@ public class EditProfilePage extends AppCompatActivity {
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private EditText mEditTextFileName;
+    private EditText  mEditTitleName;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
@@ -52,6 +53,7 @@ public class EditProfilePage extends AppCompatActivity {
         mButtonChooseImage = findViewById(R.id.editprofilepage_button_choose_image);
         mButtonUpload = findViewById(R.id.editprofilepage_button_upload_image);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
+         mEditTitleName = findViewById(R.id.edit_title_file_name);
         mImageView = findViewById(R.id.editprofilepage_image_view);
         mProgressBar = findViewById(R.id.editprofilepage_progress_bar);
 
