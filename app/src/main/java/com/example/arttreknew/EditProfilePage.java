@@ -1,5 +1,8 @@
 package com.example.arttreknew;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,11 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,10 +53,10 @@ public class EditProfilePage extends AppCompatActivity {
         mButtonUpload = findViewById(R.id.editprofilepage_button_upload_image);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
         mImageView = findViewById(R.id.editprofilepage_image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
+        mProgressBar = findViewById(R.id.editprofilepage_progress_bar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mStorageRef = FirebaseStorage.getInstance().getReference("profile_pic");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("profile_pic");
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +96,7 @@ public class EditProfilePage extends AppCompatActivity {
         }
     }
 
+    //Get File Extension function PNG/JPG
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -105,7 +105,7 @@ public class EditProfilePage extends AppCompatActivity {
 
     private void uploadFile() {
         if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
+            StorageReference fileReference = mStorageRef.child("Profile Picture"
                     + "." + getFileExtension(mImageUri));
 
             mUploadTask = fileReference.putFile(mImageUri)

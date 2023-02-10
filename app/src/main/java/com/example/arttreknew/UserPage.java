@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -16,13 +18,19 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
 public class UserPage extends AppCompatActivity {
     private BottomNavigationView bnv;
-    // Initializing the ImageView
-    ImageView rImage;
+    private Button mButtonUploadPic;
+
+    private ImageView mBGImageView;
+
+    private DatabaseReference mDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,64 +38,27 @@ public class UserPage extends AppCompatActivity {
         //remove the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
+
         setContentView(R.layout.user_page);
 
-        // getting ImageView by its id
-        rImage = findViewById(R.id.userpage_bgimage);
+        mButtonUploadPic = findViewById(R.id.userpage_button_upload_pic);
+        mBGImageView = findViewById(R.id.userpage_bgimage);
 
-        // we will get the default FirebaseDatabase instance
-        FirebaseDatabase firebaseDatabase
-                = FirebaseDatabase.getInstance();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("profile_pic");
 
-        // we will get a DatabaseReference for the database
-        // root node
-        DatabaseReference databaseReference
-                = firebaseDatabase.getReference("uploads");
+        mButtonUploadPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserPage.this, EditProfilePage.class);
+                startActivity(intent);
+            }
+        });
 
-        // Here "image" is the child node value we are
-        // getting child node data in the getImage variable
-        DatabaseReference getImage
-                = databaseReference.child("image");
-
-        // Adding listener for a single change
-        // in the data at this location.
-        // this listener will triggered once
-        // with the value of the data at the location
-        getImage.addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(
-                            @NonNull DataSnapshot dataSnapshot)
-                    {
-                        // getting a DataSnapshot for the
-                        // location at the specified relative
-                        // path and getting in the link variable
-                        String link = dataSnapshot.getValue(
-                                String.class);
-
-                        // loading that data into rImage
-                        // variable which is ImageView
-                        //Picasso.get().load(link).into(rImage);
-                    }
-
-                    // this will called when any problem
-                    // occurs in getting data
-                    @Override
-                    public void onCancelled(
-                            @NonNull DatabaseError databaseError)
-                    {
-                        // we are showing that error message in
-                        // toast
-                        Toast
-                                .makeText(UserPage.this,
-                                        "Error Loading Image",
-                                        Toast.LENGTH_SHORT)
-                                .show();
-                    }
-                });
+        //Bottom Navigation Code
         bnv = findViewById(R.id.userpage_bottomNavigationView);
         //set the icon to active
         bnv.setSelectedItemId(R.id.botnav_ic_profile);
+
         bnv.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.botnav_ic_home:
@@ -102,5 +73,21 @@ public class UserPage extends AppCompatActivity {
             return false;
 
         });
+
+        // ERROR - Retrive Image from the Database
+        /*mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String link = snapshot.getValue(
+                        String.class);
+                Picasso.with(UserPage.this).load(link).into(mBGImageView);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UserPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }); */
     }
+
 }
