@@ -81,7 +81,6 @@ public class LoginPage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
-            Toast.makeText(LoginPage.this, FirebaseAuth.getInstance().getCurrentUser()+"", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(), HomePage.class));
             finish();
         }
