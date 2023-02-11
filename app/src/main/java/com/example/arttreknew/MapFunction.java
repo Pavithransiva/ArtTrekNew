@@ -219,7 +219,7 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
         dialog.show();
 
         mStorage = FirebaseStorage.getInstance();
-        mStorageRef = mStorage.getReference();
+        mStorageRef = mStorage.getReference("marker_image");
 
         AtomicBoolean imageSelected;
         imageSelected = new AtomicBoolean(false);
@@ -324,7 +324,7 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
 
         riversRef.putFile(imageUri)
                 .addOnSuccessListener(taskSnapshot -> {
-                    StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://arttreknew.appspot.com");
+                    StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://arttreknew.appspot.com/marker_image");
                     StorageReference imageRef = storageRef.child(fileName);
 
                     imageRef.getDownloadUrl().addOnSuccessListener(uri -> {

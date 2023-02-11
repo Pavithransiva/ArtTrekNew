@@ -127,7 +127,7 @@
                         style="@style/Widget.MaterialComponents.Button.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="24dp"
                         android:insetLeft="0dp"
                         android:insetTop="2dp"
                         android:insetRight="0dp"
@@ -140,6 +140,7 @@
                         app:iconPadding="10dp"
                         app:iconTint="@color/mainBlack"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.526"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/userpage_jobtitle" />
 
