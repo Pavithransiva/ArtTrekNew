@@ -75,7 +75,7 @@ public class HomePage extends AppCompatActivity {
         followingList = new ArrayList<>();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Follow")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getEmail())
+                .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
                 .child("Following");
 
         reference.addValueEventListener(new ValueEventListener() {
