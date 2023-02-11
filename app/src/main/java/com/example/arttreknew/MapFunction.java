@@ -69,7 +69,7 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
     private Geocoder geocoder;
 
     // database
-    private FirebaseDatabase mDatabase;
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
     private DatabaseReference mRef;
     private FirebaseStorage mStorage;
     private StorageReference mStorageRef;
@@ -132,7 +132,7 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
         searchButton = findViewById(R.id.searchMarker);
         searchButton.setOnClickListener(view -> searchMethod());
 
-        mRef = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("marker");
+        mRef = mDatabase.getReference().child("marker");
     }
 
     private void checkMyPermission() {
@@ -264,7 +264,6 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
                 locationHashmap.put("longitude", longitude);
 
                 // initialize database
-                mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
                 mRef = mDatabase.getReference("marker");
 
                 String key = mRef.push().getKey();
@@ -330,7 +329,7 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
                     imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         String imageURL = uri.toString();
                         // Do something with the image URL
-                        DatabaseReference rootRef = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("marker");
+                        DatabaseReference rootRef = mDatabase.getReference("marker");
                         DatabaseReference parentRef = rootRef.child(key);
                         DatabaseReference childRef = parentRef.child("image");
 

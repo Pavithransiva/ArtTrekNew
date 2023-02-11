@@ -113,7 +113,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     }
 
     private void isFollowing(final String email,final Button button){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
                 .child("Follow").child(firebaseUser.getEmail()).child("following");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
