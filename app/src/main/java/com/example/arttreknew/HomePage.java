@@ -4,12 +4,14 @@ import static java.security.AccessController.getContext;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,6 +34,8 @@ public class HomePage extends AppCompatActivity {
     private List<Post> postList;
     private List<String> followingList;
 
+    private ConstraintLayout searchbtn;
+
 
 
     @Override
@@ -41,6 +45,15 @@ public class HomePage extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.home_page);
         bnv = findViewById(R.id.hp_bottomNavigationView);
+        searchbtn = findViewById(R.id.hp_searchview_container);
+
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePage.this, SearchFragment.class));
+                finish();
+            }
+        });
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
