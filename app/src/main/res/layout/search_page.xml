@@ -8,17 +8,14 @@
     android:padding="10dp"
     android:background="@color/mainBlack">
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/searchviewp_searchview"
-        android:layout_width="249dp"
-        android:layout_height="59dp"
-        android:background="@drawable/shape_searchview"
-        android:queryHint="Search here"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:searchIcon="@drawable/ic_search_pink">
-
-    </androidx.appcompat.widget.SearchView>
+        android:layout_width="244dp"
+        android:layout_height="37dp"
+        android:background="@color/colorPrimary"
+        android:hint="Search"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/searchviewp_cancel"
