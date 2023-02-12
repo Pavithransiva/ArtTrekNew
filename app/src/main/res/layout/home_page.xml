@@ -40,49 +40,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/hp_searchview_container"
-        android:layout_width="match_parent"
-        android:clickable="true"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/searchviewColor"
-        android:queryHint="@string/placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homepage_header_container">
-
-        <ImageView
-            android:id="@+id/hp_svc_icon_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_search"
-            tools:ignore="DuplicateSpeakableTextCheck" />
-
-        <TextView
-            android:id="@+id/hp_svc_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:hint="Search"
-            android:textColor="@color/mainLightGrey"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hp_svc_icon_search"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/hp_tab_container"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hp_searchview_container">
+        tools:layout_editor_absoluteY="120dp">
 
         <TextView
             android:id="@+id/hptc_text_0"
@@ -90,8 +53,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium_italic"
             android:text="@string/submenu_0"
-            android:textSize="16sp"
             android:textColor="@color/lightPink_0"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/hptc_text_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -102,8 +65,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
             android:text="@string/submenu_1"
-            android:textSize="16sp"
             android:textColor="@color/mainLightGrey"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/hptc_text_0"
             app:layout_constraintTop_toTopOf="parent" />
@@ -120,6 +83,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.713" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="312dp"
+        android:layout_height="56dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@drawable/_fa" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

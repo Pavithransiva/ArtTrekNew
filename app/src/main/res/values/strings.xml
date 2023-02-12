@@ -15,4 +15,6 @@
     <!-- Categories Strings -->
     <string name="cate_0">For You</string>
     <string name="please_verify_email_now">Please Verify Email Now</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

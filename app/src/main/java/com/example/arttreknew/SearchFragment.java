@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.arttreknew.R;
+import com.example.arttreknew.Adapter.UserAdapter;
+import com.example.arttreknew.UserGetSet;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,49 +26,45 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<UserGetSet> mUsers;
 
     EditText search_bar;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstance){
-        View view = inflater.inflate(R.layout.search_page, container, false);
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.search_page);
+     //   View view = inflater.inflate(R.layout.search_page, container, false);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView = findViewById(R.id.recycler_view);
+       recyclerView.setHasFixedSize(true);
+       recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        search_bar = view.findViewById(R.id.searchviewp_searchview);
+        search_bar = findViewById(R.id.searchviewp_searchview);
 
         mUsers = new ArrayList<>();
-        userAdapter = new UserAdapter(getContext(), mUsers);
-        recyclerView.setAdapter(userAdapter);
+        userAdapter = new UserAdapter(getApplicationContext(), mUsers);
+    recyclerView.setAdapter(userAdapter);
 
         readUsers();
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 searchUsers(charSequence.toString().toLowerCase());
-
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
 
-        return view;
+
     }
 
     private void searchUsers(String s){

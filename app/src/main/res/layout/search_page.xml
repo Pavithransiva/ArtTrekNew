@@ -14,6 +14,12 @@
         android:layout_height="37dp"
         android:background="@color/colorPrimary"
         android:hint="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="16dp" />
 

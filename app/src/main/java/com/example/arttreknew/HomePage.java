@@ -1,10 +1,7 @@
 package com.example.arttreknew;
 
-import static java.security.AccessController.getContext;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +10,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 
+import com.example.arttreknew.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +33,7 @@ public class HomePage extends AppCompatActivity {
     private List<Post> postList;
     private List<String> followingList;
 
-    private ConstraintLayout searchbtn;
+    private ImageButton searchbtn;
 
 
 
@@ -45,7 +44,7 @@ public class HomePage extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.home_page);
         bnv = findViewById(R.id.hp_bottomNavigationView);
-        searchbtn = findViewById(R.id.hp_searchview_container);
+        searchbtn = findViewById(R.id.imageButtonSearch);
 
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +86,9 @@ public class HomePage extends AppCompatActivity {
     private void checkFollowing(){
         followingList = new ArrayList<>();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Follow")
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("follow")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
-                .child("Following");
+                .child("following");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override

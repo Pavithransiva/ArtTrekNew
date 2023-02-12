@@ -4,14 +4,14 @@ public class UserGetSet {
 
     private String email;
     private String fullname;
-    private String imageurl;
+    private String imageURL;
     private String posts;
     private String title;
 
     public UserGetSet(String email, String fullname, String imageurl, String posts, String title) {
         this.email = email;
         this.fullname = fullname;
-        this.imageurl = imageurl;
+        this.imageURL = imageURL;
         this.posts = posts;
         this.title = title;
     }
@@ -35,12 +35,12 @@ public class UserGetSet {
         this.fullname = fullname;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public String getPosts() {

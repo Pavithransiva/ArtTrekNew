@@ -1,4 +1,4 @@
-package com.example.arttreknew;
+package com.example.arttreknew.Adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.arttreknew.R;
+import com.example.arttreknew.UserGetSet;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -52,8 +53,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
         viewHolder.fullname.setText(userGetSet.getFullname());
         viewHolder.Title.setText(userGetSet.getTitle());
-        Glide.with(mContext).load(userGetSet.getImageurl()).into(viewHolder.image_profile);
-        isFollowing(userGetSet.getEmail(),viewHolder.btn_follow);
+        Glide.with(mContext).load(userGetSet.getImageURL()).into(viewHolder.image_profile);
+        isFollowing(userGetSet.getEmail().replace(".","%"),viewHolder.btn_follow);
 
         if (userGetSet.getEmail().equals(firebaseUser.getEmail())){
             viewHolder.btn_follow.setVisibility(View.GONE);
@@ -74,15 +75,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 if ( viewHolder.btn_follow.getText().toString().equals("follow")){
-                    FirebaseDatabase.getInstance().getReference().child("follow").child(firebaseUser.getEmail())
-                            .child("following").child(userGetSet.getEmail()).setValue(true);
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(userGetSet.getEmail())
-                            .child("followers").child(firebaseUser.getEmail()).setValue(true);
+                    FirebaseDatabase.getInstance().getReference().child("follow").child(firebaseUser.getEmail().replace(".","%"))
+                            .child("following").child(userGetSet.getEmail().replace(".","%")).setValue(true);
+                    FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
+                            .child("followers").child(firebaseUser.getEmail().replace(".","%")).setValue(true);
                 }else{
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(userGetSet.getEmail())
-                            .child("following").child(userGetSet.getEmail()).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(userGetSet.getEmail())
-                            .child("followers").child(firebaseUser.getEmail()).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
+                            .child("following").child(userGetSet.getEmail().replace(".","%")).removeValue();
+                    FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
+                            .child("followers").child(firebaseUser.getEmail().replace(".","%")).removeValue();
                 }
             }
         });
@@ -114,7 +115,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
     private void isFollowing(final String email,final Button button){
         DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
-                .child("Follow").child(firebaseUser.getEmail()).child("following");
+                .child("follow").child(firebaseUser.getEmail().replace(".","%")).child("following");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
