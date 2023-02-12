@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBlack">
@@ -42,28 +43,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/artistpage_ic_previous"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:contentDescription="artistpage_ic_previous"
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    app:backgroundTint="#00FFFFFF"
-                    app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-                    app:iconSize="30dp"
-                    app:iconTint="@color/mainLightGrey"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/artistpage_ic_settings"
@@ -165,48 +144,43 @@
                         app:layout_constraintEnd_toStartOf="@+id/artistp_following_number"
                         app:layout_constraintTop_toBottomOf="@+id/artistp_username" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/artistp_button_chatnow"
-                        style="@style/Widget.MaterialComponents.Button.Icon"
-                        android:layout_width="180dp"
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:insetLeft="0dp"
-                        android:insetTop="2dp"
-                        android:insetRight="0dp"
-                        android:insetBottom="2dp"
-                        android:text="Button"
-                        android:textAppearance="@style/artistpage_button_textstyle"
-                        android:textColor="@color/mainBlack"
-                        app:backgroundTint="@color/mainLightGrey"
-                        app:icon="@drawable/ic_baseline_chat_bubble_24"
-                        app:iconGravity="textEnd"
-                        app:iconPadding="10dp"
-                        app:iconTint="@color/mainBlack"
-                        app:layout_constraintEnd_toStartOf="@+id/artistp_button_workwme"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/artistp_jobtitle" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_jobtitle"
+                        tools:layout_editor_absoluteX="10dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/artistp_button_workwme"
-                        style="@style/Widget.MaterialComponents.Button.Icon"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:insetLeft="0dp"
-                        android:insetTop="2dp"
-                        android:insetRight="0dp"
-                        android:insetBottom="2dp"
-                        android:text="Button"
-                        android:textAppearance="@style/artistpage_button_textstyle"
-                        android:textColor="@color/mainBlack"
-                        app:backgroundTint="@color/mainLightGrey"
-                        app:icon="@drawable/ic_baseline_chat_bubble_24"
-                        app:iconGravity="textEnd"
-                        app:iconPadding="10dp"
-                        app:iconTint="@color/mainBlack"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/artistp_button_chatnow"
-                        app:layout_constraintTop_toTopOf="@+id/artistp_button_chatnow" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/artistp_button_chatnow"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Message"
+                            android:textAppearance="@style/artistpage_button_textstyle"
+                            android:textColor="@color/mainBlack"
+                            app:backgroundTint="@color/mainLightGrey" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/artistp_button_workwme"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:insetLeft="10dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Shop"
+                            android:textAppearance="@style/artistpage_button_textstyle"
+                            android:textColor="@color/mainBlack"
+                            app:backgroundTint="@color/mainLightGrey" />
+                    </LinearLayout>
 
                     <androidx.gridlayout.widget.GridLayout
                         android:id="@+id/userpage_gridlayout_container"
@@ -217,7 +191,7 @@
                         app:columnOrderPreserved="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/artistp_button_chatnow"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                         app:rowOrderPreserved="true">
 
                         <com.google.android.material.imageview.ShapeableImageView
