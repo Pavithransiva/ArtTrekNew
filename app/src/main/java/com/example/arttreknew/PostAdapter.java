@@ -54,6 +54,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
         Glide.with(mContext).load(post.getPostimage()).into(viewHolder.post_image);
 
+
+
         if (post.getDescription().equals("")){
             viewHolder.description.setVisibility(View.GONE);
         }else{
@@ -61,10 +63,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             viewHolder.description.setText(post.getDescription());
         }
 
-        publisherInfo(viewHolder.image_profile, viewHolder.username, viewHolder.publisher, post.getPublisher());
-
-
-
+   publisherInfo(viewHolder.image_profile, viewHolder.username, viewHolder.publisher, post.getPublisher());
 
     }
 
@@ -87,7 +86,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             comment = itemView.findViewById(R.id.comment);
             username = itemView.findViewById(R.id.post_image_username);
             likes = itemView.findViewById(R.id.likes);
-            publisher = itemView.findViewById(R.id.publisher);
+           publisher = itemView.findViewById(R.id.publisher);
             description = itemView.findViewById(R.id.description);
             comments = itemView.findViewById(R.id.comments);
 
@@ -96,15 +95,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     }
     private void publisherInfo (final ImageView image_profile, final TextView username, final TextView publisher, final String email){
         FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("location").child(email);
-        DatabaseReference childRef = reference.child("users").child(currUserEmail.replace(".", "%"));
-        reference.addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("location");
+        DatabaseReference childRef = reference.child("users").child(email.replace(".","%"));
+        childRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                UserGetSet userGetSet = dataSnapshot.getValue(UserGetSet.class);
-                Glide.with(mContext).load(userGetSet.getImageURL()).into(image_profile);
-                username.setText(userGetSet.getFullname());
-                publisher.setText(userGetSet.getFullname());
+                Post post = dataSnapshot.getValue(Post.class);
+               Glide.with(mContext).load(post.getImageURL()).into(image_profile);
+               username.setText(post.getFullname());
+               publisher.setText(post.getFullname());
             }
 
             @Override

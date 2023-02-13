@@ -2,6 +2,7 @@ package com.example.arttreknew;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.arttreknew.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -33,7 +35,8 @@ public class HomePage extends AppCompatActivity {
     private List<Post> postList;
     private List<String> followingList;
 
-    private ImageButton searchbtn;
+    private ConstraintLayout searchbtn;
+
 
 
 
@@ -44,7 +47,7 @@ public class HomePage extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.home_page);
         bnv = findViewById(R.id.hp_bottomNavigationView);
-        searchbtn = findViewById(R.id.imageButtonSearch);
+        searchbtn = findViewById(R.id.hp_searchview_container);
 
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +89,7 @@ public class HomePage extends AppCompatActivity {
     private void checkFollowing(){
         followingList = new ArrayList<>();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("follow")
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("follow")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
                 .child("following");
 
@@ -107,8 +110,8 @@ public class HomePage extends AppCompatActivity {
         });
     }
     private void readPosts(){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts");
-
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("post");
+      //  DatabaseReference reference1
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -1,5 +1,6 @@
 package com.example.arttreknew;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +33,7 @@ public class SearchFragment extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
     private List<UserGetSet> mUsers;
-
+    private TextView CancelBtn;
     EditText search_bar;
 
     @Override
@@ -39,12 +41,19 @@ public class SearchFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_page);
      //   View view = inflater.inflate(R.layout.search_page, container, false);
-
+        CancelBtn = findViewById(R.id.cancel);
         recyclerView = findViewById(R.id.recycler_view);
        recyclerView.setHasFixedSize(true);
        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         search_bar = findViewById(R.id.searchviewp_searchview);
+        CancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchFragment.this, HomePage.class));
+                finish();
+            }
+        });
 
         mUsers = new ArrayList<>();
         userAdapter = new UserAdapter(getApplicationContext(), mUsers);
