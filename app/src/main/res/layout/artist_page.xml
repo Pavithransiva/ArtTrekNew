@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBlack">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/artistpage_bottomNavigationView"
+        style="@style/Widget.App.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/artistpage_bgimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:backgroundTint="#505050"
+                    android:backgroundTintMode="screen"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_topcollection_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/artistpage_ic_settings"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="artistpage_ic_settings"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_baseline_settings_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/artistp_button_follow"
+                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="300dp"
+                        android:contentDescription="artistp_button_follow"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:padding="0dp"
+                        app:backgroundTint="@color/mainLightGrey"
+                        app:icon="@drawable/ic_baseline_add_24"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="30dp"
+                        app:iconTint="@color/mainBlack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                    <TextView
+                        android:id="@+id/artistp_username"
+                        style="@style/artistpage_artistname_textstyle"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_button_follow" />
+
+                    <TextView
+                        android:id="@+id/artistp_jobtitle"
+                        style="@style/artistpage_artisttitle_textstyle"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_username" />
+
+                    <TextView
+                        android:id="@+id/artistp_following_number"
+                        style="@style/artistpage_follownumber_textstyle"
+                        android:text="100"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_username" />
+
+                    <TextView
+                        android:id="@+id/artistp_following_text"
+                        style="@style/artistpage_followtext_textstyle"
+                        android:text="Following"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/artistp_following_number"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_following_number" />
+
+                    <TextView
+                        android:id="@+id/artistp_follower_text"
+                        style="@style/artistpage_followtext_textstyle"
+                        android:text="Followers"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/artistp_follower_number"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_follower_number" />
+
+                    <TextView
+                        android:id="@+id/artistp_follower_number"
+                        style="@style/artistpage_follownumber_textstyle"
+                        android:layout_marginRight="15dp"
+                        android:text="100"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toStartOf="@+id/artistp_following_number"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_username" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/artistp_jobtitle"
+                        tools:layout_editor_absoluteX="10dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/artistp_button_chatnow"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Message"
+                            android:textAppearance="@style/artistpage_button_textstyle"
+                            android:textColor="@color/mainBlack"
+                            app:backgroundTint="@color/mainLightGrey" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/artistp_button_workwme"
+                            style="@style/Widget.MaterialComponents.Button.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:insetLeft="10dp"
+                            android:insetTop="0dp"
+                            android:insetRight="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Shop"
+                            android:textAppearance="@style/artistpage_button_textstyle"
+                            android:textColor="@color/mainBlack"
+                            app:backgroundTint="@color/mainLightGrey" />
+                    </LinearLayout>
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/userpage_gridlayout_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        app:columnCount="3"
+                        app:columnOrderPreserved="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                        app:rowOrderPreserved="true">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc_imageView_0"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc_imageView_1"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc__imageView_2"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                    </androidx.gridlayout.widget.GridLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_gridlayout_container">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

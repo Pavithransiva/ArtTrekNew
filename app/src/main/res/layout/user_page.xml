@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBlack">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/userpage_bottomNavigationView"
+        style="@style/Widget.App.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/userpage_bgimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:backgroundTint="#505050"
+                    android:backgroundTintMode="screen"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_topcollection_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/userpage_ic_settings"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="artistpage_ic_settings"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_baseline_settings_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/userpage_username"
+                        style="@style/artistpage_artistname_textstyle"
+                        android:layout_marginTop="360dp"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/userpage_jobtitle"
+                        style="@style/artistpage_artisttitle_textstyle"
+                        android:text="TextView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_username" />
+
+                    <TextView
+                        android:id="@+id/userpage_following_number"
+                        style="@style/artistpage_follownumber_textstyle"
+                        android:text="100"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_username" />
+
+                    <TextView
+                        android:id="@+id/userpage_following_text"
+                        style="@style/artistpage_followtext_textstyle"
+                        android:text="Following"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/userpage_following_number"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_following_number" />
+
+                    <TextView
+                        android:id="@+id/userpage_follower_text"
+                        style="@style/artistpage_followtext_textstyle"
+                        android:text="Followers"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@+id/userpage_follower_number"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_follower_number" />
+
+                    <TextView
+                        android:id="@+id/userpage_follower_number"
+                        style="@style/artistpage_follownumber_textstyle"
+                        android:layout_marginRight="15dp"
+                        android:text="100"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toStartOf="@+id/userpage_following_number"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_username" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/userpage_button_upload_pic"
+                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="2dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="2dp"
+                        android:text="Edit Profile"
+                        android:textAppearance="@style/artistpage_button_textstyle"
+                        android:textColor="@color/mainBlack"
+                        app:backgroundTint="@color/mainLightGrey"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="10dp"
+                        app:iconTint="@color/mainBlack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.526"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_jobtitle" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/userpage_button_upload_post"
+                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="2dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="2dp"
+                        android:text="Upload Post"
+                        android:textAppearance="@style/artistpage_button_textstyle"
+                        android:textColor="@color/mainBlack"
+                        app:backgroundTint="@color/mainLightGrey"
+                        app:iconGravity="textEnd"
+                        app:iconPadding="10dp"
+                        app:iconTint="@color/mainBlack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_pic" />
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/userpage_gridlayout_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        app:columnCount="3"
+                        app:columnOrderPreserved="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_post"
+                        app:rowOrderPreserved="true">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc_imageView_0"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc_imageView_1"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/userpage_glc__imageView_2"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="centerCrop"
+                            app:layout_columnWeight="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                            app:srcCompat="@drawable/img_topcollection_4" />
+
+                    </androidx.gridlayout.widget.GridLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userpage_gridlayout_container">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

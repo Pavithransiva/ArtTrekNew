@@ -57,17 +57,21 @@ public class LoginPage extends AppCompatActivity {
 
                 // data is valid
                 // login user
-                firebaseAuth.signInWithEmailAndPassword(Email.getText().toString(),Password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(Email.getText().toString(), Password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //Login is successful
+
                         startActivity(new Intent(getApplicationContext(),HomePage.class));
+
+                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginPage.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this,e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
              }
@@ -81,7 +85,11 @@ public class LoginPage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
+
             startActivity(new Intent(getApplicationContext(),HomePage.class));
+
+            startActivity(new Intent(getApplicationContext(), HomePage.class));
+
             finish();
         }
     }

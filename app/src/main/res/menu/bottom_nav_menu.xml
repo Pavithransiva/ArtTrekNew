@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-
+        android:id="@+id/botnav_ic_home"
         android:title="Home"
         android:icon="@drawable/ic_bottomnav_home_white"/>
 
     <item
-
+        android:id="@+id/botnav_ic_map"
         android:title="Map"
         android:icon="@drawable/ic_bottomnav_map_white"/>
 
     <item
-        android:enabled="true"
-        android:title="Community"
-        android:icon="@drawable/ic_community_pink"/>
+        android:id="@+id/botnav_ic_chat"
+        android:title="Chat"
+        android:icon="@drawable/ic_bottomnav_chat"/>
 
     <item
-
+        android:id="@+id/botnav_ic_profile"
         android:title="Profile"
-        android:icon="@drawable/ic_user_pink"/>
+        android:icon="@drawable/ic_bottomnav_user_white"/>
 
 </menu>

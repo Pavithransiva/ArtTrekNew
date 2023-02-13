@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBlack"
+    android:padding="10dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editprofilepage_ic_previous"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="artistpage_ic_previous"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
+        app:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:iconTint="@color/mainLightGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/editprofilepage_image_view"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="88dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+    <EditText
+        android:id="@+id/edit_text_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:hint="Enter Username Here"
+        android:textColor="@color/mainLightGrey"
+        android:textColorHint="@color/mainLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editprofilepage_image_view" />
+
+    <EditText
+        android:id="@+id/edit_title_file_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:hint="Enter Title Here"
+        android:textColor="@color/mainLightGrey"
+        android:textColorHint="@color/mainLightGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editprofilepage_image_view" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editprofilepage_button_choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="63dp"
+        android:insetLeft="0dp"
+        android:insetTop="2dp"
+        android:insetRight="0dp"
+        android:insetBottom="2dp"
+        android:text="Choose Image"
+        android:textAppearance="@style/artistpage_button_textstyle"
+        android:textColor="@color/mainBlack"
+        app:backgroundTint="@color/mainLightGrey"
+        app:iconGravity="textEnd"
+        app:iconPadding="10dp"
+        app:iconTint="@color/mainBlack"
+        app:layout_constraintEnd_toStartOf="@+id/editprofilepage_button_upload_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editprofilepage_button_upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:insetLeft="0dp"
+        android:insetTop="2dp"
+        android:insetRight="0dp"
+        android:insetBottom="2dp"
+        android:text="Upload"
+        android:textAppearance="@style/artistpage_button_textstyle"
+        android:textColor="@color/mainBlack"
+        app:backgroundTint="@color/mainLightGrey"
+        app:iconGravity="textEnd"
+        app:iconPadding="10dp"
+        app:iconTint="@color/mainBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editprofilepage_button_choose_image"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name" />
+
+    <ProgressBar
+        android:id="@+id/editprofilepage_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        app:layout_constraintBottom_toTopOf="@+id/editprofilepage_button_choose_image"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_file_name"
+        app:layout_constraintVertical_bias="0.708"
+        tools:layout_editor_absoluteX="9dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
