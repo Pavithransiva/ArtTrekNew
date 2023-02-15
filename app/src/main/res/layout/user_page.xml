@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBlack">
@@ -66,6 +67,7 @@
                     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -165,69 +167,15 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_pic" />
 
-                    <androidx.gridlayout.widget.GridLayout
-                        android:id="@+id/userpage_gridlayout_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        app:columnCount="3"
-                        app:columnOrderPreserved="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_button_upload_post"
-                        app:rowOrderPreserved="true">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc_imageView_0"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc_imageView_1"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc__imageView_2"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                    </androidx.gridlayout.widget.GridLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_gridlayout_container">
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/foto_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+                    tools:layout_editor_absoluteX="0dp" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
