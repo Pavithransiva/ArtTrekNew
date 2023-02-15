@@ -59,6 +59,11 @@ public class HomePage extends AppCompatActivity {
 
 
 
+
+        bnv = findViewById(R.id.hp_bottomNavigationView);
+        searchbtn = findViewById(R.id.hp_searchview_container);
+
+
                 bnv = findViewById(R.id.hp_bottomNavigationView);
                 searchbtn = findViewById(R.id.hp_searchview_container);
             //   Bundle intent = getIntent().getExtras();
@@ -92,6 +97,11 @@ public class HomePage extends AppCompatActivity {
                                 startActivity(new Intent(HomePage.this, UserPage.class));
                                 finish();
                                 return true;
+                            case R.id.botnav_ic_chat:
+                                startActivity(new Intent(HomePage.this, ChatLandingPage.class));
+                                finish();
+                                return true;
+
                         }
                         return false;
                     }

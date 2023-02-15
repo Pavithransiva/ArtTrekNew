@@ -42,7 +42,7 @@ public class UserAdapterChat extends RecyclerView.Adapter<UserAdapterChat.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         UserModelChat userModelChat = userModelsListChat.get(position);
-        holder.name.setText(userModelChat.getFullname());
+        holder.fullname.setText(userModelChat.getFullname());
         holder.email.setText(userModelChat.getEmail());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -56,16 +56,17 @@ public class UserAdapterChat extends RecyclerView.Adapter<UserAdapterChat.MyView
 
     }
 
+
     @Override
     public int getItemCount() {
         return userModelsListChat.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView name,email;
+        private TextView fullname,email;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            name=itemView.findViewById(R.id.cldp_cvc_title);
+            fullname=itemView.findViewById(R.id.cldp_cvc_title);
             email=itemView.findViewById(R.id.cldp_cvc_subtitle);
         }
     }

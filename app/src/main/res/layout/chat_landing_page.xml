@@ -5,18 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@color/mainBlack"
-    tools:context=".MainActivityChat">
+    android:background="@color/mainBlack">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chatldp_header_container"
@@ -144,7 +135,7 @@
                     android:id="@+id/cldp_cardview_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +155,7 @@
                         android:id="@+id/cldp_cvc_title"
                         style="@style/chatlandingpage_chatcard_header_text_style"
                         android:layout_marginLeft="15dp"
-                        android:text="Name"
+                        android:text="fullname"
                         app:layout_constraintBottom_toTopOf="@+id/cldp_cvc_subtitle"
                         app:layout_constraintStart_toEndOf="@+id/cldp_cvc_image"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +164,7 @@
                         android:id="@+id/cldp_cvc_subtitle"
                         style="@style/chatlandingpage_chatcard_subheader_text_style"
                         android:layout_marginBottom="8dp"
-                        android:text="Email"
+                        android:text="email"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/cldp_cvc_title"
                         app:layout_constraintTop_toBottomOf="@+id/cldp_cvc_title" />

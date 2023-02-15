@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.arttreknew.Adapter.MyFotoAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -36,8 +40,11 @@ import com.google.firebase.storage.StorageReference;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -63,6 +70,11 @@ public class UserPage extends AppCompatActivity {
     private StorageReference mStorageRef;
 
     private final String currUserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+    // post recycler view
+    RecyclerView recyclerView;
+    MyFotoAdapter myFotoAdapter;
+    List<Post> postList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +155,16 @@ public class UserPage extends AppCompatActivity {
 
         MaterialButton uploadBtn = findViewById(R.id.userpage_button_upload_post);
         uploadBtn.setOnClickListener(view -> createNewContactDialog());
+
+        // post recycler view
+        recyclerView = findViewById(R.id.foto_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        postList = new ArrayList<>();
+        myFotoAdapter = new MyFotoAdapter(getApplicationContext(), postList);
+        recyclerView.setAdapter(myFotoAdapter);
+        myFotos();
     }
 
     @SuppressLint({"MissingInflatedId", "MissingPermission"})
@@ -193,13 +215,14 @@ public class UserPage extends AppCompatActivity {
                 HashMap<String, Object> locationHashmap = new HashMap<>();
                 locationHashmap.put("location_name", locationName);
                 locationHashmap.put("description", description);
+                locationHashmap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"));
 
                 // initialize database
                 mDatabase = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/");
-                mRef = mDatabase.getReference("post").child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"));
+                mRef = mDatabase.getReference("post");
 
                 String key = mRef.push().getKey();
-                locationHashmap.put("key", key);
+                locationHashmap.put("postid", key);
 
                 if (key != null) {
                     // save button
@@ -255,8 +278,8 @@ public class UserPage extends AppCompatActivity {
                         String imageURL = uri.toString();
                         // Do something with the image URL
                         DatabaseReference rootRef = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("post");
-                        DatabaseReference parentRef = rootRef.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%")).child(key);
-                        DatabaseReference childRef = parentRef.child("image");
+                        DatabaseReference parentRef = rootRef.child(key);
+                        DatabaseReference childRef = parentRef.child("postimage");
 
                         childRef.setValue(imageURL)
                                 .addOnSuccessListener(aVoid -> {
@@ -280,5 +303,29 @@ public class UserPage extends AppCompatActivity {
                     double progressPercent = (100.00 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                     pd.setMessage("Percentage: " + (int) progressPercent + "%");
                 });
+    }
+
+    // post recycler view
+    private void myFotos() {
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("post");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Post post = snapshot.getValue(Post.class);
+                    if (post.getPublisher().equals(currUserEmail.replace(".", "%"))) {
+                        postList.add(post);
+                    }
+                }
+                Collections.reverse(postList);
+                myFotoAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
