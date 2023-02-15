@@ -48,15 +48,16 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:id="@+id/like"
+                android:layout_marginStart="15dp"
                 android:src="@drawable/ic_action_like_black"/>
 
             <ImageView
-                android:id="@+id/comment"
+                android:id="@+id/commentIcon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_action_comment_black_holo"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/like"
-                android:layout_marginStart="10dp"/>
+                android:src="@drawable/ic_action_comment_black_holo" />
         </RelativeLayout>
 
         <TextView

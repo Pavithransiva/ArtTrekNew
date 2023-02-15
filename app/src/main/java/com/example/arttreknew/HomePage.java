@@ -3,10 +3,12 @@ package com.example.arttreknew;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -55,100 +57,107 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.home_page);
 
 
-        MaterialButton button = findViewById(R.id.hphc_icon_chat);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this,ChatLandingPage.class);
-                startActivity(intent);
 
-        bnv = findViewById(R.id.hp_bottomNavigationView);
-        searchbtn = findViewById(R.id.hp_searchview_container);
 
-        searchbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomePage.this, SearchFragment.class));
-                finish();
-            }
-        });
-        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.botnav_ic_map:
-                        startActivity(new Intent(HomePage.this, MapFunction.class));
+                bnv = findViewById(R.id.hp_bottomNavigationView);
+                searchbtn = findViewById(R.id.hp_searchview_container);
+               // Bundle intent = getIntent().getExtras();
+              //  if( intent != null ){
+                 //   String publisher = intent.getString("publisherid");
+
+                 //   SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                 //   editor.putString("profiled",publisher);
+                 //   editor.apply();
+               //     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+               // }else {
+              //      getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+              //  }
+                searchbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(HomePage.this, SearchFragment.class));
                         finish();
-                        return true;
-                    case R.id.botnav_ic_profile:
-                        startActivity(new Intent(HomePage.this, UserPage.class));
-                        finish();
-                        return true;
-                }
-                return false;
-            }
-        });
-
-        recyclerView = findViewById(R.id.recycler_view_home);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getApplicationContext(),postList);
-        recyclerView.setAdapter(postAdapter);
-
-        checkFollowing();
-
-    }
-    private void checkFollowing(){
-        followingList = new ArrayList<>();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("follow")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
-                .child("following");
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                followingList.clear();
-                for( DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    followingList.add(snapshot.getKey());
-                }
-                readPosts();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-    private void readPosts(){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("post");
-      //  DatabaseReference reference1
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                postList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Post post = snapshot.getValue(Post.class);
-                    for (String email : followingList){
-                        if (post.getPublisher().equals(email)){
-                            postList.add(post);
-
-                        }
                     }
-                }
-                postAdapter.notifyDataSetChanged();
+                });
+                bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.botnav_ic_map:
+                                startActivity(new Intent(HomePage.this, MapFunction.class));
+                                finish();
+                                return true;
+                            case R.id.botnav_ic_profile:
+                                startActivity(new Intent(HomePage.this, UserPage.class));
+                                finish();
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+
+                recyclerView = findViewById(R.id.recycler_view_home);
+                recyclerView.setHasFixedSize(true);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+                linearLayoutManager.setReverseLayout(true);
+                linearLayoutManager.setStackFromEnd(true);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                postList = new ArrayList<>();
+                postAdapter = new PostAdapter(getApplicationContext(), postList);
+                recyclerView.setAdapter(postAdapter);
+
+                checkFollowing();
+
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            private void checkFollowing() {
+                followingList = new ArrayList<>();
 
+                DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("follow")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
+                        .child("following");
 
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        followingList.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            followingList.add(snapshot.getKey());
+                        }
+                        readPosts();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
-        });
-    }
-}
+
+            private void readPosts() {
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("post");
+                //  DatabaseReference reference1
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        postList.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Post post = snapshot.getValue(Post.class);
+                            for (String email : followingList) {
+                                if (post.getPublisher().equals(email)) {
+                                    postList.add(post);
+
+                                }
+                            }
+                        }
+                        postAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+
+                    }
+                });
+            }
+        };
