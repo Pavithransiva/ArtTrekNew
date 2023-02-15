@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/mainBlack"
+    android:padding="10dp">
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:id="@+id/settingslandingpage_button_previous"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        android:contentDescription="Previous"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
         app:srcCompat="@drawable/back_button" />
 
     <TextView
@@ -24,95 +22,76 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
-        android:textColor="@color/white"
-        android:textSize="70px"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        style="@style/SettingsLandingPage_Header_Text"
+        app:layout_constraintBottom_toBottomOf="@+id/settingslandingpage_button_previous"
+        app:layout_constraintStart_toEndOf="@+id/settingslandingpage_button_previous"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="413dp"
-        android:layout_height="56dp"
+        android:id="@+id/settingpage_button_noti"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
         android:text="Notification"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintTop_toBottomOf="@+id/settingslandingpage_button_previous" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="413dp"
-        android:layout_height="56dp"
+        android:id="@+id/settingpage_button_privacy"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
+
         android:text="Privacy"
-        android:backgroundTint="@color/black"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintTop_toBottomOf="@+id/settingpage_button_noti" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="413dp"
+        android:id="@+id/settingpage_button_security"
+        android:layout_width="0dp"
         android:layout_height="56dp"
+        android:backgroundTint="@color/black"
         android:text="Security"
-        android:backgroundTint="@color/black"
 
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintTop_toBottomOf="@+id/settingpage_button_privacy" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="413dp"
-        android:layout_height="56dp"
+        android:id="@+id/settingpage_button_account"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
         android:text="Account"
-        android:backgroundTint="@color/black"
 
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.339" />
+        app:layout_constraintTop_toBottomOf="@+id/settingpage_button_security" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="413dp"
-        android:layout_height="56dp"
+        android:id="@+id/settingpage_button_help"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
         android:text="Help"
-        android:backgroundTint="@color/black"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintTop_toBottomOf="@+id/settingpage_button_account" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="301dp"
-        android:layout_height="45dp"
+        android:id="@+id/settingpage_button_logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#D34F81"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:text="Log Out"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
-
+        app:layout_constraintTop_toBottomOf="@+id/settingpage_button_help" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

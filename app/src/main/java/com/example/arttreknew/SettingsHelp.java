@@ -8,13 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-public class HelpSettings extends AppCompatActivity {
+public class SettingsHelp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.help_settings);
+        setContentView(R.layout.settings_help);
         super.onCreate(savedInstanceState);
         final Button HelpCenter = findViewById(R.id.button10);
         final Button SupportRequests = findViewById(R.id.button11);

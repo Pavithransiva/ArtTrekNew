@@ -94,7 +94,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".HelpSettings"
+            android:name=".SettingsHelp"
             android:exported="false"
             tools:ignore="ExtraText">
             <meta-data

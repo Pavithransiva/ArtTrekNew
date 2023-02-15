@@ -19,8 +19,8 @@ public class SettingsPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.settings_page);
 
-        final Button log_out = findViewById(R.id.button6);
-        final Button Help = findViewById(R.id.button5);
+        final Button log_out = findViewById(R.id.settingpage_button_logout);
+        final Button Help = findViewById(R.id.settingpage_button_help);
 
         log_out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +36,7 @@ public class SettingsPage extends AppCompatActivity {
             public void onClick(View view) {
 
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(SettingsPage.this,HelpSettings.class));
+                startActivity(new Intent(SettingsPage.this, SettingsHelp.class));
                 finish();
             }
         });
