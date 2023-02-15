@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
-             android:layout_height="match_parent">
+             android:layout_height="wrap_content"
+
+       >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,12 +15,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/post_image_profile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                 />
+                android:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -28,13 +30,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="username"/>
+                android:text=""/>
 
         </LinearLayout>
+
         <ImageView
+            android:id="@+id/post_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/post_image" />
+            android:layout_height="228dp"
+            android:src="@mipmap/ic_launcher" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,21 +48,22 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:id="@+id/like"
+                android:layout_marginStart="15dp"
                 android:src="@drawable/ic_action_like_black"/>
 
             <ImageView
-                android:id="@+id/comment"
+                android:id="@+id/commentIcon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/ic_action_comment_black_holo"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@id/like"
-                android:layout_marginStart="10dp"/>
+                android:src="@drawable/ic_action_comment_black_holo" />
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:textStyle="bold"
             android:id="@+id/likes"
 
@@ -66,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:textStyle="bold"
             android:id="@+id/publisher"
 
@@ -74,14 +79,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:textStyle="bold"
             android:id="@+id/description"
             android:textColor="#000000"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"

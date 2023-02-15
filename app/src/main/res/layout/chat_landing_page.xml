@@ -7,6 +7,8 @@
     android:padding="10dp"
     android:background="@color/mainBlack">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chatldp_header_container"
         android:layout_width="match_parent"
@@ -72,6 +74,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +135,9 @@
                     android:id="@+id/cldp_cardview_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -150,7 +155,7 @@
                         android:id="@+id/cldp_cvc_title"
                         style="@style/chatlandingpage_chatcard_header_text_style"
                         android:layout_marginLeft="15dp"
-                        android:text="TextView"
+                        android:text="fullname"
                         app:layout_constraintBottom_toTopOf="@+id/cldp_cvc_subtitle"
                         app:layout_constraintStart_toEndOf="@+id/cldp_cvc_image"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -159,18 +164,11 @@
                         android:id="@+id/cldp_cvc_subtitle"
                         style="@style/chatlandingpage_chatcard_subheader_text_style"
                         android:layout_marginBottom="8dp"
-                        android:text="TextView"
+                        android:text="email"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/cldp_cvc_title"
                         app:layout_constraintTop_toBottomOf="@+id/cldp_cvc_title" />
 
-                    <TextView
-                        android:id="@+id/cldp_cvc_datetime"
-                        style="@style/chatlandingpage_chatcard_subheader_dateandtime_text_style"
-                        android:layout_marginLeft="5dp"
-                        android:text="TextView"
-                        app:layout_constraintStart_toEndOf="@+id/cldp_cvc_subtitle"
-                        app:layout_constraintTop_toTopOf="@+id/cldp_cvc_subtitle" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

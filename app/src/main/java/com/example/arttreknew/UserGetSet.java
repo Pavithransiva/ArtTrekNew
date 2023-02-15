@@ -5,10 +5,12 @@ public class UserGetSet {
     private String email;
     private String fullname;
     private String imageURL;
+
+
     private String posts;
     private String title;
 
-    public UserGetSet(String email, String fullname, String imageurl, String posts, String title) {
+    public UserGetSet(String email, String fullname, String imageURL, String posts, String title) {
         this.email = email;
         this.fullname = fullname;
         this.imageURL = imageURL;

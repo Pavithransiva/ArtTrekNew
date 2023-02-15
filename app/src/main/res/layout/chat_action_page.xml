@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     android:background="@color/mainBlack">
+
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chatactionp_header_container"
@@ -65,6 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/filledTextField"
             android:layout_width="0dp"
@@ -88,17 +91,16 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/searchviewp_hc_icon_0"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            tools:ignore="TouchTargetSizeCheck"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="searchviewp_hc_icon_0"
+            android:contentDescription="sendMessage"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
             android:insetBottom="0dp"
             android:padding="0dp"
             app:backgroundTint="#00FFFFFF"
-            app:icon="@drawable/ic_send_pink"
+            app:icon="@drawable/send_image"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
             app:iconSize="32dp"

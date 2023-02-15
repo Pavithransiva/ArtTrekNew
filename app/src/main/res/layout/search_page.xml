@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/searchviewp_cancel"
+        android:id="@+id/cancel"
         style="@style/SearchPage_cancelText_Style"
         android:clickable="true"
         android:text="CANCEL"
