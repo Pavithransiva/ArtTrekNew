@@ -18,6 +18,7 @@ import com.example.arttreknew.Comment;
 import com.example.arttreknew.CommentsActivity;
 import com.example.arttreknew.HomePage;
 import com.example.arttreknew.Post;
+import com.example.arttreknew.PostAdapter;
 import com.example.arttreknew.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,12 +33,28 @@ import java.util.List;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder>{
     private Context mContext;
     private List<Comment> mComment;
+    private String postid;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+        public ImageView image_profile;
+        public TextView username, commentShow;
+
+        public ViewHolder(@NonNull View itemView) {
+
+            super(itemView);
+            image_profile = itemView.findViewById(R.id.image_profile);
+            username = itemView.findViewById(R.id.username);
+            commentShow = itemView.findViewById(R.id.commentShow);
+        }
+    }
 
 private FirebaseUser firebaseUser;
 
-    public CommentAdapter(Context mContext, List<Comment> mComment) {
+    public CommentAdapter(Context mContext, List<Comment> mComment,String postid) {
         this.mContext = mContext;
         this.mComment = mComment;
+        this.postid = postid;
+
     }
 
     @NonNull
@@ -51,19 +68,17 @@ private FirebaseUser firebaseUser;
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference("Comments");
-        Comment comment = mComment.get(i);
+        Comment listcomment = mComment.get(i);
 
-        viewHolder.comment.setText(comment.getComment());
-        getUserInfo(viewHolder.image_profile, viewHolder.username, comment.getPublisher());
 
-        viewHolder.comment.setOnClickListener(new View.OnClickListener() {
+        viewHolder.commentShow.setText(listcomment.getComments());
+        getUserInfo(viewHolder.image_profile,viewHolder.username,viewHolder.commentShow, listcomment.getPublisher(), postid, i);
+
+        viewHolder.commentShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, HomePage.class);
-                intent.putExtra("publisherid", comment.getPublisher());
-               // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("publisherid", listcomment.getPublisher());
                 mContext.startActivity(intent);
             }
         });
@@ -72,8 +87,7 @@ private FirebaseUser firebaseUser;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, HomePage.class);
-                intent.putExtra("publisherid", comment.getPublisher());
-               intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("publisherid", listcomment.getPublisher());
                 mContext.startActivity(intent);
             }
         });
@@ -84,35 +98,28 @@ private FirebaseUser firebaseUser;
         return mComment.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView image_profile;
-        public TextView username, comment;
-
-        public ViewHolder(@NonNull View itemView) {
-
-            super(itemView);
-
-
-            image_profile = itemView.findViewById(R.id.image_profile);
-            username = itemView.findViewById(R.id.username);
-            comment = itemView.findViewById(R.id.comment);
-        }
-    }
-    private void getUserInfo(ImageView imageView, TextView username, String publisherid){
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("location")
-                .child("users").child(publisherid.replace(".", "%"));
+    private void getUserInfo(ImageView imageView, TextView username,TextView commentShow, String publisherid, String postid, int i ){
+            DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Comments")
+                .child(postid);
         //Log.println("putang inang mo ", "kakakkakaak");
       //  DatabaseReference childRef = reference.child("users").child(username);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Post post = dataSnapshot.getValue(Post.class);
+
                 //must ask nich
-             Glide.with(mContext).load(post.getImageURL()).into(imageView);
-               username.setText(post.getFullname());
-
-
+             //Glide.with(mContext).load(comment.getImageURL()).into(imageView);
+               int x = 0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if(i == x ){
+                    Log.i("SnapshotGenerated", snapshot +"please work");
+                    Comment comment = snapshot.getValue(Comment.class);
+                    commentShow.setText(comment.getComments());
+                    username.setText(comment.getPublisher().replace("%com", ".com"));
+                    }
+                x++;
+                }
             }
 
             @Override

@@ -61,17 +61,18 @@ public class HomePage extends AppCompatActivity {
 
                 bnv = findViewById(R.id.hp_bottomNavigationView);
                 searchbtn = findViewById(R.id.hp_searchview_container);
-               // Bundle intent = getIntent().getExtras();
+            //   Bundle intent = getIntent().getExtras();
               //  if( intent != null ){
-                 //   String publisher = intent.getString("publisherid");
+                //    String publisher = intent.getString("publisherid");
 
-                 //   SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                 //   editor.putString("profiled",publisher);
-                 //   editor.apply();
-               //     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
-               // }else {
-              //      getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
-              //  }
+                  // SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                    //editor.putString("profiled",publisher);
+                    //editor.apply();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+               //}
+                //else {
+             //      getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+              // }
                 searchbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

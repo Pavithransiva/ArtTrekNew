@@ -1,27 +1,29 @@
 package com.example.arttreknew;
 
-import com.example.arttreknew.Adapter.CommentAdapter;
 
-public class Comment {
 
-    private String comment ;
+public class Comment{
+
+    private String comments ;
     private String publisher;
 
-    public Comment (String comment, String publisher){
-        this.comment = comment;
+
+    public Comment(String comments, String publisher){
+        this.comments = comments;
         this.publisher = publisher;
-    }
-
-    public Comment (){
 
     }
 
-    public String getComment() {
-        return comment;
+    public Comment(){
+
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public String getPublisher() {
@@ -31,4 +33,6 @@ public class Comment {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+
 }

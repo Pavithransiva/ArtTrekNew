@@ -47,7 +47,9 @@ public class CommentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
-
+        Intent intent = getIntent();
+        postid = intent.getStringExtra("postid");
+        publisherid = intent.getStringExtra("publisherid");
         Toolbar toolbar = findViewById(R.id.Toolbar);
        // setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Comments");
@@ -64,7 +66,8 @@ public class CommentsActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         commentList = new ArrayList<>();
-        commentAdapter = new CommentAdapter(this, commentList);
+        commentAdapter = new CommentAdapter(this, commentList, postid);
+
         recyclerView.setAdapter(commentAdapter);
 
         addcomment = findViewById(R.id.add_comment);
@@ -72,9 +75,7 @@ public class CommentsActivity extends AppCompatActivity {
         post = findViewById(R.id.post);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        Intent intent = getIntent();
-        postid = intent.getStringExtra("postid");
-        publisherid = intent.getStringExtra("publisherid");
+
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,11 +91,11 @@ public class CommentsActivity extends AppCompatActivity {
         readComments();
     }
     private  void addComment() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Comments").child(postid);
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("comments", addcomment.getText().toString());
-        hashMap.put("publisher", firebaseUser.getEmail());
+        hashMap.put("publisher", firebaseUser.getEmail().replace(".", "%"));
 
         reference.push().setValue(hashMap);
         addcomment.setText("");
