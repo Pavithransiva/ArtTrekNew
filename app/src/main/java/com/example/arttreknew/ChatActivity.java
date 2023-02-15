@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 
-import com.example.arttreknew.databinding.AcitivtitychatMainBinding;
-import com.example.arttreknew.databinding.ChatActionPageBinding;
+
+import com.example.arttreknew.databinding.ActivityChatBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.UUID;
 
 public class ChatActivity extends AppCompatActivity {
-    AcitivtitychatMainBinding binding;
+    ActivityChatBinding binding;
     String receiverEmail;
     DatabaseReference mRefSender, mRefReceiver;
     String senderRoom,receiverRoom;
@@ -29,7 +29,7 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = AcitivtitychatMainBinding.inflate(getLayoutInflater());
+        binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         receiverEmail = getIntent().getStringExtra("email");

@@ -4,6 +4,13 @@ public class UserModelChat {
 
     private String fullname,email, password;
 
+    public UserModelChat(String fullname, String email, String password) {
+        this.fullname = fullname;
+        this.email = email;
+        this.password = password;
+
+    }
+
 
     public String getFullname() {
         return fullname;
@@ -27,13 +34,6 @@ public class UserModelChat {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public UserModelChat(String fullname, String email, String password) {
-        this.fullname = fullname;
-        this.email = email;
-        this.password = password;
-
     }
 
 

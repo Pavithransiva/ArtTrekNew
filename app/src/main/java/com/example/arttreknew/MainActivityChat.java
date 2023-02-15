@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
+import com.example.arttreknew.databinding.ActivityMainChatBinding;
 import com.example.arttreknew.databinding.ChatLandingPageBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -16,14 +17,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivityChat extends AppCompatActivity {
 
-   ChatLandingPageBinding binding;
+   ActivityMainChatBinding binding;
     DatabaseReference mRef;
     UserAdapterChat userAdapterChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ChatLandingPageBinding.inflate(getLayoutInflater());
+        binding = ActivityMainChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         userAdapterChat = new UserAdapterChat(this);
@@ -31,7 +32,7 @@ public class MainActivityChat extends AppCompatActivity {
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
 
 
-        mRef = FirebaseDatabase.getInstance().getReference("users");
+        mRef = FirebaseDatabase.getInstance().getReference("location");
 
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
