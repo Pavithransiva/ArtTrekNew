@@ -1,7 +1,9 @@
 package com.example.arttreknew.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.arttreknew.ArtistPage;
 import com.example.arttreknew.R;
 import com.example.arttreknew.UserGetSet;
+import com.example.arttreknew.UserPage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -47,7 +52,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        final UserGetSet userGetSet = mUsers.get(i);
+        UserGetSet userGetSet = mUsers.get(i);
 
         viewHolder.btn_follow.setVisibility(View.VISIBLE);
 
@@ -80,7 +85,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
                     FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
                             .child("followers").child(firebaseUser.getEmail().replace(".","%")).setValue(true);
                 }else{
-                    FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
+                    FirebaseDatabase.getInstance().getReference().child("follow").child(firebaseUser.getEmail().replace(".","%"))
                             .child("following").child(userGetSet.getEmail().replace(".","%")).removeValue();
                     FirebaseDatabase.getInstance().getReference().child("follow").child(userGetSet.getEmail().replace(".","%"))
                             .child("followers").child(firebaseUser.getEmail().replace(".","%")).removeValue();
@@ -88,6 +93,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             }
         });
 
+        viewHolder.fullname.setOnClickListener(view -> viewProfilePage(userGetSet.getEmail()));
+        viewHolder.Title.setOnClickListener(view -> viewProfilePage(userGetSet.getEmail()));
+        viewHolder.image_profile.setOnClickListener(view -> viewProfilePage(userGetSet.getEmail()));
     }
 
     @Override
@@ -109,7 +117,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             Title = itemView.findViewById(R.id.title);
             image_profile = itemView.findViewById(R.id.post_image_profile);
             btn_follow = itemView.findViewById(R.id.btn_follow);
-
         }
     }
 
@@ -131,5 +138,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
             }
         });
+    }
+
+    private void viewProfilePage(String email) {
+        if (!Objects.equals(email, FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+            Intent intent = new Intent(mContext, ArtistPage.class);
+            intent.putExtra("email", email);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
+        } else {
+            Intent intent = new Intent(mContext, UserPage.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
+        }
     }
 }

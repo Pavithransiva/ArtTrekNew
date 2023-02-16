@@ -44,28 +44,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/artistpage_ic_settings"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:contentDescription="artistpage_ic_settings"
-                    android:insetLeft="0dp"
-                    android:insetTop="0dp"
-                    android:insetRight="0dp"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    app:backgroundTint="#00FFFFFF"
-                    app:icon="@drawable/ic_baseline_settings_24"
-                    app:iconGravity="textStart"
-                    app:iconPadding="0dp"
-                    app:iconSize="30dp"
-                    app:iconTint="@color/mainLightGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,27 +53,23 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.button.MaterialButton
+                    <Button
                         android:id="@+id/artistp_button_follow"
-                        style="@style/Widget.MaterialComponents.Button.Icon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="300dp"
-                        android:contentDescription="artistp_button_follow"
+                        android:text="Follow"
+                        android:textColor="@color/black"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="330dp"
+                        android:layout_marginRight="10dp"
+                        app:backgroundTint="@color/mainLightGrey"
                         android:insetLeft="0dp"
                         android:insetTop="0dp"
                         android:insetRight="0dp"
                         android:insetBottom="0dp"
                         android:padding="0dp"
-                        app:backgroundTint="@color/mainLightGrey"
-                        app:icon="@drawable/ic_baseline_add_24"
-                        app:iconGravity="textStart"
-                        app:iconPadding="0dp"
-                        app:iconSize="30dp"
-                        app:iconTint="@color/mainBlack"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+                        app:layout_constraintRight_toRightOf="parent"/>
 
                     <TextView
                         android:id="@+id/artistp_username"
@@ -148,7 +122,7 @@
                         android:id="@+id/linearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="24dp"
                         android:orientation="horizontal"
                         app:layout_constraintTop_toBottomOf="@+id/artistp_jobtitle"
                         tools:layout_editor_absoluteX="10dp">
@@ -181,68 +155,6 @@
                             android:textColor="@color/mainBlack"
                             app:backgroundTint="@color/mainLightGrey" />
                     </LinearLayout>
-
-                    <androidx.gridlayout.widget.GridLayout
-                        android:id="@+id/userpage_gridlayout_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        app:columnCount="3"
-                        app:columnOrderPreserved="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                        app:rowOrderPreserved="true">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc_imageView_0"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc_imageView_1"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/userpage_glc__imageView_2"
-                            android:layout_width="110dp"
-                            android:layout_height="150dp"
-                            android:layout_margin="5dp"
-                            android:scaleType="centerCrop"
-                            app:layout_columnWeight="1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                            app:srcCompat="@drawable/img_topcollection_4" />
-
-                    </androidx.gridlayout.widget.GridLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userpage_gridlayout_container">
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
