@@ -1,4 +1,4 @@
 package com.example.arttreknew;
 
-public class ArtistProfile {
+public class Artist_page {
 }

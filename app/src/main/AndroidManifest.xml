@@ -35,9 +35,23 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCgABUcCQtHnVT5FGSCgjFUPsk28CwcheM" />
+        <activity
+            android:name=".Fragments.PostDetailFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <activity
             android:name=".Adapter.CommentAdapter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Adapter.MyFotoAdapter"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
