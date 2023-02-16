@@ -8,6 +8,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/post_image_profile"
+        android:clickable="true"
         android:src="@mipmap/ic_launcher"/>
 
     <LinearLayout

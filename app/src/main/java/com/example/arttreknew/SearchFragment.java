@@ -40,11 +40,11 @@ public class SearchFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_page);
-     //   View view = inflater.inflate(R.layout.search_page, container, false);
+        // View view = inflater.inflate(R.layout.search_page, container, false);
         CancelBtn = findViewById(R.id.cancel);
         recyclerView = findViewById(R.id.recycler_view);
-       recyclerView.setHasFixedSize(true);
-       recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         search_bar = findViewById(R.id.searchviewp_searchview);
         CancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +57,7 @@ public class SearchFragment extends AppCompatActivity {
 
         mUsers = new ArrayList<>();
         userAdapter = new UserAdapter(getApplicationContext(), mUsers);
-    recyclerView.setAdapter(userAdapter);
+        recyclerView.setAdapter(userAdapter);
 
         readUsers();
         search_bar.addTextChangedListener(new TextWatcher() {
