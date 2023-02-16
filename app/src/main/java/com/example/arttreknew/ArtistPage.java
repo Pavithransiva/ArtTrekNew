@@ -100,6 +100,26 @@ public class ArtistPage extends AppCompatActivity {
         TextView artistp_following_number = findViewById(R.id.artistp_following_number);
         Button followBtn = findViewById(R.id.artistp_button_follow);
 
+        followCounter(artistp_follower_number, artistp_following_number, followBtn);
+
+        followBtn.setOnClickListener(view -> {
+            if (followBtn.getText().toString().equals("Follow")){
+                FirebaseDatabase.getInstance().getReference().child("follow").child(currUserEmail.replace(".","%"))
+                        .child("following").child(currViewEmail.replace(".","%")).setValue(true);
+                FirebaseDatabase.getInstance().getReference().child("follow").child(currViewEmail.replace(".","%"))
+                        .child("followers").child(currUserEmail.replace(".","%")).setValue(true);
+            } else {
+                FirebaseDatabase.getInstance().getReference().child("follow").child(currUserEmail.replace(".","%"))
+                        .child("following").child(currViewEmail.replace(".","%")).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("follow").child(currViewEmail.replace(".","%"))
+                        .child("followers").child(currUserEmail.replace(".","%")).removeValue();
+                followBtn.setText("Follow", TextView.BufferType.EDITABLE);
+            }
+            followCounter(artistp_follower_number, artistp_following_number, followBtn);
+        });
+    }
+
+    public void followCounter(TextView artistp_follower_number, TextView artistp_following_number, Button followBtn) {
         DatabaseReference childRef2 = FirebaseDatabase.getInstance().getReference("follow").child(currViewEmail.replace(".", "%"));
         childRef2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -119,6 +139,7 @@ public class ArtistPage extends AppCompatActivity {
                         if (Objects.equals(dataSnapshot.getValue(), true)) {
                             Log.i("Output: ", dataSnapshot.toString());
                             followBtn.setText("Following", TextView.BufferType.EDITABLE);
+                            return;
                         }
                     }
                 }
