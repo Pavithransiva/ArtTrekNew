@@ -231,6 +231,37 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <!-- START - Image Details Pages -->
+        <activity
+            android:name=".ImageDetailsPage_0"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImageDetailsPage_1"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImageDetailsPage_2"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ImageDetailsPage_3"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- END - Image Details Pages -->
     </application>
 
 </manifest>

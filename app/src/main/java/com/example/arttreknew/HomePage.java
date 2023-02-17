@@ -19,6 +19,7 @@ import com.google.android.material.button.MaterialButton;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -44,9 +45,9 @@ public class HomePage extends AppCompatActivity {
     private List<Post> postList;
     private List<String> followingList;
 
+    private Button explorebtn;
+
     private ConstraintLayout searchbtn;
-
-
 
 
     @Override
@@ -56,119 +57,125 @@ public class HomePage extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.home_page);
 
+        bnv = findViewById(R.id.hp_bottomNavigationView);
+        searchbtn = findViewById(R.id.hp_searchview_container);
 
-
+        // Explore Button Direct to Explore Page
+        explorebtn = (Button) findViewById(R.id.homePage_button_explore);
+        explorebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, ExplorePage.class);
+                startActivity(intent);
+            }
+        });
 
 
         bnv = findViewById(R.id.hp_bottomNavigationView);
         searchbtn = findViewById(R.id.hp_searchview_container);
+        //   Bundle intent = getIntent().getExtras();
+        //  if( intent != null ){
+        //    String publisher = intent.getString("publisherid");
 
-
-                bnv = findViewById(R.id.hp_bottomNavigationView);
-                searchbtn = findViewById(R.id.hp_searchview_container);
-            //   Bundle intent = getIntent().getExtras();
-              //  if( intent != null ){
-                //    String publisher = intent.getString("publisherid");
-
-                  // SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                    //editor.putString("profiled",publisher);
-                    //editor.apply();
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
-               //}
-                //else {
-             //      getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
-              // }
-                searchbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(HomePage.this, SearchFragment.class));
+        // SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+        //editor.putString("profiled",publisher);
+        //editor.apply();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+        //}
+        //else {
+        //      getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Fragment()).commit();
+        // }
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePage.this, SearchFragment.class));
+                finish();
+            }
+        });
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.botnav_ic_map:
+                        startActivity(new Intent(HomePage.this, MapFunction.class));
                         finish();
-                    }
-                });
-                bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.botnav_ic_map:
-                                startActivity(new Intent(HomePage.this, MapFunction.class));
-                                finish();
-                                return true;
-                            case R.id.botnav_ic_profile:
-                                startActivity(new Intent(HomePage.this, UserPage.class));
-                                finish();
-                                return true;
-                            case R.id.botnav_ic_chat:
-                                startActivity(new Intent(HomePage.this, ChatLandingPage.class));
-                                finish();
-                                return true;
+                        return true;
+                    case R.id.botnav_ic_profile:
+                        startActivity(new Intent(HomePage.this, UserPage.class));
+                        finish();
+                        return true;
+                    case R.id.botnav_ic_chat:
+                        startActivity(new Intent(HomePage.this, ChatLandingPage.class));
+                        finish();
+                        return true;
 
-                        }
-                        return false;
-                    }
-                });
+                }
+                return false;
+            }
+        });
 
-                recyclerView = findViewById(R.id.recycler_view_home);
-                recyclerView.setHasFixedSize(true);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-                linearLayoutManager.setReverseLayout(true);
-                linearLayoutManager.setStackFromEnd(true);
-                recyclerView.setLayoutManager(linearLayoutManager);
-                postList = new ArrayList<>();
-                postAdapter = new PostAdapter(getApplicationContext(), postList);
-                recyclerView.setAdapter(postAdapter);
+        recyclerView = findViewById(R.id.recycler_view_home);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        postList = new ArrayList<>();
+        postAdapter = new PostAdapter(getApplicationContext(), postList);
+        recyclerView.setAdapter(postAdapter);
 
-                checkFollowing();
+        checkFollowing();
 
+    }
+
+    private void checkFollowing() {
+        followingList = new ArrayList<>();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("follow")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
+                .child("following");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                followingList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    followingList.add(snapshot.getKey());
+                }
+                readPosts();
             }
 
-            private void checkFollowing() {
-                followingList = new ArrayList<>();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-                DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("follow")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"))
-                        .child("following");
+            }
+        });
+    }
 
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        followingList.clear();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            followingList.add(snapshot.getKey());
+    private void readPosts() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("post");
+        //  DatabaseReference reference1
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Post post = snapshot.getValue(Post.class);
+                    for (String email : followingList) {
+                        if (post.getPublisher().equals(email)) {
+                            postList.add(post);
+
                         }
-                        readPosts();
                     }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                }
+                postAdapter.notifyDataSetChanged();
             }
 
-            private void readPosts() {
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("post");
-                //  DatabaseReference reference1
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        postList.clear();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Post post = snapshot.getValue(Post.class);
-                            for (String email : followingList) {
-                                if (post.getPublisher().equals(email)) {
-                                    postList.add(post);
-
-                                }
-                            }
-                        }
-                        postAdapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
 
-                    }
-                });
             }
-        };
+        });
+    }
+}

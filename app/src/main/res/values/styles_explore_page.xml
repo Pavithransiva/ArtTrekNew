@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Round Corner Style -->
+    <style name="explorePage_roundedCorner_image" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!-- Image Style Attribute -->
+    <style name="explorePage_shortImage_attribute">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="explorePage_longImage_attribute">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">310dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+</resources>

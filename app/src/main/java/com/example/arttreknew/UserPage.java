@@ -119,6 +119,10 @@ public class UserPage extends AppCompatActivity {
                     startActivity(new Intent(UserPage.this, MapFunction.class));
                     finish();
                     return true;
+                case R.id.botnav_ic_chat:
+                    startActivity(new Intent(UserPage.this, ChatLandingPage.class));
+                    finish();
+                    return true;
             }
             return false;
 

@@ -14,11 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <!-- Round Corner Style -->
-    <style name="container_roundedCorner_topcollection" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">8dp</item>
-    </style>
+
 
     <!-- Circle Image -->
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
