@@ -45,7 +45,7 @@ public class EmailVerificationSignUp extends AppCompatActivity {
         VerifyNowMsg = findViewById(R.id.VerifyEmailNow);
         DoneVerifying = findViewById(R.id.imageButton12);
         Auth = FirebaseAuth.getInstance();
-        email = Auth.getCurrentUser().getEmail();
+        email = Auth.getCurrentUser().getEmail().replace(".", "%");
 
         VerifyEmail.setOnClickListener(new View.OnClickListener() {
             @Override
