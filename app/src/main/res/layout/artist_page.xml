@@ -155,7 +155,7 @@
                             android:textColor="@color/mainBlack"
                             app:backgroundTint="@color/mainLightGrey" />
                     </LinearLayout>
-                    
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
