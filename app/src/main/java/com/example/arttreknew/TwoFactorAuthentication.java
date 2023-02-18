@@ -28,6 +28,7 @@ private String verificationId;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.two_factorauthentication);
 
+
         TextView textMobile = findViewById(R.id.textView25);
         textMobile.setText(String.format(
                 "+60-%s", getIntent().getStringExtra("mobile")

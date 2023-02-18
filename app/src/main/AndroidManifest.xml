@@ -17,6 +17,7 @@
         android:theme="@style/Theme.ArtTrekNew"
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
+
         <activity
             android:name=".ArtistPage"
             android:exported="false" >
@@ -24,9 +25,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".CommentsActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".ExplorePage"
             android:exported="false" >
@@ -34,12 +34,46 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".SettingsAccountPage"
+            android:exported="false">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".SettingsSecurityPage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SettingsPrivacyPage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SettingsNotificationPage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <meta-data
             android:name="com.google.android.gms.version "
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCgABUcCQtHnVT5FGSCgjFUPsk28CwcheM" />
+
+
         <activity
             android:name=".Fragments.PostDetailFragment"
             android:exported="false">
@@ -47,10 +81,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Adapter.CommentAdapter"
             android:exported="false" >
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

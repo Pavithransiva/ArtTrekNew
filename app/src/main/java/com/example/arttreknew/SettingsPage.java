@@ -19,6 +19,43 @@ public class SettingsPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.settings_page);
 
+        Button button = findViewById(R.id.settingpage_button_noti);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPage.this, SettingsNotificationPage.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button5 = findViewById(R.id.settingpage_button_privacy);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPage.this, SettingsPrivacyPage.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button6 = findViewById(R.id.settingpage_button_security);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPage.this, SettingsSecurityPage.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button7 = findViewById(R.id.settingpage_button_account);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPage.this, SettingsAccountPage.class);
+                startActivity(intent);
+
+            }
+        });
+
         final Button log_out = findViewById(R.id.settingpage_button_logout);
         final Button Help = findViewById(R.id.settingpage_button_help);
 
