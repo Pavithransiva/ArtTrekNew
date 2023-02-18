@@ -30,13 +30,13 @@
                     android:backgroundTint="#505050"
                     android:backgroundTintMode="screen"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_topcollection_4"
+                    android:src="@drawable/img_explore_3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/imagedetailpage_ic_previous"
+                    android:id="@+id/imagedetailpage0_ic_previous"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -71,14 +71,14 @@
                         android:id="@+id/imagedetailpage_img_name"
                         style="@style/imgdp_Title_Style"
                         android:layout_marginTop="600dp"
-                        android:text="TextView"
+                        android:text="Art Name"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/imagedetailpage_artist_name"
                         style="@style/imgdp_subtitle_Style"
-                        android:text="TextView"
+                        android:text="Artist Name"
                         app:layout_constraintStart_toStartOf="@+id/imagedetailpage_img_name"
                         app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_img_name" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,91 +100,78 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.chip.Chip
-                            android:id="@+id/imagedetailpage_colorchip_0"
                             android:layout_width="80dp"
                             android:layout_height="50dp"
                             android:textAppearance="@style/artistpage_chip_textstyle"
                             android:textColor="@color/mainLightGrey"
-                            app:chipBackgroundColor="@color/mainOrange" />
+                            app:chipBackgroundColor="#42C1F3" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#F8FDF7" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#E76673" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#0F6EAF" />
 
                     </com.google.android.material.chip.ChipGroup>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_0"
-                    android:text="TextView"
+                    android:text="Year"
                     style="@style/imgdp_subtitle2_Style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_chipgroup_container_0" />
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_1"
-                    android:text="TextView"
+                    android:text="20XX"
                     style="@style/imgdp_subtitle2_sub_Style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_0" />
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_2"
-                    android:text="TextView"
+                    android:text="Location"
                     style="@style/imgdp_subtitle2_Style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_1" />
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_3"
-                    android:text="TextView"
+                    android:text="City, Country"
                     style="@style/imgdp_subtitle2_sub_Style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_2" />
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_4"
-                    android:text="TextView"
+                    android:text="Description"
                     style="@style/imgdp_subtitle2_Style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_3" />
 
                 <TextView
                     android:id="@+id/imagedetailpage_text_5"
-                    android:text="TextView"
                     style="@style/imgdp_subtitle2_sub_Style"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/img_description"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_4" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/imagedetailpage_chipgroup_container_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_5">
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/imagedetailpage_tagchip_0"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:textAppearance="@style/artistpage_chip_textstyle"
-                            android:textColor="@color/mainLightGrey"
-                            app:chipBackgroundColor="@color/mainOrange" />
-
-                    </com.google.android.material.chip.ChipGroup>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/imagedetailpage_description"
-                    android:text="TextView"
-                    style="@style/imgdp_description_Style"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_chipgroup_container_1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

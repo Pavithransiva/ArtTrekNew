@@ -62,9 +62,9 @@ public class LoginPage extends AppCompatActivity {
                     public void onSuccess(AuthResult authResult) {
                         //Login is successful
 
-                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        startActivity(new Intent(getApplicationContext(),EmailVerificationFromSignIn.class));
 
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                      //  startActivity(new Intent(getApplicationContext(), HomePage.class));
 
                         finish();
                     }
@@ -88,7 +88,7 @@ public class LoginPage extends AppCompatActivity {
 
             startActivity(new Intent(getApplicationContext(),HomePage.class));
 
-            startActivity(new Intent(getApplicationContext(), HomePage.class));
+           // startActivity(new Intent(getApplicationContext(), HomePage.class));
 
             finish();
         }

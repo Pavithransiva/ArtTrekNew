@@ -14,13 +14,16 @@ import android.widget.Toast;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
 public class twoFactorauthenticationfromsignup extends AppCompatActivity {
-
+    private final String currUserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,8 @@ public class twoFactorauthenticationfromsignup extends AppCompatActivity {
         final EditText inputMobile = findViewById(R.id.editTextPhone);
         ImageButton GetOtp = findViewById(R.id.imageButton41);
         FirebaseAuth Auth;
+        FirebaseUser firebaseUser;
+        DatabaseReference databaseReference;
 
 
         final ProgressBar progressBar ;
