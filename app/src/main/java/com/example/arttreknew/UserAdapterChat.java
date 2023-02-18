@@ -66,8 +66,6 @@ public class UserAdapterChat extends RecyclerView.Adapter<UserAdapterChat.MyView
         private TextView fullname,email;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            fullname=itemView.findViewById(R.id.cldp_cvc_title);
-            email=itemView.findViewById(R.id.cldp_cvc_subtitle);
         }
     }
 }

@@ -47,7 +47,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/searchviewColor"
         android:clickable="true"
-        android:queryHint="@string/placeholder"
+        android:queryHint="Type Here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homepage_header_container">
@@ -76,53 +76,54 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:id="@+id/hp_tab_container"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171">
+        app:layout_constraintTop_toBottomOf="@+id/hp_searchview_container">
 
-        <TextView
-            android:id="@+id/hptc_text_0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham_medium_italic"
-            android:text="@string/submenu_0"
-            android:textColor="@color/lightPink_0"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/hptc_text_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homePage_button_home"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:insetLeft="0dp"
+            android:insetTop="2dp"
+            android:insetRight="0dp"
+            android:insetBottom="2dp"
+            android:text="Home"
+            android:textAppearance="@style/homePage_homeButton_textStyle"
+            android:textColor="@color/mainPink"
+            app:backgroundTint="@color/mainBlack" />
 
-        <TextView
-            android:id="@+id/hptc_text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham_medium"
-            android:text="@string/submenu_1"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homePage_button_explore"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:insetLeft="0dp"
+            android:insetTop="2dp"
+            android:insetRight="0dp"
+            android:insetBottom="2dp"
+            android:text="Explore"
+            android:textAppearance="@style/homePage_homeButton_textStyle"
             android:textColor="@color/mainLightGrey"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hptc_text_0"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:backgroundTint="@color/mainBlack" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_home"
         android:layout_width="379dp"
         android:layout_height="474dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

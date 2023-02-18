@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/mainBlack">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatactionp_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/chatactionp0_btn_previous"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="chatactionp_hc_icon_previous"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:backgroundTint="#00FFFFFF"
+            app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="30dp"
+            app:iconTint="@color/mainLightGrey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/chatactionp_hc_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_ray_light_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chatactionp0_btn_previous"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <TextView
+            android:id="@+id/chatactionp_hc_text"
+            style="@style/chatactionpage_headertitle_text_style"
+            android:text="Narhtivap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chatactionp_hc_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatactionp_header_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chatactionp_chatcontainer_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/chatactionp_ccl_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_light_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/chatactionp_ccl_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccl_text"
+                    style="@style/chatactionpage_chatdeplayleft_text_style"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:background="@drawable/shape_bg_sentmessage_left"
+                    android:lineSpacingExtra="3sp"
+                    android:padding="@dimen/_12sdp"
+                    android:text="@string/pavi0"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toEndOf="@+id/chatactionp_ccl_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccl_datetime"
+                    style="@style/chatactionpage_chattimeleft_text_style"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="12:58 AM"
+                    app:layout_constraintStart_toStartOf="@+id/chatactionp_ccl_text"
+                    app:layout_constraintTop_toBottomOf="@+id/chatactionp_ccl_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chatactionp_chatcontainer_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/chatactionp_ccr_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_0"
+                    app:layout_constraintBottom_toBottomOf="@+id/chatactionp_ccr_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccr_text"
+                    style="@style/chatactionpage_chatdeplayright_text_style"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/shape_bg_sentmessage"
+                    android:lineSpacingExtra="3sp"
+                    android:padding="@dimen/_12sdp"
+                    android:text="@string/pavi1"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintEnd_toStartOf="@+id/chatactionp_ccr_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccr_datetime"
+                    style="@style/chatactionpage_chattimeright_text_style"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="1:00 AM"
+                    app:layout_constraintEnd_toStartOf="@+id/chatactionp_ccr_image"
+                    app:layout_constraintTop_toBottomOf="@+id/chatactionp_ccr_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chatactionp_chatinput_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/mainBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="Chat here"
+            android:textColorHint="@color/mainLightGrey"
+            app:boxBackgroundColor="#303030"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/searchviewp_hc_icon_0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/mainLightGrey" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchviewp_hc_icon_0"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="sendMessage"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:backgroundTint="#00FFFFFF"
+            app:icon="@drawable/send_image"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="32dp"
+            app:iconTint="@color/mainPink"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/filledTextField"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,16 @@
     android:padding="10dp"
     android:background="@color/mainBlack">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/explorePage_bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.App.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/explorepage_header_container"
         android:layout_width="match_parent"
@@ -34,7 +44,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@color/searchviewColor"
-        android:queryHint="@string/placeholder"
+        android:queryHint="Type Here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explorepage_header_container">
@@ -63,40 +73,46 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ep_tab_container"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ep_searchview_container">
 
-        <TextView
-            android:id="@+id/eptc_text_0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham_bold"
-            android:text="@string/submenu_0"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/explorePage_button_home"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:insetLeft="0dp"
+            android:insetTop="2dp"
+            android:insetRight="0dp"
+            android:insetBottom="2dp"
+            android:text="Home"
+            android:textAppearance="@style/homePage_homeButton_textStyle"
             android:textColor="@color/mainLightGrey"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/eptc_text_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:backgroundTint="@color/mainBlack" />
 
-        <TextView
-            android:id="@+id/eptc_text_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gotham_bold_italic"
-            android:text="@string/submenu_1"
-            android:textColor="@color/lightPink_0"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/eptc_text_0"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/explorePage_button_explore"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:insetLeft="0dp"
+            android:insetTop="2dp"
+            android:insetRight="0dp"
+            android:insetBottom="2dp"
+            android:text="Explore"
+            android:textAppearance="@style/homePage_homeButton_textStyle"
+            android:textColor="@color/mainPink"
+            app:backgroundTint="@color/mainBlack" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/ep_scrollview"
@@ -105,7 +121,7 @@
         android:contentDescription="ep_scrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ep_tab_container">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,31 +138,121 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/epglc_imageView_0"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="5dp"
-                    android:scaleType="centerCrop"
+                    style="@style/explorePage_shortImage_attribute"
+                    android:clickable="true"
                     app:layout_columnWeight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                    app:srcCompat="@drawable/img_topcollection_4" />
+                    app:srcCompat="@drawable/img_explore_0" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/epglc_imageView_1"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="5dp"
-                    android:scaleType="centerCrop"
+                    style="@style/explorePage_longImage_attribute"
                     app:layout_columnWeight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_rowSpan="2"
                     app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                    app:srcCompat="@drawable/img_topcollection_4" />
+                    app:srcCompat="@drawable/img_explore_1" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/epglc_imageView_2"
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_2" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/epglc_imageView_3"
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_3" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_4" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_5" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_6" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_7" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_8" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_9" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_10" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_11" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_12" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_13" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_longImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:layout_rowSpan="2"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_14" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    style="@style/explorePage_shortImage_attribute"
+                    app:layout_columnWeight="1"
+                    app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
+                    app:srcCompat="@drawable/img_explore_15" />
 
             </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 

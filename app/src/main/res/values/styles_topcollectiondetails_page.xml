@@ -24,4 +24,10 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/mainLightGrey</item>
     </style>
+
+    <!-- Round Corner Style -->
+    <style name="container_roundedCorner_topcollection" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

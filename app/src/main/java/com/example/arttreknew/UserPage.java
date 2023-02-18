@@ -37,8 +37,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -117,6 +115,10 @@ public class UserPage extends AppCompatActivity {
                     return true;
                 case R.id.botnav_ic_map:
                     startActivity(new Intent(UserPage.this, MapFunction.class));
+                    finish();
+                    return true;
+                case R.id.botnav_ic_chat:
+                    startActivity(new Intent(UserPage.this, ChatLandingPage.class));
                     finish();
                     return true;
             }
