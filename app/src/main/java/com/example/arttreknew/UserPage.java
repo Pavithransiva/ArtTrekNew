@@ -13,6 +13,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -167,6 +168,11 @@ public class UserPage extends AppCompatActivity {
         myFotoAdapter = new MyFotoAdapter(getApplicationContext(), postList);
         recyclerView.setAdapter(myFotoAdapter);
         myFotos();
+
+        TextView artistp_follower_number = findViewById(R.id.userpage_follower_number);
+        TextView artistp_following_number = findViewById(R.id.userpage_following_number);
+
+        followCounter(artistp_follower_number, artistp_following_number);
     }
 
     @SuppressLint({"MissingInflatedId", "MissingPermission"})
@@ -322,6 +328,29 @@ public class UserPage extends AppCompatActivity {
                 }
                 Collections.reverse(postList);
                 myFotoAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void followCounter(TextView userp_follower_number, TextView userp_following_number) {
+        DatabaseReference childRef2 = FirebaseDatabase.getInstance().getReference("follow").child(currUserEmail.replace(".", "%"));
+        childRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String countToString;
+
+                long followerCount = snapshot.child("followers").getChildrenCount();
+                countToString = Long.toString(followerCount);
+                userp_follower_number.setText(countToString, TextView.BufferType.EDITABLE);
+
+                long followingCount = snapshot.child("following").getChildrenCount();
+                countToString = Long.toString(followingCount);
+                userp_following_number.setText(countToString, TextView.BufferType.EDITABLE);
             }
 
             @Override

@@ -2,6 +2,9 @@ package com.example.arttreknew;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.arttreknew.Adapter.MyFotoAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,12 +24,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class ArtistPage extends AppCompatActivity {
     private BottomNavigationView bnv;
     String currViewEmail;
+
+    // post recycler view
+    RecyclerView recyclerView;
+    MyFotoAdapter myFotoAdapter;
+    List<Post> postList;
 
     private final String currUserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
@@ -117,6 +129,16 @@ public class ArtistPage extends AppCompatActivity {
             }
             followCounter(artistp_follower_number, artistp_following_number, followBtn);
         });
+
+        // post recycler view
+        recyclerView = findViewById(R.id.foto_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getApplicationContext(), 3);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        postList = new ArrayList<>();
+        myFotoAdapter = new MyFotoAdapter(getApplicationContext(), postList);
+        recyclerView.setAdapter(myFotoAdapter);
+        myFotos();
     }
 
     public void followCounter(TextView artistp_follower_number, TextView artistp_following_number, Button followBtn) {
@@ -143,6 +165,30 @@ public class ArtistPage extends AppCompatActivity {
                         }
                     }
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    // post recycler view
+    private void myFotos() {
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("post");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Post post = snapshot.getValue(Post.class);
+                    if (post.getPublisher().equals(currViewEmail.replace(".", "%"))) {
+                        postList.add(post);
+                    }
+                }
+                Collections.reverse(postList);
+                myFotoAdapter.notifyDataSetChanged();
             }
 
             @Override
