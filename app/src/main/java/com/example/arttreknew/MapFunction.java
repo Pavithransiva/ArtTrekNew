@@ -168,6 +168,8 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
         // geocoder
         geocoder = new Geocoder(this);
 
+        googleMap.setPadding(0, 0, 0, 140);
+
         // zoom to current location on start up
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, location -> {
