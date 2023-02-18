@@ -269,7 +269,8 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- START - Image Details Pages -->
+        </activity>
+        <!-- START - Image Details Pages -->
         <activity
             android:name=".ImageDetailsPage_0"
             android:exported="false">
@@ -298,6 +299,72 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <!-- END - Image Details Pages -->
+        <activity
+            android:name=".ChatNewMessagePage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- START - Chat Action Pages -->
+        <activity
+            android:name=".ChatActionPage_L0"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_L1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_L2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_L3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_D0"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_D1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_D2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ChatActionPage_D3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- END - Chat Action Pages -->
     </application>
 
 </manifest>

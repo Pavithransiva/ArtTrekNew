@@ -9,41 +9,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chatnmp_header_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/cnmp_hc_icon_previous"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="cnmp_hc_icon_previous"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            app:backgroundTint="#00FFFFFF"
-            app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconSize="30dp"
-            app:iconTint="@color/mainLightGrey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
         <TextView
             android:id="@+id/cnmp_hc_title_text"
             style="@style/chatlandingpage_headertitle_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="New Chat"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cnmp_hc_icon_previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cnmp_cancel"
+            style="@style/chatnewmessagepage_cancel"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -61,77 +49,108 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cnmp_container_user0"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cnmp_searchview_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/searchviewColor"
-                    android:queryHint="@string/placeholder"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cnmp_userprofile0"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
-                    <ImageView
-                        android:id="@+id/cnmp_svc_icon_search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_search"
-                        tools:ignore="DuplicateSpeakableTextCheck" />
+                <TextView
+                    android:id="@+id/cnmp_username0"
+                    style="@style/chatlandingpage_chatcard_header_text_style"
+                    android:layout_marginLeft="15dp"
+                    android:text="Mohsen"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile0"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/cnmp_svc_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:text="TextView"
-                        android:textColor="@color/mainLightGrey"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cnmp_svc_icon_search"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cnmp_container_user1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="15dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cnmp_cardview_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cnmp_userprofile1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/cnmp_cvc_image"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/profile"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+                <TextView
+                    android:id="@+id/cnmp_username1"
+                    style="@style/chatlandingpage_chatcard_header_text_style"
+                    android:layout_marginLeft="15dp"
+                    android:text="Sumanthi"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile1"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/cnmp_cvc_title"
-                        style="@style/chatlandingpage_chatcard_header_text_style"
-                        android:layout_marginLeft="15dp"
-                        android:text="TextView"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/cnmp_cvc_image"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cnmp_container_user2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cnmp_userprofile2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/cnmp_username2"
+                    style="@style/chatlandingpage_chatcard_header_text_style"
+                    android:layout_marginLeft="15dp"
+                    android:text="Sham Shul"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile2"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cnmp_container_user3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cnmp_userprofile3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/cnmp_username3"
+                    style="@style/chatlandingpage_chatcard_header_text_style"
+                    android:layout_marginLeft="15dp"
+                    android:text="Goh Wei Wei"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile3"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
