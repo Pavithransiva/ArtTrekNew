@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mainBlack">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imagedetailpage_bgimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="700dp"
+                    android:backgroundTint="#505050"
+                    android:backgroundTintMode="screen"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_explore_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/imagedetailpage0_ic_previous"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:contentDescription="imagedetailpage_ic_previous"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/mainLightGrey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/imagedetailpage_img_name"
+                        style="@style/imgdp_Title_Style"
+                        android:layout_marginTop="600dp"
+                        android:text="Art Name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/imagedetailpage_artist_name"
+                        style="@style/imgdp_subtitle_Style"
+                        android:text="Artist Name"
+                        app:layout_constraintStart_toStartOf="@+id/imagedetailpage_img_name"
+                        app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_img_name" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/imagedetailpage_chipgroup_container_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#BD630F" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#F6D576" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#6A6E6D" />
+
+                        <com.google.android.material.chip.Chip
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:textAppearance="@style/artistpage_chip_textstyle"
+                            android:textColor="@color/mainLightGrey"
+                            app:chipBackgroundColor="#363634" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_0"
+                    android:text="Year"
+                    style="@style/imgdp_subtitle2_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_chipgroup_container_0" />
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_1"
+                    android:text="20XX"
+                    style="@style/imgdp_subtitle2_sub_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_0" />
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_2"
+                    android:text="Location"
+                    style="@style/imgdp_subtitle2_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_1" />
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_3"
+                    android:text="City, Country"
+                    style="@style/imgdp_subtitle2_sub_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_2" />
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_4"
+                    android:text="Description"
+                    style="@style/imgdp_subtitle2_Style"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_3" />
+
+                <TextView
+                    android:id="@+id/imagedetailpage_text_5"
+                    style="@style/imgdp_subtitle2_sub_Style"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/img_description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imagedetailpage_text_4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

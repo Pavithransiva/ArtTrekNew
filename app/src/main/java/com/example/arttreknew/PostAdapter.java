@@ -68,6 +68,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
    publisherInfo(viewHolder.image_profile, viewHolder.username, viewHolder.publisher, post.getPublisher());
         isLiked(post.getPostid(), viewHolder.like);
         nrLikes(viewHolder.likes, post.getPublisher());
+        nrLikes(viewHolder.likes, post.getPostid());
         getComments(post.getPostid(), viewHolder.comments);
 
         viewHolder.image_profile.setOnClickListener(new View.OnClickListener() {
@@ -116,11 +117,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 if (viewHolder.like.getTag().equals("like")){
-                    FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid())
-                            .child(firebaseUser.getEmail().replace(".", "%")).setValue(true);
+                    FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                            .child("Likes")
+                            .child(post.getPostid())
+                            .child(firebaseUser.getEmail()
+                                    .replace(".", "%")).setValue(true);
                 }else{
-                    FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid())
-                            .child(firebaseUser.getEmail().replace(".", "%")).removeValue();
+                    FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                            .child("Likes").child(post.getPostid())
+                            .child(firebaseUser.getEmail()
+                                    .replace(".", "%")).removeValue();
                 }
             }
         });
@@ -215,14 +221,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         });
     }
     private void nrLikes(TextView likes, String postid){
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference("Likes")
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
+                .child("Likes")
                 .child(postid);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.i("test",dataSnapshot.toString());
-                likes.setText(dataSnapshot.getChildrenCount()+ "likes");
+                likes.setText(dataSnapshot.getChildrenCount()+ " likes");
             }
 
             @Override

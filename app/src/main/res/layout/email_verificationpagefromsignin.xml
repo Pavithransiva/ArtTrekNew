@@ -30,20 +30,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717"
+        app:layout_constraintVertical_bias="0.567"
         app:srcCompat="@drawable/verify" />
-
-    <ImageButton
-        android:id="@+id/imageButton24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806"
-        app:srcCompat="@drawable/resend_code" />
 
     <TextView
         android:id="@+id/textView14"
@@ -75,7 +63,7 @@
         android:id="@+id/textView17"
         android:layout_width="267dp"
         android:layout_height="60dp"
-        android:text="Please check your inbox and enter the verification code below to verify your email address. The code will expire in 5 minutes."
+        android:text="Please check your inbox and press the confirmation link to continue to Sign In."
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,31 +71,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.453" />
 
-    <TextView
-        android:id="@+id/textView18"
+    <ImageButton
+        android:id="@+id/imageDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Code:"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="283dp"
-        android:layout_height="52dp"
-        android:background="@drawable/round_button"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603" />
+        app:layout_constraintVertical_bias="0.711"
+        app:srcCompat="@drawable/done_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

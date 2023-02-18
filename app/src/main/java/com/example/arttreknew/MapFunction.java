@@ -109,6 +109,10 @@ public class MapFunction extends AppCompatActivity implements OnMapReadyCallback
                         startActivity(new Intent(MapFunction.this, UserPage.class));
                         finish();
                         return true;
+                    case R.id.botnav_ic_chat:
+                        startActivity(new Intent(MapFunction.this, ChatLandingPage.class));
+                        finish();
+                        return true;
                 }
                 return false;
             }

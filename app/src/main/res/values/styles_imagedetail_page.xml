@@ -22,30 +22,22 @@
     <style name="imgdp_subtitle2_Style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
         <item name="android:padding">10dp</item>
-        <item name="android:fontFamily">@font/gotham_bold</item>
+        <item name="android:fontFamily">@font/gotham_heavy</item>
         <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">true</item>
         <item name="android:textColor">@color/mainLightGrey</item>
     </style>
 
     <style name="imgdp_subtitle2_sub_Style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
         <item name="android:fontFamily">@font/gotham_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/mainLightGrey</item>
     </style>
 
-    <style name="imgdp_description_Style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:fontFamily">@font/gotham_regular</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/mainLightGrey</item>
-    </style>
+    <string name="img_description">The expression or application of human creative skill and imagination, typically in a visual form such as painting or sculpture, producing works to be appreciated primarily for their beauty or emotional power.</string>
 </resources>

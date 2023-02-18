@@ -1,8 +1,10 @@
 package com.example.arttreknew;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +16,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +31,13 @@ public class LoginPage extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
 
+
          final EditText Email = findViewById(R.id.editTextTextEmailAddress);
          final EditText Password = findViewById(R.id.editTextTextPassword);
          final ImageButton Login = findViewById(R.id.imageButton11);
         final ImageButton SignUpNow = findViewById(R.id.imageButton17);
+         final ImageButton PasswordReset = findViewById(R.id.imageButton18);
+
 
         SignUpNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +45,13 @@ public class LoginPage extends AppCompatActivity {
 
                 //open BackupMainActivity activity
                 startActivity(new Intent(LoginPage.this, SignUpPage.class));
+            }
+        });
+
+        PasswordReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this, ForgotPasswordPage.class));
             }
         });
 
@@ -62,9 +77,9 @@ public class LoginPage extends AppCompatActivity {
                     public void onSuccess(AuthResult authResult) {
                         //Login is successful
 
-                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                        startActivity(new Intent(getApplicationContext(),EmailVerificationFromSignIn.class));
 
-                        startActivity(new Intent(getApplicationContext(), HomePage.class));
+                      //  startActivity(new Intent(getApplicationContext(), HomePage.class));
 
                         finish();
                     }
@@ -88,7 +103,7 @@ public class LoginPage extends AppCompatActivity {
 
             startActivity(new Intent(getApplicationContext(),HomePage.class));
 
-            startActivity(new Intent(getApplicationContext(), HomePage.class));
+           // startActivity(new Intent(getApplicationContext(), HomePage.class));
 
             finish();
         }
