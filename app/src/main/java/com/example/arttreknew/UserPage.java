@@ -130,7 +130,7 @@ public class UserPage extends AppCompatActivity {
         TextView userpage_username = findViewById(R.id.userpage_username);
         TextView userpage_jobtitle = findViewById(R.id.userpage_jobtitle);
 
-        DatabaseReference childRef = FirebaseDatabase.getInstance().getReference("location").child("users").child(currUserEmail.replace(".", "%"));
+        DatabaseReference childRef = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("location").child("users").child(currUserEmail.replace(".", "%"));
         childRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

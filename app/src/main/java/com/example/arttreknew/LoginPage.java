@@ -30,8 +30,6 @@ public class LoginPage extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
-
          final EditText Email = findViewById(R.id.editTextTextEmailAddress);
          final EditText Password = findViewById(R.id.editTextTextPassword);
          final ImageButton Login = findViewById(R.id.imageButton11);

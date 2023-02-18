@@ -25,6 +25,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CommentsActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmailVerificationFromSignIn"
             android:exported="false">
             <meta-data
