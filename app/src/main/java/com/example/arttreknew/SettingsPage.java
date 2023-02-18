@@ -11,12 +11,17 @@ import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class SettingsPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // hide title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
         getSupportActionBar().hide();
         setContentView(R.layout.settings_page);
 
@@ -82,7 +87,6 @@ public class SettingsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(SettingsPage.this, SettingsHelp.class));
                 finish();
             }
