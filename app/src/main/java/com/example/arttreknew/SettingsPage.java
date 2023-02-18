@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -19,8 +20,17 @@ public class SettingsPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.settings_page);
 
-        Button button = findViewById(R.id.settingpage_button_noti);
+        ImageButton button = findViewById(R.id.settingslandingpage_button_previous);
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPage.this, UserPage.class);
+                startActivity(intent);
+            }
+        });
+
+        Button button88 = findViewById(R.id.settingpage_button_noti);
+        button88.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SettingsPage.this, SettingsNotificationPage.class);
