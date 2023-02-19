@@ -74,6 +74,14 @@ public class twoFactorauthenticationfromsignup extends AppCompatActivity {
 
             }
         });
+        ImageButton button40 = findViewById(R.id.imageButton40);
+        button40.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(twoFactorauthenticationfromsignup.this, EmailVerificatioSuccessful.class);
+                startActivity(intent);
+            }
+        });
 
 
 

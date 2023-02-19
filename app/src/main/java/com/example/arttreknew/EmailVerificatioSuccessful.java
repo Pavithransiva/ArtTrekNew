@@ -30,7 +30,7 @@ public class EmailVerificatioSuccessful extends AppCompatActivity {
             public void onClick(View view) {
 
                 //open BackupMainActivity activity
-                startActivity(new Intent(EmailVerificatioSuccessful.this, HomePage.class));
+                startActivity(new Intent(EmailVerificatioSuccessful.this, Onboarding_page_1.class));
             }
         });
     }

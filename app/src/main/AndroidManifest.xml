@@ -18,6 +18,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Onboarding_page_3"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Onboarding_page_2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Onboarding_page_1"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ForgotPasswordPage"
             android:exported="false">
             <meta-data
@@ -272,8 +293,7 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- START - Image Details Pages -->
+        </activity> <!-- START - Image Details Pages -->
         <activity
             android:name=".ImageDetailsPage_0"
             android:exported="false">
@@ -301,16 +321,14 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- END - Image Details Pages -->
+        </activity> <!-- END - Image Details Pages -->
         <activity
             android:name=".ChatNewMessagePage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-        <!-- START - Chat Action Pages -->
+        </activity> <!-- START - Chat Action Pages -->
         <activity
             android:name=".ChatActionPage_L0"
             android:exported="false">
@@ -367,7 +385,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <!-- END - Chat Action Pages -->
     </application>
 
 </manifest>
