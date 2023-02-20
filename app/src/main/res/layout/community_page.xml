@@ -158,7 +158,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/container_roundedCorner_topcollection"
-                    app:srcCompat="@drawable/img_pavi" />
+                    app:srcCompat="@drawable/img_explore_3" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/post_description_container"
