@@ -2,6 +2,7 @@ package com.example.arttreknew;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class ExplorePage extends AppCompatActivity {
     private BottomNavigationView bnv;
     private ImageView imgview0, imgview1, imgview2, imgview3;
     private Button homebtn;
+    private ConstraintLayout searchbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class ExplorePage extends AppCompatActivity {
         imgview2 = findViewById(R.id.epglc_imageView_2);
         imgview3 = findViewById(R.id.epglc_imageView_3);
         homebtn = findViewById(R.id.explorePage_button_home);
+        searchbtn = findViewById(R.id.ep_searchview_container);
 
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -97,6 +100,14 @@ public class ExplorePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ExplorePage.this, HomePage.class);
                 startActivity(intent);
+            }
+        });
+
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ExplorePage.this, SearchFragment.class));
+                finish();
             }
         });
 
