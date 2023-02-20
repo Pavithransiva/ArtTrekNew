@@ -19,7 +19,7 @@ public class ChatActionPage_D1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
-        setContentView(R.layout.chat_action_page_d0);
+        setContentView(R.layout.chat_action_page_d1);
 
         bt_previous = findViewById(R.id.chatactionp0_btn_previous);
 

@@ -177,11 +177,15 @@
             android:hint="Chat here"
             android:textColorHint="@color/mainLightGrey"
             app:boxBackgroundColor="#303030"
+            app:boxStrokeColor="@color/lightPink_0"
+            app:endIconTint="@color/lightPink_0"
+            app:hintTextColor="@color/lightPink_0"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/searchviewp_hc_icon_0"
+            app:layout_constraintEnd_toStartOf="@+id/button_send"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent">
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:startIconTint="@color/lightPink_0">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -191,7 +195,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/searchviewp_hc_icon_0"
+            android:id="@+id/button_send"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
