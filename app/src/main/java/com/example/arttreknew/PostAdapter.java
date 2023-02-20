@@ -210,7 +210,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                     imageView.setImageResource(R.drawable.ic_liked);
                     imageView.setTag("liked");
                 }else{
-                    imageView.setImageResource(R.drawable.ic_love_black);
+                    imageView.setImageResource(R.drawable.ic_love_white);
                     imageView.setTag("like");
                 }
             }
