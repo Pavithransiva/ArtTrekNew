@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
@@ -74,31 +75,53 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         viewHolder.image_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, UserPage.class);
+                /*Intent intent = new Intent(mContext, ArtistPage.class);
                 intent.putExtra("profiled", post.getPublisher());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+                mContext.startActivity(intent);*/
+                String email = post.getPublisher();
+                if (!Objects.equals(email, FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                    Intent intent = new Intent(mContext, ArtistPage.class);
+                    intent.putExtra("email", email);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                } else {
+                    Intent intent = new Intent(mContext, UserPage.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
             }
         });
         viewHolder.username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, UserPage.class);
-                intent.putExtra("profiled", post.getPublisher());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+                String email = post.getPublisher();
+                if (!Objects.equals(email, FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                    Intent intent = new Intent(mContext, ArtistPage.class);
+                    intent.putExtra("email", email);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                } else {
+                    Intent intent = new Intent(mContext, UserPage.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
             }
         });
         viewHolder.publisher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, UserPage.class);
-                intent.putExtra("profiled", post.getPublisher());
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+                String email = post.getPublisher();
+                if (!Objects.equals(email, FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                    Intent intent = new Intent(mContext, ArtistPage.class);
+                    intent.putExtra("email", email);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                } else {
+                    Intent intent = new Intent(mContext, UserPage.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(intent);
+                }
             }
         });
 
@@ -245,9 +268,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Post post = dataSnapshot.getValue(Post.class);
-               Glide.with(mContext).load(post.getImageURL()).into(image_profile);
-               username.setText(post.getFullname());
-               publisher.setText(post.getFullname());
+                Glide.with(mContext).load(post.getImageURL()).into(image_profile);
+                username.setText(post.getFullname());
+                publisher.setText(post.getFullname());
             }
 
             @Override
