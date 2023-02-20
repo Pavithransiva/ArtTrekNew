@@ -180,10 +180,11 @@ public class EditProfilePage extends AppCompatActivity {
                                     .addOnFailureListener(e -> {
                                         // Data could not be saved
                                     });
+                            startActivity(new Intent(EditProfilePage.this, UserPage.class));
+                            finish();
                         }).addOnFailureListener(exception -> {
                             // Handle the error
                         });
-
                     })
                     .addOnFailureListener(e -> Toast.makeText(EditProfilePage.this, e.getMessage(), Toast.LENGTH_SHORT).show())
                     .addOnProgressListener(taskSnapshot -> {
@@ -191,7 +192,19 @@ public class EditProfilePage extends AppCompatActivity {
                         mProgressBar.setProgress((int) progress);
                     });
         } else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+            HashMap<String, Object> updateUser = new HashMap<>();
+            if (mEditTextFileName.getText().toString().trim() != null) {
+                // set fullname
+                updateUser.put("fullname", mEditTextFileName.getText().toString().trim());
+            }
+            if (mEditTitleName.getText().toString().trim() != null) {
+                // set title
+                updateUser.put("title", mEditTitleName.getText().toString().trim());
+            }
+            // write hashmap into database
+            mDatabaseRef.child("users").child(currUserEmail.replace(".", "%")).updateChildren(updateUser);
+            startActivity(new Intent(EditProfilePage.this, UserPage.class));
+            finish();
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,7 @@ public class SearchFragment extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                searchUsers(charSequence.toString().toLowerCase());
+                searchUsers(charSequence.toString());
             }
             @Override
             public void afterTextChanged(Editable editable) {
@@ -82,7 +83,7 @@ public class SearchFragment extends AppCompatActivity {
 
     private void searchUsers(String s){
         //suspected error line
-        Query query = FirebaseDatabase.getInstance().getReference("users").orderByChild("fullname")
+        Query query = FirebaseDatabase.getInstance().getReference("location/users").orderByChild("fullname")
                 .startAt(s)
                 .endAt(s+"\uf8ff");
 
@@ -94,6 +95,7 @@ public class SearchFragment extends AppCompatActivity {
                     UserGetSet userGetSet = snapshot.getValue(UserGetSet.class);
                     mUsers.add(userGetSet);
                 }
+                userAdapter.notifyDataSetChanged();
             }
 
             @Override
