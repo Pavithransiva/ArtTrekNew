@@ -46,7 +46,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup ViewGroup, int i) {
 
-        View view = LayoutInflater.from(mContext).inflate(R.layout.post_item, ViewGroup, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.post_item_design, ViewGroup, false);
         return new PostAdapter.ViewHolder(view);
     }
 
@@ -185,7 +185,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                comments.setText("View all "+dataSnapshot.getChildrenCount()+ "Comments");
+                comments.setText("View all "+dataSnapshot.getChildrenCount()+ " Comments");
             }
 
             @Override
