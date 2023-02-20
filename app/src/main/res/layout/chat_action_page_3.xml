@@ -153,6 +153,46 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chatactionp_chatcontainer_right1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/chatactionp_ccr_image1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_ray_dark_0"
+                    app:layout_constraintBottom_toBottomOf="@+id/chatactionp_ccr_text1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccr_text1"
+                    style="@style/chatactionpage_chatdeplayright_text_style"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:background="@drawable/shape_bg_sentmessage"
+                    android:lineSpacingExtra="3sp"
+                    android:padding="@dimen/_12sdp"
+                    android:text=""
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintEnd_toStartOf="@+id/chatactionp_ccr_image1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.8" />
+
+                <TextView
+                    android:id="@+id/chatactionp_ccr_datetime1"
+                    style="@style/chatactionpage_chattimeright_text_style"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text=""
+                    app:layout_constraintEnd_toStartOf="@+id/chatactionp_ccr_image1"
+                    app:layout_constraintTop_toBottomOf="@+id/chatactionp_ccr_text1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="140dp">
 
@@ -188,6 +228,7 @@
             app:startIconTint="@color/lightPink_0">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_chat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/mainLightGrey" />
