@@ -84,7 +84,7 @@ public class SettingsAccountPage extends AppCompatActivity {
                 dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        dialogInterface.dismiss();
+                        //dialogInterface.dismiss();
                     }
                 });
                 AlertDialog alertDialog = dialog.create();
