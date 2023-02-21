@@ -11,8 +11,8 @@ public class twofactorauthenticationsuccesful extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.twofactor_verificationsuccessful);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.twofactor_verificationsuccessful);
         ImageButton ProceedToHome;
 
         ProceedToHome = findViewById(R.id.imageButton28);
@@ -21,7 +21,7 @@ public class twofactorauthenticationsuccesful extends AppCompatActivity {
             public void onClick(View view) {
 
                 //open BackupMainActivity activity
-                startActivity(new Intent(twofactorauthenticationsuccesful.this,HomePage.class));
+                startActivity(new Intent(twofactorauthenticationsuccesful.this,Onboarding_page_1.class));
 
             }
         });

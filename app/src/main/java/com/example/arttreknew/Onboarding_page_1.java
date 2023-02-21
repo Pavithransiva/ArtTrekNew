@@ -24,7 +24,7 @@ public class Onboarding_page_1 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Onboarding_page_1.this, HomePage.class);
+                Intent intent = new Intent(Onboarding_page_1.this, UserPage.class);
                 startActivity(intent);
             }
         });

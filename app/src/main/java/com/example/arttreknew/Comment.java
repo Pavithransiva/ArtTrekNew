@@ -7,10 +7,13 @@ public class Comment{
     private String comments ;
     private String publisher;
 
+    private String fullname;
 
-    public Comment(String comments, String publisher){
+
+    public Comment(String comments, String publisher, String fullname){
         this.comments = comments;
         this.publisher = publisher;
+        this.fullname = fullname;
 
     }
 
@@ -32,6 +35,13 @@ public class Comment{
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
 

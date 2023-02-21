@@ -50,17 +50,17 @@ public class CommentsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         postid = intent.getStringExtra("postid");
         publisherid = intent.getStringExtra("publisherid");
-        Toolbar toolbar = findViewById(R.id.Toolbar);
+      //  Toolbar toolbar = findViewById(R.id.Toolbar);
        // setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Comments");
+    /*    getSupportActionBar().setTitle("Comments");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+    //    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
 
-            }
-        });
+            }*/
+    //    });
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
