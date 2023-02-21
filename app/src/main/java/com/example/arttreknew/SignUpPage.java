@@ -93,6 +93,8 @@ public class SignUpPage extends AppCompatActivity {
                 if (nameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(SignUpPage.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
 
+                } else if (passwordTxt.length() < 6) {
+                    Toast.makeText(SignUpPage.this, "Passwords must be at least 6 characters long!", Toast.LENGTH_SHORT).show();
                 }
 
                 // check if passwords are matching with each other
