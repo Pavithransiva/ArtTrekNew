@@ -68,7 +68,7 @@
                     android:id="@+id/cnmp_username0"
                     style="@style/chatlandingpage_chatcard_header_text_style"
                     android:layout_marginLeft="15dp"
-                    android:text="Mohsen"
+                    android:text="Najib"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile0"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +95,7 @@
                     android:id="@+id/cnmp_username1"
                     style="@style/chatlandingpage_chatcard_header_text_style"
                     android:layout_marginLeft="15dp"
-                    android:text="Sumanthi"
+                    android:text="Rosmah"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile1"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -121,7 +121,7 @@
                     android:id="@+id/cnmp_username2"
                     style="@style/chatlandingpage_chatcard_header_text_style"
                     android:layout_marginLeft="15dp"
-                    android:text="Sham Shul"
+                    android:text="Mahathir"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile2"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -147,7 +147,7 @@
                     android:id="@+id/cnmp_username3"
                     style="@style/chatlandingpage_chatcard_header_text_style"
                     android:layout_marginLeft="15dp"
-                    android:text="Goh Wei Wei"
+                    android:text="Syed Saddiq"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cnmp_userprofile3"
                     app:layout_constraintTop_toTopOf="parent" />
