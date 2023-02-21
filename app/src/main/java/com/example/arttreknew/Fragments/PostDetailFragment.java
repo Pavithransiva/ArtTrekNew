@@ -11,18 +11,21 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
 
+import com.example.arttreknew.ArtistPage;
 import com.example.arttreknew.HomePage;
 import com.example.arttreknew.MapFunction;
 import com.example.arttreknew.Post;
 import com.example.arttreknew.PostAdapter;
 import com.example.arttreknew.R;
 import com.example.arttreknew.UserPage;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +39,8 @@ import java.util.Objects;
 
 public class PostDetailFragment extends AppCompatActivity {
     String postid;
+    String publisher;
+    String from;
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private List<Post> postList;
@@ -55,21 +60,39 @@ public class PostDetailFragment extends AppCompatActivity {
         // postid = preferences.getString("postid", "none");
         Intent intent = getIntent();
         postid = intent.getStringExtra("postid");
+        publisher = intent.getStringExtra("publisher");
+        if (intent.getStringExtra("from") != null) {
+            from = intent.getStringExtra("from");
+        } else {
+            from = "no";
+        }
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getApplicationContext(), postList);
+        postAdapter = new PostAdapter(getApplicationContext(), postList, from);
         recyclerView.setAdapter(postAdapter);
 
         readPost();
 
         ImageButton backBtn = findViewById(R.id.post_back_btn);
         backBtn.setOnClickListener(view -> {
-            startActivity(new Intent(PostDetailFragment.this, UserPage.class));
-            finish();
+            if (from.equals("user")) {
+                if (Objects.equals(FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"), publisher)) {
+                    startActivity(new Intent(PostDetailFragment.this, UserPage.class));
+                    finish();
+                } else {
+                    Intent intent2 = new Intent(PostDetailFragment.this, ArtistPage.class);
+                    intent2.putExtra("email", publisher);
+                    intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    PostDetailFragment.this.startActivity(intent2);
+                }
+            } else {
+                startActivity(new Intent(PostDetailFragment.this, HomePage.class));
+                finish();
+            }
         });
     }
 

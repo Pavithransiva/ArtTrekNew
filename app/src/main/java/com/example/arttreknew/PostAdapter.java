@@ -33,14 +33,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     public Context mContext;
     public List<Post> mPost;
+    public String mFrom;
    // private final String currUserEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
 
     private FirebaseUser firebaseUser;
 
-    public PostAdapter(Context mContext, List<Post> mPost) {
+    public PostAdapter(Context mContext, List<Post> mPost, String from) {
         this.mContext = mContext;
         this.mPost = mPost;
+        this.mFrom = from;
     }
 
     @NonNull
@@ -159,6 +161,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 Intent intent = new Intent(mContext, CommentsActivity.class);
                 intent.putExtra("postid", post.getPostid());
                 intent.putExtra("publisherid", post.getPostid());
+                intent.putExtra("publisher", post.getPublisher());
+                intent.putExtra("from", mFrom);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
@@ -169,6 +173,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
                 Intent intent = new Intent(mContext, CommentsActivity.class);
                 intent.putExtra("postid", post.getPostid());
                 intent.putExtra("publisherid", post.getPostid());
+                intent.putExtra("publisher", post.getPublisher());
+                intent.putExtra("from", mFrom);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }

@@ -121,7 +121,7 @@ public class HomePage extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getApplicationContext(), postList);
+        postAdapter = new PostAdapter(getApplicationContext(), postList, "no");
         recyclerView.setAdapter(postAdapter);
 
         checkFollowing();

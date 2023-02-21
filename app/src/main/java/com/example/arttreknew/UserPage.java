@@ -216,6 +216,10 @@ public class UserPage extends AppCompatActivity {
                 newcontactpopup_description.setError("Description must be at least 50 characters!");
                 return;
             }
+            if (description.trim().length() > 100) {
+                newcontactpopup_description.setError("Description cannot exceed 100 characters!");
+                return;
+            }
 
                 // create hashmap
                 HashMap<String, Object> locationHashmap = new HashMap<>();

@@ -8,14 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.arttreknew.Adapter.CommentAdapter;
+import com.example.arttreknew.Fragments.PostDetailFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class CommentsActivity extends AppCompatActivity {
 
@@ -39,17 +44,25 @@ public class CommentsActivity extends AppCompatActivity {
     TextView post;
 
     String postid;
-    String publisherid;
+    String publisher;
+    String from;
 
     FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_comments);
         Intent intent = getIntent();
         postid = intent.getStringExtra("postid");
-        publisherid = intent.getStringExtra("publisherid");
+        publisher = intent.getStringExtra("publisher");
+        if (intent.getStringExtra("from") != null) {
+            from = intent.getStringExtra("from");
+        } else {
+            from = "no";
+        }
       //  Toolbar toolbar = findViewById(R.id.Toolbar);
        // setSupportActionBar(toolbar);
     /*    getSupportActionBar().setTitle("Comments");
@@ -89,6 +102,16 @@ public class CommentsActivity extends AppCompatActivity {
         });
         getImage();
         readComments();
+
+        ImageButton comment_back_btn = findViewById(R.id.comment_back_btn);
+        comment_back_btn.setOnClickListener(view -> {
+            Intent intent2 = new Intent(CommentsActivity.this, PostDetailFragment.class);
+            intent2.putExtra("postid", postid);
+            intent2.putExtra("publisher", publisher);
+            intent2.putExtra("from", from);
+            intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            CommentsActivity.this.startActivity(intent2);
+        });
     }
     private  void addComment() {
         DatabaseReference reference = FirebaseDatabase.getInstance("https://arttreknew-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Comments").child(postid);

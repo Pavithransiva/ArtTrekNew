@@ -8,14 +8,44 @@
     android:background="@color/black"
     >
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="@color/mainBlack">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/comment_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/mainBlack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/back_button"
+                android:background="@color/mainBlack" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comments"
+                android:layout_toRightOf="@+id/comment_back_btn"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="610dp"
-        android:layout_marginTop="0dp" />
+        android:layout_height="626dp"
+        android:layout_marginTop="55dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
