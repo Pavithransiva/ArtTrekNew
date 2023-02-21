@@ -182,7 +182,6 @@ public class UserPage extends AppCompatActivity {
         final View contactPopupView = getLayoutInflater().inflate(R.layout.form_dialog_fragment_post, null);
 
         // initialize input boxes and buttons
-        newcontactpopup_locationname = contactPopupView.findViewById(R.id.post_location_name_input);
         newcontactpopup_description = contactPopupView.findViewById(R.id.post_description_input);
         imageView = contactPopupView.findViewById(R.id.post_firebaseImage);
         ImageButton newcontactpopup_upload = contactPopupView.findViewById(R.id.post_imageUpload);
@@ -206,22 +205,20 @@ public class UserPage extends AppCompatActivity {
 
         // save location name, description, and current latitude & longitude
         newcontactpopup_save.setOnClickListener(view -> {
-            String locationName = newcontactpopup_locationname.getText().toString();
             String description = newcontactpopup_description.getText().toString();
 
             // empty input boxes checker
-            if (locationName.isEmpty()) {
-                newcontactpopup_locationname.setError("Cannot be empty!");
-                return;
-            }
             if (description.isEmpty()) {
                 newcontactpopup_description.setError("Cannot be empty!");
+                return;
+            }
+            if (description.trim().length() < 50) {
+                newcontactpopup_description.setError("Description must be at least 50 characters!");
                 return;
             }
 
                 // create hashmap
                 HashMap<String, Object> locationHashmap = new HashMap<>();
-                locationHashmap.put("location_name", locationName);
                 locationHashmap.put("description", description);
                 locationHashmap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".", "%"));
 
@@ -239,7 +236,6 @@ public class UserPage extends AppCompatActivity {
                             uploadImage(key);
                         }
                         Toast.makeText(UserPage.this, "Added", Toast.LENGTH_SHORT).show();
-                        newcontactpopup_locationname.getText().clear();
                         newcontactpopup_description.getText().clear();
                         dialog.dismiss();
                     });
