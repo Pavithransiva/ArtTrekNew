@@ -119,8 +119,14 @@ public class SignUpPage extends AppCompatActivity {
                                     Auth.createUserWithEmailAndPassword(emailTxt,passwordTxt).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                         @Override
                                         public void onSuccess(AuthResult authResult) {
-                                            startActivity(new Intent(getApplicationContext(),EmailVerificationSignUp.class));
-                                            finish();
+                                           // startActivity(new Intent(getApplicationContext(),EmailVerificationSignUp.class));
+                                            //finish();
+                                            Intent intent = new Intent(getApplicationContext(), EmailVerificationSignUp.class);
+                                            intent.putExtra("emailTxt",emailTxt);
+                                            intent.putExtra("passwordTxt",passwordTxt);
+                                            intent.putExtra("fullname",nameTxt);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            getApplicationContext().startActivity(intent);
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -148,9 +154,15 @@ public class SignUpPage extends AppCompatActivity {
                                     sign_up.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
+                                            Intent intent = new Intent(getApplicationContext(), EmailVerificationSignUp.class);
+                                            intent.putExtra("emailTxt",emailTxt);
+                                            intent.putExtra("passwordTxt",passwordTxt);
+                                            intent.putExtra("fullname",nameTxt);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            getApplicationContext().startActivity(intent);
 
 
-                                            startActivity(new Intent(SignUpPage.this,EmailVerificationSignUp.class));
+                                       //    startActivity(new Intent(SignUpPage.this,EmailVerificationSignUp.class));
 
 
                                         }

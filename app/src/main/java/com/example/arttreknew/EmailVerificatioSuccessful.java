@@ -20,9 +20,19 @@ public class EmailVerificatioSuccessful extends AppCompatActivity {
         Yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               Intent intent2 = getIntent();
+                String emailTxt = intent2.getStringExtra("emailTxt");
+                String passwordTxt = intent2.getStringExtra("passwordTxt");
+                String fullname = intent2.getStringExtra("fullname");
+                Intent intent = new Intent(getApplicationContext(), twoFactorauthenticationfromsignup.class);
+                intent.putExtra("emailTxt",emailTxt);
+                intent.putExtra("passwordTxt",passwordTxt);
+                intent.putExtra("fullname",fullname);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(intent);
 
                 //open BackupMainActivity activity
-                startActivity(new Intent(EmailVerificatioSuccessful.this, twoFactorauthenticationfromsignup.class));
+              // startActivity(new Intent(EmailVerificatioSuccessful.this, twoFactorauthenticationfromsignup.class));
             }
         });
         No.setOnClickListener(new View.OnClickListener() {

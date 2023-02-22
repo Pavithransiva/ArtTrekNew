@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -64,9 +65,19 @@ public class EmailVerificationSignUp extends AppCompatActivity {
             DoneVerifying.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                   Intent intent2 = getIntent();
+                    String emailTxt = intent2.getStringExtra("emailTxt");
+                    String passwordTxt = intent2.getStringExtra("passwordTxt");
+                    String fullname = intent2.getStringExtra("fullname");
+                    Intent intent = new Intent(getApplicationContext(), EmailVerificatioSuccessful.class);
+                    intent.putExtra("emailTxt",emailTxt);
+                    intent.putExtra("passwordTxt",passwordTxt);
+                    intent.putExtra("fullname",fullname);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getApplicationContext().startActivity(intent);
 
-                        startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
-                        finish();
+                       // startActivity(new Intent(getApplicationContext(), EmailVerificatioSuccessful.class));
+                      //  finish();
 
             }
         });

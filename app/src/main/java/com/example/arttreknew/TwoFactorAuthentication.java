@@ -78,9 +78,21 @@ private String verificationId;
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        Intent intent2 = getIntent();
+                                        String emailTxt = intent2.getStringExtra("emailTxt");
+                                        String passwordTxt = intent2.getStringExtra("passwordTxt");
+                                        String fullname = intent2.getStringExtra("fullname");
                                         Intent intent = new Intent(getApplicationContext(), twofactorauthenticationsuccesful.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
+                                        intent.putExtra("emailTxt",emailTxt);
+                                        intent.putExtra("passwordTxt",passwordTxt);
+                                        intent.putExtra("fullname",fullname);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        getApplicationContext().startActivity(intent);
+
+                                    //   Intent intent = new Intent(getApplicationContext(), twofactorauthenticationsuccesful.class);
+                                        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                       // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                       //startActivity(intent);
                                     }
                                     else {
                                         Toast.makeText(TwoFactorAuthentication.this,"The verification code entered was invalid",Toast.LENGTH_SHORT).show();

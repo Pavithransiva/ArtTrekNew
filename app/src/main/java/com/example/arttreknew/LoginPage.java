@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -98,7 +99,7 @@ public class LoginPage extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
-
+          //  Log.i("TESTTTTTTTTTTTTTT",FirebaseAuth.getInstance().getCurrentUser().getEmail().toString());
             startActivity(new Intent(getApplicationContext(),HomePage.class));
 
            // startActivity(new Intent(getApplicationContext(), HomePage.class));

@@ -42,6 +42,7 @@ public class twoFactorauthenticationfromsignup extends AppCompatActivity {
         GetOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (inputMobile.getText().toString().trim().isEmpty()){
                     Toast.makeText(twoFactorauthenticationfromsignup.this, "Enter Mobile", Toast.LENGTH_SHORT).show();
                     return;
@@ -64,10 +65,23 @@ public class twoFactorauthenticationfromsignup extends AppCompatActivity {
 
                             @Override
                             public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                Intent intent2 = getIntent();
+                                String emailTxt = intent2.getStringExtra("emailTxt");
+                                String passwordTxt = intent2.getStringExtra("passwordTxt");
+                                String fullname = intent2.getStringExtra("fullname");
                                 Intent intent = new Intent(getApplicationContext(), TwoFactorAuthentication.class);
+                                intent.putExtra("emailTxt",emailTxt);
+                                intent.putExtra("passwordTxt",passwordTxt);
+                                intent.putExtra("fullname",fullname);
                                 intent.putExtra("mobile", inputMobile.getText().toString());
                                 intent.putExtra("verificationId",verificationId);
-                                startActivity(intent);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                getApplicationContext().startActivity(intent);
+
+                               // Intent intent = new Intent(getApplicationContext(), TwoFactorAuthentication.class);
+                               // intent.putExtra("mobile", inputMobile.getText().toString());
+                              // intent.putExtra("verificationId",verificationId);
+                               // startActivity(intent);
                             }
                         }
                 );
